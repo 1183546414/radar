@@ -1,0 +1,50 @@
+设备: cuda
+加载缓存潜向量: /home/lab1523-1-4/Desktop/TianPeiru/radar_2026/radar/radar/outputs/q_value/latent_q/state_latent_mu.npy (100000, 128)
+数据: z(100000, 128), A(100000, 9), R(100000,), scenarios=5000, K≈20/场景
+划分: train 4000 场景 / val 1000 场景
+检索 ranking: Top-5, λ=0.5, 每 epoch 32×4 场景
+开始训练 QLatentNet: epochs<=300, patience=25
+Epoch 001 | train_mse=0.13896 rank_nll=3.2421 | val_mse=11.21952 val_rank_nll=2.7487 combined=12.59390
+Epoch 020 | train_mse=0.09094 rank_nll=3.6584 | val_mse=0.82542 val_rank_nll=2.9639 combined=2.30737
+早停 @ epoch 27 (combined=val_mse+0.5*val_rank_nll)
+
+--- Q(z,A) 回归（验证集，R 为标准化 SINR）---
+{
+  "val_rmse_std": 0.6448360069407137,
+  "val_mae_std": 0.5304112434387207,
+  "val_r2_std": 0.5683590173721313,
+  "val_pearson_std": 0.8595814377874648,
+  "best_val_combined": 2.1810891926288605,
+  "rank_lambda": 0.5,
+  "top_k_retrieve": 5,
+  "epochs_run": 27,
+  "z_dim": 128,
+  "a_dim": 9,
+  "latent_cache": "/home/lab1523-1-4/Desktop/TianPeiru/radar_2026/radar/radar/outputs/q_value/latent_q/state_latent_mu.npy",
+  "model_path": "/home/lab1523-1-4/Desktop/TianPeiru/radar_2026/radar/radar/outputs/q_value/latent_q/q_latent_best.pt"
+}
+
+--- 动作推荐（每场景 K=20 A 内 argmax Q）---
+{
+  "n_eval_scenarios": 1000,
+  "actions_per_scenario_mean": 20.0,
+  "oracle_hit_at_1": 0.438,
+  "mean_regret_sinr_db": 1.2641742,
+  "median_regret_sinr_db": 0.1919499999999994,
+  "frac_zero_regret": 0.438,
+  "mean_rank_of_oracle_action_by_q": 2.269
+}
+
+--- 检索候选池推荐（Top-5 train 场景, ~100 A, 对齐 Retrieve+Q）---
+{
+  "n_eval_scenarios": 1000,
+  "candidates_per_scenario_mean": 100.0,
+  "oracle_hit_at_1": 0.323,
+  "mean_regret_sinr_db": 0.9017284,
+  "median_regret_sinr_db": 0.3251000000000017,
+  "frac_zero_regret": 0.323,
+  "mean_rank_nll": 3.534143393278122
+}
+
+模型已保存: /home/lab1523-1-4/Desktop/TianPeiru/radar_2026/radar/radar/outputs/q_value/latent_q/q_latent_best.pt
+指标已保存: /home/lab1523-1-4/Desktop/TianPeiru/radar_2026/radar/radar/outputs/q_value/latent_q/metrics.json

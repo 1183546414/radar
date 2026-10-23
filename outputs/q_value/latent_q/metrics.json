@@ -1,0 +1,123 @@
+{
+  "val_rmse_std": 0.6448360069407137,
+  "val_mae_std": 0.5304112434387207,
+  "val_r2_std": 0.5683590173721313,
+  "val_pearson_std": 0.8595814377874648,
+  "best_val_combined": 2.1810891926288605,
+  "rank_lambda": 0.5,
+  "top_k_retrieve": 5,
+  "epochs_run": 27,
+  "z_dim": 128,
+  "a_dim": 9,
+  "latent_cache": "/home/lab1523-1-4/Desktop/TianPeiru/radar_2026/radar/radar/outputs/q_value/latent_q/state_latent_mu.npy",
+  "model_path": "/home/lab1523-1-4/Desktop/TianPeiru/radar_2026/radar/radar/outputs/q_value/latent_q/q_latent_best.pt",
+  "history": [
+    {
+      "epoch": 18,
+      "train_mse": 0.10460357063304121,
+      "train_rank_nll": 3.560495898127556,
+      "val_mse": 1.0465378761291504,
+      "val_rank_nll": 2.841148853302002,
+      "val_combined": 2.4671123027801514
+    },
+    {
+      "epoch": 19,
+      "train_mse": 0.09211603171242692,
+      "train_rank_nll": 3.7104763835668564,
+      "val_mse": 0.827140212059021,
+      "val_rank_nll": 2.9274818897247314,
+      "val_combined": 2.2908811569213867
+    },
+    {
+      "epoch": 20,
+      "train_mse": 0.09094288496496959,
+      "train_rank_nll": 3.6583789959549904,
+      "val_mse": 0.8254222273826599,
+      "val_rank_nll": 2.963898181915283,
+      "val_combined": 2.3073713183403015
+    },
+    {
+      "epoch": 21,
+      "train_mse": 0.08679295831118909,
+      "train_rank_nll": 3.644773840904236,
+      "val_mse": 1.194784164428711,
+      "val_rank_nll": 2.927088499069214,
+      "val_combined": 2.658328413963318
+    },
+    {
+      "epoch": 22,
+      "train_mse": 0.09114777739531697,
+      "train_rank_nll": 3.756984494626522,
+      "val_mse": 0.7697437405586243,
+      "val_rank_nll": 2.867997407913208,
+      "val_combined": 2.2037424445152283
+    },
+    {
+      "epoch": 23,
+      "train_mse": 0.08167501756796441,
+      "train_rank_nll": 3.5926121845841408,
+      "val_mse": 1.1837586164474487,
+      "val_rank_nll": 2.791166067123413,
+      "val_combined": 2.5793416500091553
+    },
+    {
+      "epoch": 24,
+      "train_mse": 0.09169608450973757,
+      "train_rank_nll": 3.6697221770882607,
+      "val_mse": 0.8848738074302673,
+      "val_rank_nll": 2.910306215286255,
+      "val_combined": 2.3400269150733948
+    },
+    {
+      "epoch": 25,
+      "train_mse": 0.08440851488004858,
+      "train_rank_nll": 3.565858006477356,
+      "val_mse": 0.9477810263633728,
+      "val_rank_nll": 2.896238088607788,
+      "val_combined": 2.395900070667267
+    },
+    {
+      "epoch": 26,
+      "train_mse": 0.08982431544615818,
+      "train_rank_nll": 3.622115381062031,
+      "val_mse": 0.9937675595283508,
+      "val_rank_nll": 3.023751974105835,
+      "val_combined": 2.5056435465812683
+    },
+    {
+      "epoch": 27,
+      "train_mse": 0.09057199681243196,
+      "train_rank_nll": 3.6189321726560593,
+      "val_mse": 0.8270536661148071,
+      "val_rank_nll": 3.0230979919433594,
+      "val_combined": 2.338602662086487
+    }
+  ],
+  "per_scenario_k20_selection": {
+    "n_eval_scenarios": 1000,
+    "actions_per_scenario_mean": 20.0,
+    "oracle_hit_at_1": 0.438,
+    "mean_regret_sinr_db": 1.2641742,
+    "median_regret_sinr_db": 0.1919499999999994,
+    "frac_zero_regret": 0.438,
+    "mean_rank_of_oracle_action_by_q": 2.269
+  },
+  "per_scenario_action_selection": {
+    "n_eval_scenarios": 1000,
+    "actions_per_scenario_mean": 20.0,
+    "oracle_hit_at_1": 0.438,
+    "mean_regret_sinr_db": 1.2641742,
+    "median_regret_sinr_db": 0.1919499999999994,
+    "frac_zero_regret": 0.438,
+    "mean_rank_of_oracle_action_by_q": 2.269
+  },
+  "retrieval_pool_selection": {
+    "n_eval_scenarios": 1000,
+    "candidates_per_scenario_mean": 100.0,
+    "oracle_hit_at_1": 0.323,
+    "mean_regret_sinr_db": 0.9017284,
+    "median_regret_sinr_db": 0.3251000000000017,
+    "frac_zero_regret": 0.323,
+    "mean_rank_nll": 3.534143393278122
+  }
+}

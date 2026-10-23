@@ -1,0 +1,31 @@
+{
+  "protocol": {
+    "n_holdout": 50,
+    "n_actions_per_scenario": 1000,
+    "n_groups": 10,
+    "group_size": 100,
+    "seed": 20261022,
+    "jsr_db": 10.0
+  },
+  "wide100_run_means": [
+    23.402,
+    22.943,
+    23.915,
+    23.936,
+    23.76,
+    23.617,
+    23.83,
+    24.423,
+    24.048,
+    23.879
+  ],
+  "wide100_mean_of_runs": 23.775,
+  "wide100_run_to_run_std": 0.396,
+  "wide100_range_across_runs": [
+    22.943,
+    24.423
+  ],
+  "best_of_1000_mean": 25.905,
+  "note": "wide100 口径的非确定性：10 次独立抽样的全场景均值 std；best-of-1000 是稠密 oracle 随机阶段的更紧下界（细化前）",
+  "backend_stats": "仿真次数=37505, 缓存命中=37505, 相位编码回退=12495"
+}

@@ -1,0 +1,12 @@
+{
+  "emb_path": "/Users/a1021500655/Desktop/radar/outputs/state_vae/state_embeddings_mu.npy",
+  "n_samples": 20000,
+  "dim": 128,
+  "k_min": 2,
+  "k_max": 20,
+  "normalize_l2": true,
+  "best_silhouette_k": 7,
+  "best_silhouette": 0.10678774118423462,
+  "best_dbi_k": 2,
+  "best_dbi": 2.1320621367783685
+}

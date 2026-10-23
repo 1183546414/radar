@@ -1,0 +1,4 @@
+n_scenarios=5000
+intra_max_dist_mean=1.0043085041434097e-05
+intra_max_dist_max=1.6274851077469066e-05
+n_scenarios_with_spread_gt_1e-6=5000

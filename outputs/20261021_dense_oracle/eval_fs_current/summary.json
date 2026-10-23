@@ -1,0 +1,1184 @@
+{
+  "round": "20261007_fewshot",
+  "n_holdout_scenarios": 50,
+  "holdout_seed": 2026,
+  "jsr_db": 10.0,
+  "lambda_pessimistic": 1.0,
+  "seeds": [
+    42,
+    1042,
+    2042,
+    3042,
+    4042
+  ],
+  "bucket_median_top1_sim": 0.9313484728336334,
+  "bucket_median_same_type_count": 567.5,
+  "methods": [
+    {
+      "method": "q_only",
+      "label": "Q-only（无检索，随机 5 A）",
+      "n_evaluated": 50,
+      "mean_recommended_sinr_db": 12.458799641001738,
+      "mean_oracle_k20_db": 17.2520741202078,
+      "mean_oracle_wide_db": 22.98020776976266,
+      "mean_regret_vs_k20_db": 4.7932744792060635,
+      "median_regret_vs_k20_db": 2.355686017624686,
+      "regret_p90_db": 20.392263114271177,
+      "frac_zero_regret_vs_k20": 0.32,
+      "mean_top1_cosine_sim": 0.9141787528991699
+    },
+    {
+      "method": "retrieve_q",
+      "label": "Retrieve+Q（Top-5 池 argmax Q）",
+      "n_evaluated": 50,
+      "mean_recommended_sinr_db": 20.778623150215285,
+      "mean_oracle_k20_db": 17.2520741202078,
+      "mean_oracle_wide_db": 23.509821237524264,
+      "mean_regret_vs_k20_db": -3.5265490300074833,
+      "median_regret_vs_k20_db": -1.4267499999999984,
+      "regret_p90_db": 1.8791972035249391,
+      "frac_zero_regret_vs_k20": 0.76,
+      "mean_top1_cosine_sim": 0.9141787528991699
+    },
+    {
+      "method": "retrieve_q_union",
+      "label": "Retrieve+Q（检索池∪随机100A）",
+      "n_evaluated": 50,
+      "mean_recommended_sinr_db": 22.333142245597273,
+      "mean_oracle_k20_db": 17.2520741202078,
+      "mean_oracle_wide_db": 23.631360806919794,
+      "mean_regret_vs_k20_db": -5.0810681253894705,
+      "median_regret_vs_k20_db": -1.8866102060068597,
+      "regret_p90_db": 0.7042514866480766,
+      "frac_zero_regret_vs_k20": 0.84,
+      "mean_top1_cosine_sim": 0.9141787528991699
+    },
+    {
+      "method": "retrieve_q_ctx",
+      "label": "Retrieve+Q-Ctx（z_ctx 加权均值）",
+      "n_evaluated": 50,
+      "mean_recommended_sinr_db": 20.541818494742014,
+      "mean_oracle_k20_db": 17.2520741202078,
+      "mean_oracle_wide_db": 24.01758697260201,
+      "mean_regret_vs_k20_db": -3.289744374534214,
+      "median_regret_vs_k20_db": -1.4267499999999984,
+      "regret_p90_db": 1.415572718377808,
+      "frac_zero_regret_vs_k20": 0.76,
+      "mean_top1_cosine_sim": 0.9141787528991699
+    },
+    {
+      "method": "retrieve_q_ctx_union",
+      "label": "Retrieve+Q-Ctx-Union（Round2 最优 ctx 变体）",
+      "n_evaluated": 50,
+      "mean_recommended_sinr_db": 21.44110752894025,
+      "mean_oracle_k20_db": 17.2520741202078,
+      "mean_oracle_wide_db": 23.134711565952408,
+      "mean_regret_vs_k20_db": -4.1890334087324534,
+      "median_regret_vs_k20_db": -2.0032602060068605,
+      "regret_p90_db": 1.0523800000000032,
+      "frac_zero_regret_vs_k20": 0.8,
+      "mean_top1_cosine_sim": 0.9141787528991699
+    },
+    {
+      "method": "ensemble_ctx_mean",
+      "label": "① Ensemble-Mean（5×Q 检索池∪随机100A）",
+      "n_evaluated": 50,
+      "mean_recommended_sinr_db": 22.255484408356345,
+      "mean_oracle_k20_db": 17.2520741202078,
+      "mean_oracle_wide_db": 24.20378734855803,
+      "mean_regret_vs_k20_db": -5.0034102881485465,
+      "median_regret_vs_k20_db": -2.568100000000001,
+      "regret_p90_db": 1.0523800000000032,
+      "frac_zero_regret_vs_k20": 0.84,
+      "mean_top1_cosine_sim": 0.9141787528991699,
+      "sigma_diag": {
+        "mean_sigma_union_pool": 0.26702812120318414,
+        "mean_sigma_retrieval_pool": 0.26568430706858637,
+        "mean_sigma_random_pool": 0.26838092908263206
+      }
+    },
+    {
+      "method": "ensemble_ctx_pessimistic",
+      "label": "① Ensemble-悲观 μ−1.0σ",
+      "n_evaluated": 50,
+      "mean_recommended_sinr_db": 22.222166215343435,
+      "mean_oracle_k20_db": 17.2520741202078,
+      "mean_oracle_wide_db": 23.56029958883289,
+      "mean_regret_vs_k20_db": -4.9700920951356355,
+      "median_regret_vs_k20_db": -3.0775000000000006,
+      "regret_p90_db": 0.5068914866480766,
+      "frac_zero_regret_vs_k20": 0.82,
+      "mean_top1_cosine_sim": 0.9141787528991699,
+      "sigma_diag": {
+        "mean_sigma_union_pool": 0.26702812120318414,
+        "mean_sigma_retrieval_pool": 0.26568430706858637,
+        "mean_sigma_random_pool": 0.26838092908263206
+      }
+    },
+    {
+      "method": "attention_ctx",
+      "label": "② Set-Attention（单模型，union 池）",
+      "n_evaluated": 50,
+      "mean_recommended_sinr_db": 20.446720579241102,
+      "mean_oracle_k20_db": 17.2520741202078,
+      "mean_oracle_wide_db": 23.87923339599852,
+      "mean_regret_vs_k20_db": -3.1946464590333004,
+      "median_regret_vs_k20_db": -1.8866102060068597,
+      "regret_p90_db": 3.530383200935913,
+      "frac_zero_regret_vs_k20": 0.72,
+      "mean_top1_cosine_sim": 0.9141787528991699
+    },
+    {
+      "method": "attention_ens_pessimistic",
+      "label": "①+② Attention-Ensemble 悲观 μ−1.0σ",
+      "n_evaluated": 50,
+      "mean_recommended_sinr_db": 21.38351335898605,
+      "mean_oracle_k20_db": 17.2520741202078,
+      "mean_oracle_wide_db": 23.34528916326517,
+      "mean_regret_vs_k20_db": -4.131439238778254,
+      "median_regret_vs_k20_db": -2.0961500000000006,
+      "regret_p90_db": 1.8767272035249358,
+      "frac_zero_regret_vs_k20": 0.76,
+      "mean_top1_cosine_sim": 0.9141787528991699,
+      "sigma_diag": {
+        "mean_sigma_union_pool": 0.4663458114862442,
+        "mean_sigma_retrieval_pool": 0.4677568259835243,
+        "mean_sigma_random_pool": 0.4649505794048309
+      }
+    },
+    {
+      "method": "oracle_k20",
+      "label": "Oracle-K20（留出 K=10 随机 A 上界）",
+      "n_evaluated": 50,
+      "mean_recommended_sinr_db": 17.2520741202078,
+      "mean_oracle_k20_db": 17.2520741202078,
+      "mean_oracle_wide_db": 23.753522335715232,
+      "mean_regret_vs_k20_db": 0.0,
+      "median_regret_vs_k20_db": 0.0,
+      "regret_p90_db": 0.0,
+      "frac_zero_regret_vs_k20": 1.0,
+      "mean_top1_cosine_sim": 0.9141787528991699
+    },
+    {
+      "method": "oracle_wide",
+      "label": "Oracle-Wide（100 随机 A 上界）",
+      "n_evaluated": 50,
+      "mean_recommended_sinr_db": 24.38099117451549,
+      "mean_oracle_k20_db": 17.2520741202078,
+      "mean_oracle_wide_db": 24.38099117451549,
+      "mean_regret_vs_k20_db": -7.128917054307692,
+      "median_regret_vs_k20_db": -3.6812500000000004,
+      "regret_p90_db": -0.3090499999999984,
+      "frac_zero_regret_vs_k20": 0.92,
+      "mean_top1_cosine_sim": 0.9141787528991699
+    }
+  ],
+  "paired_vs_q_only": {
+    "reference": "q_only",
+    "n_scenarios": 50,
+    "results": {
+      "retrieve_q": {
+        "n": 50,
+        "wins": 41,
+        "ties": 0,
+        "losses": 9,
+        "win_rate": 0.82
+      },
+      "retrieve_q_union": {
+        "n": 50,
+        "wins": 45,
+        "ties": 0,
+        "losses": 5,
+        "win_rate": 0.9
+      },
+      "retrieve_q_ctx": {
+        "n": 50,
+        "wins": 40,
+        "ties": 0,
+        "losses": 10,
+        "win_rate": 0.8
+      },
+      "retrieve_q_ctx_union": {
+        "n": 50,
+        "wins": 44,
+        "ties": 0,
+        "losses": 6,
+        "win_rate": 0.88
+      },
+      "ensemble_ctx_mean": {
+        "n": 50,
+        "wins": 45,
+        "ties": 0,
+        "losses": 5,
+        "win_rate": 0.9
+      },
+      "ensemble_ctx_pessimistic": {
+        "n": 50,
+        "wins": 48,
+        "ties": 0,
+        "losses": 2,
+        "win_rate": 0.96
+      },
+      "attention_ctx": {
+        "n": 50,
+        "wins": 45,
+        "ties": 0,
+        "losses": 5,
+        "win_rate": 0.9
+      },
+      "attention_ens_pessimistic": {
+        "n": 50,
+        "wins": 45,
+        "ties": 0,
+        "losses": 5,
+        "win_rate": 0.9
+      },
+      "oracle_k20": {
+        "n": 50,
+        "wins": 34,
+        "ties": 0,
+        "losses": 16,
+        "win_rate": 0.68
+      },
+      "oracle_wide": {
+        "n": 50,
+        "wins": 47,
+        "ties": 0,
+        "losses": 3,
+        "win_rate": 0.94
+      }
+    }
+  },
+  "fewshot_buckets": {
+    "by_method": {
+      "q_only": {
+        "rare_type": {
+          "n": 25,
+          "mean_regret_vs_k20_db": 1.6592400407028725,
+          "median_regret_vs_k20_db": 1.4194999999999993,
+          "frac_zero_regret_vs_k20": 0.36
+        },
+        "common_type": {
+          "n": 25,
+          "mean_regret_vs_k20_db": 7.9273089177092535,
+          "median_regret_vs_k20_db": 2.968399999999999,
+          "frac_zero_regret_vs_k20": 0.28
+        },
+        "low_sim": {
+          "n": 25,
+          "mean_regret_vs_k20_db": 2.2150528466119956,
+          "median_regret_vs_k20_db": 1.0664999999999996,
+          "frac_zero_regret_vs_k20": 0.36
+        },
+        "high_sim": {
+          "n": 25,
+          "mean_regret_vs_k20_db": 7.37149611180013,
+          "median_regret_vs_k20_db": 3.438720129729121,
+          "frac_zero_regret_vs_k20": 0.28
+        },
+        "hard": {
+          "n": 9,
+          "mean_regret_vs_k20_db": 1.4232641427403634,
+          "median_regret_vs_k20_db": 0.5621000000000009,
+          "frac_zero_regret_vs_k20": 0.3333333333333333
+        }
+      },
+      "retrieve_q": {
+        "rare_type": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -3.643544758363995,
+          "median_regret_vs_k20_db": -1.5351999999999997,
+          "frac_zero_regret_vs_k20": 0.76
+        },
+        "common_type": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -3.409553301650971,
+          "median_regret_vs_k20_db": -1.3182999999999971,
+          "frac_zero_regret_vs_k20": 0.76
+        },
+        "low_sim": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -2.0000575575607837,
+          "median_regret_vs_k20_db": -1.1676000000000002,
+          "frac_zero_regret_vs_k20": 0.84
+        },
+        "high_sim": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -5.0530405024541825,
+          "median_regret_vs_k20_db": -3.2316000000000003,
+          "frac_zero_regret_vs_k20": 0.68
+        },
+        "hard": {
+          "n": 9,
+          "mean_regret_vs_k20_db": -1.5110142183056248,
+          "median_regret_vs_k20_db": -1.0331999999999937,
+          "frac_zero_regret_vs_k20": 0.8888888888888888
+        }
+      },
+      "retrieve_q_union": {
+        "rare_type": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -3.969040758363995,
+          "median_regret_vs_k20_db": -1.5351999999999997,
+          "frac_zero_regret_vs_k20": 0.84
+        },
+        "common_type": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -6.193095492414946,
+          "median_regret_vs_k20_db": -3.2316000000000003,
+          "frac_zero_regret_vs_k20": 0.84
+        },
+        "low_sim": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -2.344805557560784,
+          "median_regret_vs_k20_db": -1.5351999999999997,
+          "frac_zero_regret_vs_k20": 0.84
+        },
+        "high_sim": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -7.817330693218156,
+          "median_regret_vs_k20_db": -4.371499999999999,
+          "frac_zero_regret_vs_k20": 0.84
+        },
+        "hard": {
+          "n": 9,
+          "mean_regret_vs_k20_db": -1.678203107194514,
+          "median_regret_vs_k20_db": -1.4284999999999997,
+          "frac_zero_regret_vs_k20": 0.8888888888888888
+        }
+      },
+      "retrieve_q_ctx": {
+        "rare_type": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -3.701616758363995,
+          "median_regret_vs_k20_db": -1.5965000000000007,
+          "frac_zero_regret_vs_k20": 0.8
+        },
+        "common_type": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -2.8778719907044326,
+          "median_regret_vs_k20_db": -1.1676000000000002,
+          "frac_zero_regret_vs_k20": 0.72
+        },
+        "low_sim": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -1.9113935575607843,
+          "median_regret_vs_k20_db": -1.1676000000000002,
+          "frac_zero_regret_vs_k20": 0.84
+        },
+        "high_sim": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -4.668095191507644,
+          "median_regret_vs_k20_db": -3.2316000000000003,
+          "frac_zero_regret_vs_k20": 0.68
+        },
+        "hard": {
+          "n": 9,
+          "mean_regret_vs_k20_db": -1.2832919960834026,
+          "median_regret_vs_k20_db": -1.0331999999999937,
+          "frac_zero_regret_vs_k20": 0.8888888888888888
+        }
+      },
+      "retrieve_q_ctx_union": {
+        "rare_type": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -3.696240758363996,
+          "median_regret_vs_k20_db": -1.5965000000000007,
+          "frac_zero_regret_vs_k20": 0.76
+        },
+        "common_type": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -4.681826059100913,
+          "median_regret_vs_k20_db": -2.3892019823800084,
+          "frac_zero_regret_vs_k20": 0.84
+        },
+        "low_sim": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -2.355373557560784,
+          "median_regret_vs_k20_db": -1.5351999999999997,
+          "frac_zero_regret_vs_k20": 0.8
+        },
+        "high_sim": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -6.022693259904123,
+          "median_regret_vs_k20_db": -3.4741999999999997,
+          "frac_zero_regret_vs_k20": 0.8
+        },
+        "hard": {
+          "n": 9,
+          "mean_regret_vs_k20_db": -1.7397919960834032,
+          "median_regret_vs_k20_db": -1.4284999999999997,
+          "frac_zero_regret_vs_k20": 0.7777777777777778
+        }
+      },
+      "ensemble_ctx_mean": {
+        "rare_type": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -3.797768758363995,
+          "median_regret_vs_k20_db": -1.7937204120137196,
+          "frac_zero_regret_vs_k20": 0.8
+        },
+        "common_type": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -6.209051817933096,
+          "median_regret_vs_k20_db": -3.2316000000000003,
+          "frac_zero_regret_vs_k20": 0.88
+        },
+        "low_sim": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -2.378665557560784,
+          "median_regret_vs_k20_db": -1.5351999999999997,
+          "frac_zero_regret_vs_k20": 0.88
+        },
+        "high_sim": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -7.628155018736306,
+          "median_regret_vs_k20_db": -3.595299999999998,
+          "frac_zero_regret_vs_k20": 0.8
+        },
+        "hard": {
+          "n": 9,
+          "mean_regret_vs_k20_db": -1.7324475516389586,
+          "median_regret_vs_k20_db": -1.4284999999999997,
+          "frac_zero_regret_vs_k20": 0.8888888888888888
+        }
+      },
+      "ensemble_ctx_pessimistic": {
+        "rare_type": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -4.393792758363995,
+          "median_regret_vs_k20_db": -2.923400000000001,
+          "frac_zero_regret_vs_k20": 0.8
+        },
+        "common_type": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -5.546391431907276,
+          "median_regret_vs_k20_db": -3.2316000000000003,
+          "frac_zero_regret_vs_k20": 0.84
+        },
+        "low_sim": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -2.6643535575607835,
+          "median_regret_vs_k20_db": -1.5396999999999998,
+          "frac_zero_regret_vs_k20": 0.8
+        },
+        "high_sim": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -7.275830632710487,
+          "median_regret_vs_k20_db": -3.595299999999998,
+          "frac_zero_regret_vs_k20": 0.84
+        },
+        "hard": {
+          "n": 9,
+          "mean_regret_vs_k20_db": -2.539191996083403,
+          "median_regret_vs_k20_db": -1.4284999999999997,
+          "frac_zero_regret_vs_k20": 0.7777777777777778
+        }
+      },
+      "attention_ctx": {
+        "rare_type": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -3.8646487583639955,
+          "median_regret_vs_k20_db": -2.923400000000001,
+          "frac_zero_regret_vs_k20": 0.76
+        },
+        "common_type": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -2.5246441597026057,
+          "median_regret_vs_k20_db": -1.5396999999999998,
+          "frac_zero_regret_vs_k20": 0.68
+        },
+        "low_sim": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -2.529089557560784,
+          "median_regret_vs_k20_db": -1.5396999999999998,
+          "frac_zero_regret_vs_k20": 0.8
+        },
+        "high_sim": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -3.860203360505817,
+          "median_regret_vs_k20_db": -3.2316000000000003,
+          "frac_zero_regret_vs_k20": 0.64
+        },
+        "hard": {
+          "n": 9,
+          "mean_regret_vs_k20_db": -2.4398253294167365,
+          "median_regret_vs_k20_db": -1.4284999999999997,
+          "frac_zero_regret_vs_k20": 0.7777777777777778
+        }
+      },
+      "attention_ens_pessimistic": {
+        "rare_type": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -3.7147207583639954,
+          "median_regret_vs_k20_db": -1.7937204120137196,
+          "frac_zero_regret_vs_k20": 0.68
+        },
+        "common_type": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -4.548157719192514,
+          "median_regret_vs_k20_db": -2.2128000000000014,
+          "frac_zero_regret_vs_k20": 0.84
+        },
+        "low_sim": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -2.2372015575607844,
+          "median_regret_vs_k20_db": -1.4284999999999997,
+          "frac_zero_regret_vs_k20": 0.76
+        },
+        "high_sim": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -6.025676919995725,
+          "median_regret_vs_k20_db": -3.528696394158686,
+          "frac_zero_regret_vs_k20": 0.76
+        },
+        "hard": {
+          "n": 9,
+          "mean_regret_vs_k20_db": -1.5092142183056252,
+          "median_regret_vs_k20_db": -0.5475999999999992,
+          "frac_zero_regret_vs_k20": 0.5555555555555556
+        }
+      },
+      "oracle_k20": {
+        "rare_type": {
+          "n": 25,
+          "mean_regret_vs_k20_db": 0.0,
+          "median_regret_vs_k20_db": 0.0,
+          "frac_zero_regret_vs_k20": 1.0
+        },
+        "common_type": {
+          "n": 25,
+          "mean_regret_vs_k20_db": 0.0,
+          "median_regret_vs_k20_db": 0.0,
+          "frac_zero_regret_vs_k20": 1.0
+        },
+        "low_sim": {
+          "n": 25,
+          "mean_regret_vs_k20_db": 0.0,
+          "median_regret_vs_k20_db": 0.0,
+          "frac_zero_regret_vs_k20": 1.0
+        },
+        "high_sim": {
+          "n": 25,
+          "mean_regret_vs_k20_db": 0.0,
+          "median_regret_vs_k20_db": 0.0,
+          "frac_zero_regret_vs_k20": 1.0
+        },
+        "hard": {
+          "n": 9,
+          "mean_regret_vs_k20_db": 0.0,
+          "median_regret_vs_k20_db": 0.0,
+          "frac_zero_regret_vs_k20": 1.0
+        }
+      },
+      "oracle_wide": {
+        "rare_type": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -5.010379022566878,
+          "median_regret_vs_k20_db": -3.7673000000000023,
+          "frac_zero_regret_vs_k20": 0.92
+        },
+        "common_type": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -9.247455086048507,
+          "median_regret_vs_k20_db": -3.5951999999999984,
+          "frac_zero_regret_vs_k20": 0.92
+        },
+        "low_sim": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -4.581434737022017,
+          "median_regret_vs_k20_db": -2.0006394307552497,
+          "frac_zero_regret_vs_k20": 0.88
+        },
+        "high_sim": {
+          "n": 25,
+          "mean_regret_vs_k20_db": -9.67639937159337,
+          "median_regret_vs_k20_db": -5.715299999999999,
+          "frac_zero_regret_vs_k20": 0.96
+        },
+        "hard": {
+          "n": 9,
+          "mean_regret_vs_k20_db": -2.59166977386118,
+          "median_regret_vs_k20_db": -1.0892999999999944,
+          "frac_zero_regret_vs_k20": 0.8888888888888888
+        }
+      }
+    },
+    "paired_vs_q_only": {
+      "q_only": {
+        "rare_type": {
+          "n": 25,
+          "wins": 0,
+          "ties": 25,
+          "losses": 0,
+          "win_rate": 0.0
+        },
+        "common_type": {
+          "n": 25,
+          "wins": 0,
+          "ties": 25,
+          "losses": 0,
+          "win_rate": 0.0
+        },
+        "low_sim": {
+          "n": 25,
+          "wins": 0,
+          "ties": 25,
+          "losses": 0,
+          "win_rate": 0.0
+        },
+        "high_sim": {
+          "n": 25,
+          "wins": 0,
+          "ties": 25,
+          "losses": 0,
+          "win_rate": 0.0
+        },
+        "hard": {
+          "n": 9,
+          "wins": 0,
+          "ties": 9,
+          "losses": 0,
+          "win_rate": 0.0
+        }
+      },
+      "retrieve_q": {
+        "rare_type": {
+          "n": 25,
+          "wins": 19,
+          "ties": 0,
+          "losses": 6,
+          "win_rate": 0.76
+        },
+        "common_type": {
+          "n": 25,
+          "wins": 22,
+          "ties": 0,
+          "losses": 3,
+          "win_rate": 0.88
+        },
+        "low_sim": {
+          "n": 25,
+          "wins": 21,
+          "ties": 0,
+          "losses": 4,
+          "win_rate": 0.84
+        },
+        "high_sim": {
+          "n": 25,
+          "wins": 20,
+          "ties": 0,
+          "losses": 5,
+          "win_rate": 0.8
+        },
+        "hard": {
+          "n": 9,
+          "wins": 7,
+          "ties": 0,
+          "losses": 2,
+          "win_rate": 0.7777777777777778
+        }
+      },
+      "retrieve_q_union": {
+        "rare_type": {
+          "n": 25,
+          "wins": 21,
+          "ties": 0,
+          "losses": 4,
+          "win_rate": 0.84
+        },
+        "common_type": {
+          "n": 25,
+          "wins": 24,
+          "ties": 0,
+          "losses": 1,
+          "win_rate": 0.96
+        },
+        "low_sim": {
+          "n": 25,
+          "wins": 22,
+          "ties": 0,
+          "losses": 3,
+          "win_rate": 0.88
+        },
+        "high_sim": {
+          "n": 25,
+          "wins": 23,
+          "ties": 0,
+          "losses": 2,
+          "win_rate": 0.92
+        },
+        "hard": {
+          "n": 9,
+          "wins": 7,
+          "ties": 0,
+          "losses": 2,
+          "win_rate": 0.7777777777777778
+        }
+      },
+      "retrieve_q_ctx": {
+        "rare_type": {
+          "n": 25,
+          "wins": 19,
+          "ties": 0,
+          "losses": 6,
+          "win_rate": 0.76
+        },
+        "common_type": {
+          "n": 25,
+          "wins": 21,
+          "ties": 0,
+          "losses": 4,
+          "win_rate": 0.84
+        },
+        "low_sim": {
+          "n": 25,
+          "wins": 19,
+          "ties": 0,
+          "losses": 6,
+          "win_rate": 0.76
+        },
+        "high_sim": {
+          "n": 25,
+          "wins": 21,
+          "ties": 0,
+          "losses": 4,
+          "win_rate": 0.84
+        },
+        "hard": {
+          "n": 9,
+          "wins": 6,
+          "ties": 0,
+          "losses": 3,
+          "win_rate": 0.6666666666666666
+        }
+      },
+      "retrieve_q_ctx_union": {
+        "rare_type": {
+          "n": 25,
+          "wins": 21,
+          "ties": 0,
+          "losses": 4,
+          "win_rate": 0.84
+        },
+        "common_type": {
+          "n": 25,
+          "wins": 23,
+          "ties": 0,
+          "losses": 2,
+          "win_rate": 0.92
+        },
+        "low_sim": {
+          "n": 25,
+          "wins": 21,
+          "ties": 0,
+          "losses": 4,
+          "win_rate": 0.84
+        },
+        "high_sim": {
+          "n": 25,
+          "wins": 23,
+          "ties": 0,
+          "losses": 2,
+          "win_rate": 0.92
+        },
+        "hard": {
+          "n": 9,
+          "wins": 7,
+          "ties": 0,
+          "losses": 2,
+          "win_rate": 0.7777777777777778
+        }
+      },
+      "ensemble_ctx_mean": {
+        "rare_type": {
+          "n": 25,
+          "wins": 22,
+          "ties": 0,
+          "losses": 3,
+          "win_rate": 0.88
+        },
+        "common_type": {
+          "n": 25,
+          "wins": 23,
+          "ties": 0,
+          "losses": 2,
+          "win_rate": 0.92
+        },
+        "low_sim": {
+          "n": 25,
+          "wins": 22,
+          "ties": 0,
+          "losses": 3,
+          "win_rate": 0.88
+        },
+        "high_sim": {
+          "n": 25,
+          "wins": 23,
+          "ties": 0,
+          "losses": 2,
+          "win_rate": 0.92
+        },
+        "hard": {
+          "n": 9,
+          "wins": 8,
+          "ties": 0,
+          "losses": 1,
+          "win_rate": 0.8888888888888888
+        }
+      },
+      "ensemble_ctx_pessimistic": {
+        "rare_type": {
+          "n": 25,
+          "wins": 24,
+          "ties": 0,
+          "losses": 1,
+          "win_rate": 0.96
+        },
+        "common_type": {
+          "n": 25,
+          "wins": 24,
+          "ties": 0,
+          "losses": 1,
+          "win_rate": 0.96
+        },
+        "low_sim": {
+          "n": 25,
+          "wins": 24,
+          "ties": 0,
+          "losses": 1,
+          "win_rate": 0.96
+        },
+        "high_sim": {
+          "n": 25,
+          "wins": 24,
+          "ties": 0,
+          "losses": 1,
+          "win_rate": 0.96
+        },
+        "hard": {
+          "n": 9,
+          "wins": 9,
+          "ties": 0,
+          "losses": 0,
+          "win_rate": 1.0
+        }
+      },
+      "attention_ctx": {
+        "rare_type": {
+          "n": 25,
+          "wins": 22,
+          "ties": 0,
+          "losses": 3,
+          "win_rate": 0.88
+        },
+        "common_type": {
+          "n": 25,
+          "wins": 23,
+          "ties": 0,
+          "losses": 2,
+          "win_rate": 0.92
+        },
+        "low_sim": {
+          "n": 25,
+          "wins": 23,
+          "ties": 0,
+          "losses": 2,
+          "win_rate": 0.92
+        },
+        "high_sim": {
+          "n": 25,
+          "wins": 22,
+          "ties": 0,
+          "losses": 3,
+          "win_rate": 0.88
+        },
+        "hard": {
+          "n": 9,
+          "wins": 8,
+          "ties": 0,
+          "losses": 1,
+          "win_rate": 0.8888888888888888
+        }
+      },
+      "attention_ens_pessimistic": {
+        "rare_type": {
+          "n": 25,
+          "wins": 21,
+          "ties": 0,
+          "losses": 4,
+          "win_rate": 0.84
+        },
+        "common_type": {
+          "n": 25,
+          "wins": 24,
+          "ties": 0,
+          "losses": 1,
+          "win_rate": 0.96
+        },
+        "low_sim": {
+          "n": 25,
+          "wins": 22,
+          "ties": 0,
+          "losses": 3,
+          "win_rate": 0.88
+        },
+        "high_sim": {
+          "n": 25,
+          "wins": 23,
+          "ties": 0,
+          "losses": 2,
+          "win_rate": 0.92
+        },
+        "hard": {
+          "n": 9,
+          "wins": 7,
+          "ties": 0,
+          "losses": 2,
+          "win_rate": 0.7777777777777778
+        }
+      },
+      "oracle_k20": {
+        "rare_type": {
+          "n": 25,
+          "wins": 16,
+          "ties": 0,
+          "losses": 9,
+          "win_rate": 0.64
+        },
+        "common_type": {
+          "n": 25,
+          "wins": 18,
+          "ties": 0,
+          "losses": 7,
+          "win_rate": 0.72
+        },
+        "low_sim": {
+          "n": 25,
+          "wins": 16,
+          "ties": 0,
+          "losses": 9,
+          "win_rate": 0.64
+        },
+        "high_sim": {
+          "n": 25,
+          "wins": 18,
+          "ties": 0,
+          "losses": 7,
+          "win_rate": 0.72
+        },
+        "hard": {
+          "n": 9,
+          "wins": 6,
+          "ties": 0,
+          "losses": 3,
+          "win_rate": 0.6666666666666666
+        }
+      },
+      "oracle_wide": {
+        "rare_type": {
+          "n": 25,
+          "wins": 24,
+          "ties": 0,
+          "losses": 1,
+          "win_rate": 0.96
+        },
+        "common_type": {
+          "n": 25,
+          "wins": 23,
+          "ties": 0,
+          "losses": 2,
+          "win_rate": 0.92
+        },
+        "low_sim": {
+          "n": 25,
+          "wins": 23,
+          "ties": 0,
+          "losses": 2,
+          "win_rate": 0.92
+        },
+        "high_sim": {
+          "n": 25,
+          "wins": 24,
+          "ties": 0,
+          "losses": 1,
+          "win_rate": 0.96
+        },
+        "hard": {
+          "n": 9,
+          "wins": 9,
+          "ties": 0,
+          "losses": 0,
+          "win_rate": 1.0
+        }
+      }
+    }
+  },
+  "per_scenario_meta": {
+    "top1_cosine_sim": [
+      0.9996444582939148,
+      1.0,
+      0.8937807083129883,
+      0.9326687455177307,
+      0.9129354953765869,
+      0.9169955253601074,
+      0.7495209574699402,
+      0.8182845115661621,
+      0.9439210891723633,
+      0.9999999403953552,
+      0.9285447001457214,
+      0.8955804109573364,
+      0.9455337524414062,
+      0.8856022357940674,
+      0.9233317971229553,
+      0.7265113592147827,
+      0.9423230290412903,
+      0.7637410163879395,
+      0.6909010410308838,
+      1.0,
+      0.7210161685943604,
+      0.9953067302703857,
+      0.9999999403953552,
+      0.7241285443305969,
+      0.9300282001495361,
+      0.9549291133880615,
+      0.9890785217285156,
+      0.9075188636779785,
+      0.9135708808898926,
+      0.7871673107147217,
+      0.9944688081741333,
+      0.9009758830070496,
+      0.9852339029312134,
+      1.0,
+      0.8387405872344971,
+      0.9269766807556152,
+      0.9998835921287537,
+      0.9978256821632385,
+      0.9461312294006348,
+      0.8747785091400146,
+      0.8056068420410156,
+      0.9665886163711548,
+      0.9071733951568604,
+      1.0,
+      0.9999105930328369,
+      0.8237627744674683,
+      0.9966327548027039,
+      0.9999999403953552,
+      0.9970142841339111,
+      0.9546685218811035
+    ],
+    "same_type_bank_count": [
+      554,
+      571,
+      613,
+      554,
+      554,
+      613,
+      574,
+      574,
+      548,
+      571,
+      613,
+      554,
+      564,
+      613,
+      554,
+      613,
+      554,
+      574,
+      548,
+      571,
+      574,
+      564,
+      571,
+      576,
+      576,
+      554,
+      564,
+      564,
+      548,
+      576,
+      564,
+      576,
+      564,
+      571,
+      576,
+      554,
+      564,
+      564,
+      574,
+      554,
+      576,
+      564,
+      564,
+      571,
+      564,
+      576,
+      554,
+      571,
+      564,
+      613
+    ]
+  },
+  "backend_stats": "仿真次数=41605, 缓存命中=41605, 相位编码回退=15762",
+  "elapsed_min": 3.3,
+  "round2_reference": {
+    "methods": [
+      {
+        "method": "random",
+        "mean_regret_vs_k20_db": 15.908439202000157,
+        "frac_zero_regret_vs_k20": 0.14
+      },
+      {
+        "method": "retrieval_max_r",
+        "mean_regret_vs_k20_db": -1.2213989752280279,
+        "frac_zero_regret_vs_k20": 0.66
+      },
+      {
+        "method": "q_only",
+        "mean_regret_vs_k20_db": 4.7932744792060635,
+        "frac_zero_regret_vs_k20": 0.32
+      },
+      {
+        "method": "retrieve_q",
+        "mean_regret_vs_k20_db": -3.5265490300074833,
+        "frac_zero_regret_vs_k20": 0.76
+      },
+      {
+        "method": "retrieve_q_union",
+        "mean_regret_vs_k20_db": -5.0810681253894705,
+        "frac_zero_regret_vs_k20": 0.84
+      },
+      {
+        "method": "retrieve_q_local",
+        "mean_regret_vs_k20_db": -4.72555901016058,
+        "frac_zero_regret_vs_k20": 0.84
+      },
+      {
+        "method": "retrieve_q_gen",
+        "mean_regret_vs_k20_db": -4.186239750653167,
+        "frac_zero_regret_vs_k20": 0.78
+      },
+      {
+        "method": "retrieve_q_ctx",
+        "mean_regret_vs_k20_db": -3.289744374534214,
+        "frac_zero_regret_vs_k20": 0.76
+      },
+      {
+        "method": "retrieve_q_ctx_union",
+        "mean_regret_vs_k20_db": -4.1890334087324534,
+        "frac_zero_regret_vs_k20": 0.8
+      },
+      {
+        "method": "oracle_k20",
+        "mean_regret_vs_k20_db": 0.0,
+        "frac_zero_regret_vs_k20": 1.0
+      },
+      {
+        "method": "oracle_wide",
+        "mean_regret_vs_k20_db": -5.9235999706548235,
+        "frac_zero_regret_vs_k20": 0.9
+      }
+    ]
+  }
+}

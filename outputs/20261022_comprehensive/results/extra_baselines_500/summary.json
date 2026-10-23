@@ -1,0 +1,69 @@
+{
+  "n_holdout_scenarios": 500,
+  "actions_per_holdout_scenario": 10,
+  "holdout_seed": 2026,
+  "holdout_csv": "C:\\Users\\Administrator\\Desktop\\文件\\radar\\radar\\data\\v2\\processed\\holdout_eval_scenarios.csv",
+  "reference_regret": "oracle_k20 = max SINR among holdout K random A per scenario",
+  "methods": [
+    {
+      "method": "random",
+      "label": "Random（检索候选池内随机）",
+      "n_evaluated": 500,
+      "mean_recommended_sinr_db": 0.07592376597074618,
+      "mean_oracle_k20_db": 16.923788711531763,
+      "mean_oracle_wide_db": 22.363337733824324,
+      "mean_regret_vs_k20_db": 16.84786494556102,
+      "median_regret_vs_k20_db": 15.375268567820612,
+      "regret_p25_db": 5.339912324454966,
+      "regret_p75_db": 26.102261173627184,
+      "regret_p90_db": 35.75736567791191,
+      "mean_regret_vs_wide_db": 22.287413967853578,
+      "frac_zero_regret_vs_k20": 0.104,
+      "mean_top1_cosine_sim": 0.8960404357910157,
+      "top_k_retrieve": 5,
+      "q_only_candidates": 5,
+      "union_random_candidates": 100,
+      "mean_candidate_pool_size": NaN,
+      "oracle_wide_candidates": 100
+    },
+    {
+      "method": "retrieval_max_r",
+      "label": "Retrieval-only（训练 R 最高）",
+      "n_evaluated": 500,
+      "mean_recommended_sinr_db": 18.50102962870504,
+      "mean_oracle_k20_db": 16.923788711531763,
+      "mean_oracle_wide_db": 22.70951872016851,
+      "mean_regret_vs_k20_db": -1.5772409171732746,
+      "median_regret_vs_k20_db": -1.6201999999999996,
+      "regret_p25_db": -4.860875,
+      "regret_p75_db": 0.44226574555720877,
+      "regret_p90_db": 10.606233589291119,
+      "mean_regret_vs_wide_db": 4.2084890914634725,
+      "frac_zero_regret_vs_k20": 0.714,
+      "mean_top1_cosine_sim": 0.8960404357910157,
+      "top_k_retrieve": 5,
+      "q_only_candidates": 5,
+      "union_random_candidates": 100,
+      "mean_candidate_pool_size": NaN,
+      "oracle_wide_candidates": 100
+    }
+  ],
+  "paired_vs_q_only": {
+    "reference": "q_only",
+    "n_scenarios": 500,
+    "results": {
+      "random": {
+        "wins": 104,
+        "ties": 0,
+        "losses": 396,
+        "win_rate": 0.208
+      },
+      "retrieval_max_r": {
+        "wins": 391,
+        "ties": 0,
+        "losses": 109,
+        "win_rate": 0.782
+      }
+    }
+  }
+}

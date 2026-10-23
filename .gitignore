@@ -4,8 +4,8 @@ __pycache__/
 .vscode/
 .specstory/
 
-# 大文件/产出不入库
-outputs/
-data/
-archive/
-export/
+# GitHub 100MB 单文件限制：超大模型文件不入库
+outputs/archive_round1_20261021/checkpoints/latest_checkpoint.pth
+outputs/archive_round1_20261021/checkpoints/latest_checkpoint_ft.pth
+outputs/archive_round1_20261021/checkpoints/final_model.pth
+outputs/archive_round1_20261021/checkpoints/best_model.pth

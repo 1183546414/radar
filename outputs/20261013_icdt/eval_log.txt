@@ -1,0 +1,52 @@
+﻿D:\conda\envs\radar\python.exe : RadarSimCpp: No license file path provided. Running in free tier mode.
+At line:15 char:1493
++ ... pgrep\bin'; D:\conda\envs\radar\python.exe -u "c:\Users\Administrator ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (RadarSimCpp: No...free tier mode.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[SignalSinrBackend] JSR=10.0dB, 参考回波功率 P0=8.951e-08
+设备: cuda
+数据路径： C:\Users\Administrator\Desktop\文件\radar\radar\data\v2\processed
+留出场景 50，检索库 4000 场景
+QRetrievalNet ×5, ICDT ×5
+--- q_only: Q-only（无检索，随机 5 A） ---
+[SignalSinrBackend] 相位编码 波形无法建模，回退解析公式
+    regret +4.79 dB (2.2s)
+--- retrieve_q_union: Retrieve+Q-Union（Round2 基线） ---
+    regret -5.08 dB (0.5s)
+--- ens_pessimistic: Q-Ens-悲观 μ−1.0σ（20261007 默认） ---
+    regret -4.97 dB (0.5s)
+--- icdt_m0: ICDT 零观测 ---
+    regret -5.08 dB (1.6s)
+--- icdt_rand_m1: ICDT 随机观测 m=1 ---
+    regret -5.02 dB (1.8s)
+--- icdt_rand_m3: ICDT 随机观测 m=3 ---
+    regret -4.99 dB (2.0s)
+--- icdt_rand_m5: ICDT 随机观测 m=5 ---
+    regret -5.21 dB (2.6s)
+--- icdt_rand_m8: ICDT 随机观测 m=8 ---
+    regret -5.20 dB (2.5s)
+--- icdt_act_m1: ICDT 主动观测 m=1 ---
+    regret -5.09 dB (2.6s)
+--- icdt_act_m3: ICDT 主动观测 m=3 ---
+    regret -5.11 dB (5.3s)
+--- icdt_act_m5: ICDT 主动观测 m=5 ---
+    regret -5.07 dB (7.2s)
+--- icdt_act_m8: ICDT 主动观测 m=8 ---
+    regret -5.03 dB (12.1s)
+--- oracle_k20: Oracle-K20（留出 K 随机 A 上界） ---
+    regret +0.00 dB (0.4s)
+--- oracle_wide: Oracle-Wide（100 随机 A 上界） ---
+    regret -5.73 dB (15.2s)
+分桶中位: top1_sim=0.931, 同类邻居=567.5
+Traceback (most recent call last):
+  File "c:\Users\Administrator\Desktop\文件\radar\radar\outputs\20261013_icdt\code\eval_icdt.py", line 411, in <module>
+    main()
+  File "c:\Users\Administrator\Desktop\文件\radar\radar\outputs\20261013_icdt\code\eval_icdt.py", line 406, in main
+    write_report(summary, ROUND / "comparison_report.md")
+  File "c:\Users\Administrator\Desktop\文件\radar\radar\outputs\20261013_icdt\code\eval_icdt.py", line 322, in write_repo
+rt
+    f"{rnd['mean_regret_vs_k20_db']:+.2f} | {act['mean_regret_vs_k20_db']:+.2f} |")
+       ~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable

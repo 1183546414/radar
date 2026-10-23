@@ -1,0 +1,123 @@
+{
+  "val_rmse_std": 0.7004929977804909,
+  "val_mae_std": 0.5232629179954529,
+  "val_r2_std": 0.5028525590896606,
+  "val_pearson_std": 0.8664010199215845,
+  "best_val_combined": 1.9414069056510925,
+  "rank_lambda": 0.5,
+  "top_k_retrieve": 5,
+  "epochs_run": 169,
+  "z_dim": 128,
+  "a_dim": 9,
+  "latent_cache": "C:\\Users\\Administrator\\Desktop\\radar\\radar\\outputs\\20260909_signal_level\\models\\latent_q\\state_latent_mu.npy",
+  "model_path": "C:\\Users\\Administrator\\Desktop\\radar\\radar\\outputs\\20260909_signal_level\\models\\latent_q\\q_latent_best.pt",
+  "history": [
+    {
+      "epoch": 160,
+      "train_mse": 0.20111165126672567,
+      "train_rank_nll": 3.234231285750866,
+      "val_mse": 0.6493656039237976,
+      "val_rank_nll": 2.750553607940674,
+      "val_combined": 2.0246424078941345
+    },
+    {
+      "epoch": 161,
+      "train_mse": 0.1995523437952843,
+      "train_rank_nll": 3.249415062367916,
+      "val_mse": 0.5885860919952393,
+      "val_rank_nll": 2.8546011447906494,
+      "val_combined": 2.015886664390564
+    },
+    {
+      "epoch": 162,
+      "train_mse": 0.20109027067121987,
+      "train_rank_nll": 3.1788826063275337,
+      "val_mse": 0.6262606978416443,
+      "val_rank_nll": 2.8500616550445557,
+      "val_combined": 2.051291525363922
+    },
+    {
+      "epoch": 163,
+      "train_mse": 0.20022675011771174,
+      "train_rank_nll": 3.340219497680664,
+      "val_mse": 0.8726196885108948,
+      "val_rank_nll": 2.898000717163086,
+      "val_combined": 2.3216200470924377
+    },
+    {
+      "epoch": 164,
+      "train_mse": 0.2025430831379784,
+      "train_rank_nll": 3.1354157254099846,
+      "val_mse": 0.5762109160423279,
+      "val_rank_nll": 2.9559643268585205,
+      "val_combined": 2.054193079471588
+    },
+    {
+      "epoch": 165,
+      "train_mse": 0.1999950716956355,
+      "train_rank_nll": 3.264035440981388,
+      "val_mse": 0.5300877690315247,
+      "val_rank_nll": 2.893860340118408,
+      "val_combined": 1.9770179390907288
+    },
+    {
+      "epoch": 166,
+      "train_mse": 0.19524388769849801,
+      "train_rank_nll": 3.251267895102501,
+      "val_mse": 0.6430665850639343,
+      "val_rank_nll": 2.8590469360351562,
+      "val_combined": 2.0725900530815125
+    },
+    {
+      "epoch": 167,
+      "train_mse": 0.19757233400600024,
+      "train_rank_nll": 3.200103923678398,
+      "val_mse": 0.6822591423988342,
+      "val_rank_nll": 2.7980685234069824,
+      "val_combined": 2.0812934041023254
+    },
+    {
+      "epoch": 168,
+      "train_mse": 0.20294654188445582,
+      "train_rank_nll": 3.2967236191034317,
+      "val_mse": 0.6504688262939453,
+      "val_rank_nll": 2.8455777168273926,
+      "val_combined": 2.0732576847076416
+    },
+    {
+      "epoch": 169,
+      "train_mse": 0.20389364505061708,
+      "train_rank_nll": 3.181718684732914,
+      "val_mse": 0.6930491924285889,
+      "val_rank_nll": 2.7777676582336426,
+      "val_combined": 2.08193302154541
+    }
+  ],
+  "per_scenario_k20_selection": {
+    "n_eval_scenarios": 1000,
+    "actions_per_scenario_mean": 20.0,
+    "oracle_hit_at_1": 0.642,
+    "mean_regret_sinr_db": 1.7335664000000002,
+    "median_regret_sinr_db": 0.0,
+    "frac_zero_regret": 0.642,
+    "mean_rank_of_oracle_action_by_q": 1.0
+  },
+  "per_scenario_action_selection": {
+    "n_eval_scenarios": 1000,
+    "actions_per_scenario_mean": 20.0,
+    "oracle_hit_at_1": 0.642,
+    "mean_regret_sinr_db": 1.7335664000000002,
+    "median_regret_sinr_db": 0.0,
+    "frac_zero_regret": 0.642,
+    "mean_rank_of_oracle_action_by_q": 1.0
+  },
+  "retrieval_pool_selection": {
+    "n_eval_scenarios": 1000,
+    "candidates_per_scenario_mean": 100.0,
+    "oracle_hit_at_1": 0.502,
+    "mean_regret_sinr_db": 2.159782534255689,
+    "median_regret_sinr_db": 0.0,
+    "frac_zero_regret": 0.502,
+    "mean_rank_nll": 2.8754724506139757
+  }
+}

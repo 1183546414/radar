@@ -1,0 +1,329 @@
+/Users/a1021500655/Library/Python/3.9/lib/python/site-packages/sklearn/manifold/_t_sne.py:1164: FutureWarning: 'n_iter' was renamed to 'max_iter' in version 1.5 and will be removed in 1.7.
+  warnings.warn(
+日志文件: /Users/a1021500655/Desktop/radar/outputs/logs/main.log
+
+数据路径： /Users/a1021500655/Desktop/radar/data/v2/processed
+=== 1/6 数据处理 ===
+数据源 CSV: /Users/a1021500655/Desktop/radar/data/simulated/simulated_radar_jamming_high_contrast_10k.csv
+输出目录: /Users/a1021500655/Desktop/radar/data/v2/processed
+读取样本数: 100000
+Done. Shapes -> S_raw:(100000, 15), A_raw:(100000, 9), R_raw:(100000, 1)
+Standardized -> S_std:(100000, 15), A_std:(100000, 9), R_std:(100000, 1)
+干扰类型数: 7, 已保存 jammer_type_labels.json
+干扰场景数: 5000, 每场景动作数: 20, 已保存 scenario_id.npy
+Saved to: /Users/a1021500655/Desktop/radar/data/v2/processed
+=== 2/6 训练状态 VAE ===
+Epoch 001 | train_rec=0.689265  train_kld=0.000000 | val_rec=0.010938 (RMSE=0.104585)  val_kld=0.000000  total=0.010938
+Epoch 002 | train_rec=0.018049  train_kld=0.000000 | val_rec=0.003590 (RMSE=0.059913)  val_kld=0.000000  total=0.003590
+Epoch 003 | train_rec=0.007858  train_kld=0.000000 | val_rec=0.002260 (RMSE=0.047544)  val_kld=0.000000  total=0.002260
+Epoch 004 | train_rec=0.005382  train_kld=0.000000 | val_rec=0.001726 (RMSE=0.041543)  val_kld=0.000000  total=0.001726
+Epoch 005 | train_rec=0.003876  train_kld=0.000000 | val_rec=0.000925 (RMSE=0.030411)  val_kld=0.000000  total=0.000925
+Epoch 006 | train_rec=0.003329  train_kld=0.000000 | val_rec=0.000564 (RMSE=0.023747)  val_kld=0.000000  total=0.000564
+Epoch 007 | train_rec=0.002208  train_kld=0.000000 | val_rec=0.000421 (RMSE=0.020528)  val_kld=0.000000  total=0.000421
+Epoch 008 | train_rec=0.002158  train_kld=0.000000 | val_rec=0.000329 (RMSE=0.018147)  val_kld=0.000000  total=0.000329
+Epoch 009 | train_rec=0.001821  train_kld=0.000000 | val_rec=0.000746 (RMSE=0.027311)  val_kld=0.000000  total=0.000746
+Epoch 010 | train_rec=0.001465  train_kld=0.000000 | val_rec=0.000503 (RMSE=0.022421)  val_kld=0.000000  total=0.000503
+Epoch 011 | train_rec=0.001339  train_kld=0.000000 | val_rec=0.000694 (RMSE=0.026339)  val_kld=0.000000  total=0.000694
+Epoch 012 | train_rec=0.001235  train_kld=0.000000 | val_rec=0.000428 (RMSE=0.020698)  val_kld=0.000000  total=0.000428
+Epoch 013 | train_rec=0.001119  train_kld=0.000000 | val_rec=0.000498 (RMSE=0.022317)  val_kld=0.000000  total=0.000498
+Epoch 014 | train_rec=0.001083  train_kld=0.000000 | val_rec=0.000581 (RMSE=0.024101)  val_kld=0.000000  total=0.000581
+Epoch 015 | train_rec=0.000981  train_kld=0.000000 | val_rec=0.000448 (RMSE=0.021164)  val_kld=0.000000  total=0.000448
+Epoch 016 | train_rec=0.000846  train_kld=0.000000 | val_rec=0.000345 (RMSE=0.018579)  val_kld=0.000000  total=0.000345
+Epoch 017 | train_rec=0.000915  train_kld=0.000000 | val_rec=0.000770 (RMSE=0.027746)  val_kld=0.000000  total=0.000770
+Epoch 018 | train_rec=0.000747  train_kld=0.000000 | val_rec=0.000410 (RMSE=0.020254)  val_kld=0.000000  total=0.000410
+Epoch 019 | train_rec=0.000796  train_kld=0.000000 | val_rec=0.000779 (RMSE=0.027918)  val_kld=0.000000  total=0.000779
+Epoch 020 | train_rec=0.000668  train_kld=0.000000 | val_rec=0.000413 (RMSE=0.020330)  val_kld=0.000000  total=0.000413
+Epoch 021 | train_rec=0.000655  train_kld=0.000000 | val_rec=0.000186 (RMSE=0.013632)  val_kld=0.000000  total=0.000186
+Epoch 022 | train_rec=0.000622  train_kld=0.000000 | val_rec=0.000287 (RMSE=0.016953)  val_kld=0.000000  total=0.000287
+Epoch 023 | train_rec=0.000582  train_kld=0.000000 | val_rec=0.000409 (RMSE=0.020218)  val_kld=0.000000  total=0.000409
+Epoch 024 | train_rec=0.000569  train_kld=0.000000 | val_rec=0.000229 (RMSE=0.015117)  val_kld=0.000000  total=0.000229
+Epoch 025 | train_rec=0.000514  train_kld=0.000000 | val_rec=0.000244 (RMSE=0.015609)  val_kld=0.000000  total=0.000244
+Epoch 026 | train_rec=0.000524  train_kld=0.000000 | val_rec=0.000303 (RMSE=0.017403)  val_kld=0.000000  total=0.000303
+Epoch 027 | train_rec=0.000488  train_kld=0.000000 | val_rec=0.000169 (RMSE=0.012990)  val_kld=0.000000  total=0.000169
+Epoch 028 | train_rec=0.000440  train_kld=0.000000 | val_rec=0.000271 (RMSE=0.016454)  val_kld=0.000000  total=0.000271
+Epoch 029 | train_rec=0.000442  train_kld=0.000000 | val_rec=0.000228 (RMSE=0.015112)  val_kld=0.000000  total=0.000228
+Epoch 030 | train_rec=0.000397  train_kld=0.000000 | val_rec=0.000550 (RMSE=0.023449)  val_kld=0.000000  total=0.000550
+Epoch 031 | train_rec=0.000397  train_kld=0.000000 | val_rec=0.000313 (RMSE=0.017681)  val_kld=0.000000  total=0.000313
+Epoch 032 | train_rec=0.000371  train_kld=0.000000 | val_rec=0.000323 (RMSE=0.017960)  val_kld=0.000000  total=0.000323
+Epoch 033 | train_rec=0.000349  train_kld=0.000000 | val_rec=0.000224 (RMSE=0.014971)  val_kld=0.000000  total=0.000224
+Epoch 034 | train_rec=0.000326  train_kld=0.000000 | val_rec=0.000131 (RMSE=0.011428)  val_kld=0.000000  total=0.000131
+Epoch 035 | train_rec=0.000317  train_kld=0.000000 | val_rec=0.000199 (RMSE=0.014098)  val_kld=0.000000  total=0.000199
+Epoch 036 | train_rec=0.000322  train_kld=0.000000 | val_rec=0.000114 (RMSE=0.010676)  val_kld=0.000000  total=0.000114
+Epoch 037 | train_rec=0.000278  train_kld=0.000000 | val_rec=0.000173 (RMSE=0.013165)  val_kld=0.000000  total=0.000173
+Epoch 038 | train_rec=0.000277  train_kld=0.000000 | val_rec=0.000253 (RMSE=0.015920)  val_kld=0.000000  total=0.000253
+Epoch 039 | train_rec=0.000261  train_kld=0.000000 | val_rec=0.000163 (RMSE=0.012779)  val_kld=0.000000  total=0.000163
+Epoch 040 | train_rec=0.000254  train_kld=0.000000 | val_rec=0.000142 (RMSE=0.011899)  val_kld=0.000000  total=0.000142
+Epoch 041 | train_rec=0.000218  train_kld=0.000000 | val_rec=0.000092 (RMSE=0.009567)  val_kld=0.000000  total=0.000092
+Epoch 042 | train_rec=0.000246  train_kld=0.000000 | val_rec=0.000177 (RMSE=0.013288)  val_kld=0.000000  total=0.000177
+Epoch 043 | train_rec=0.000195  train_kld=0.000000 | val_rec=0.000276 (RMSE=0.016616)  val_kld=0.000000  total=0.000276
+Epoch 044 | train_rec=0.000204  train_kld=0.000000 | val_rec=0.000070 (RMSE=0.008377)  val_kld=0.000000  total=0.000070
+Epoch 045 | train_rec=0.000194  train_kld=0.000000 | val_rec=0.000250 (RMSE=0.015827)  val_kld=0.000000  total=0.000250
+Epoch 046 | train_rec=0.000184  train_kld=0.000000 | val_rec=0.000100 (RMSE=0.009985)  val_kld=0.000000  total=0.000100
+Epoch 047 | train_rec=0.000165  train_kld=0.000000 | val_rec=0.000079 (RMSE=0.008884)  val_kld=0.000000  total=0.000079
+Epoch 048 | train_rec=0.000164  train_kld=0.000000 | val_rec=0.000120 (RMSE=0.010937)  val_kld=0.000000  total=0.000120
+Epoch 049 | train_rec=0.000151  train_kld=0.000000 | val_rec=0.000293 (RMSE=0.017111)  val_kld=0.000000  total=0.000293
+Epoch 050 | train_rec=0.000145  train_kld=0.000000 | val_rec=0.000226 (RMSE=0.015029)  val_kld=0.000000  total=0.000226
+Epoch 051 | train_rec=0.000142  train_kld=0.000000 | val_rec=0.000037 (RMSE=0.006048)  val_kld=0.000000  total=0.000037
+Epoch 052 | train_rec=0.000131  train_kld=0.000000 | val_rec=0.000154 (RMSE=0.012391)  val_kld=0.000000  total=0.000154
+Epoch 053 | train_rec=0.000131  train_kld=0.000000 | val_rec=0.000114 (RMSE=0.010680)  val_kld=0.000000  total=0.000114
+Epoch 054 | train_rec=0.000120  train_kld=0.000000 | val_rec=0.000057 (RMSE=0.007580)  val_kld=0.000000  total=0.000057
+Epoch 055 | train_rec=0.000110  train_kld=0.000000 | val_rec=0.000089 (RMSE=0.009437)  val_kld=0.000000  total=0.000089
+Epoch 056 | train_rec=0.000106  train_kld=0.000000 | val_rec=0.000070 (RMSE=0.008354)  val_kld=0.000000  total=0.000070
+Epoch 057 | train_rec=0.000113  train_kld=0.000000 | val_rec=0.000043 (RMSE=0.006568)  val_kld=0.000000  total=0.000043
+Epoch 058 | train_rec=0.000090  train_kld=0.000000 | val_rec=0.000092 (RMSE=0.009590)  val_kld=0.000000  total=0.000092
+Epoch 059 | train_rec=0.000098  train_kld=0.000000 | val_rec=0.000075 (RMSE=0.008632)  val_kld=0.000000  total=0.000075
+Epoch 060 | train_rec=0.000081  train_kld=0.000000 | val_rec=0.000083 (RMSE=0.009125)  val_kld=0.000000  total=0.000083
+Epoch 061 | train_rec=0.000080  train_kld=0.000000 | val_rec=0.000040 (RMSE=0.006353)  val_kld=0.000000  total=0.000040
+Epoch 062 | train_rec=0.000078  train_kld=0.000000 | val_rec=0.000057 (RMSE=0.007540)  val_kld=0.000000  total=0.000057
+Epoch 063 | train_rec=0.000077  train_kld=0.000000 | val_rec=0.000049 (RMSE=0.006990)  val_kld=0.000000  total=0.000049
+Epoch 064 | train_rec=0.000112  train_kld=0.000000 | val_rec=0.000034 (RMSE=0.005844)  val_kld=0.000000  total=0.000034
+Epoch 065 | train_rec=0.000064  train_kld=0.000000 | val_rec=0.000048 (RMSE=0.006957)  val_kld=0.000000  total=0.000048
+Epoch 066 | train_rec=0.000059  train_kld=0.000000 | val_rec=0.000026 (RMSE=0.005057)  val_kld=0.000000  total=0.000026
+Epoch 067 | train_rec=0.000058  train_kld=0.000000 | val_rec=0.000037 (RMSE=0.006090)  val_kld=0.000000  total=0.000037
+Epoch 068 | train_rec=0.000053  train_kld=0.000000 | val_rec=0.000039 (RMSE=0.006237)  val_kld=0.000000  total=0.000039
+Epoch 069 | train_rec=0.000058  train_kld=0.000000 | val_rec=0.000006 (RMSE=0.002350)  val_kld=0.000000  total=0.000006
+Epoch 070 | train_rec=0.000077  train_kld=0.000000 | val_rec=0.000029 (RMSE=0.005406)  val_kld=0.000000  total=0.000029
+Epoch 071 | train_rec=0.000055  train_kld=0.000000 | val_rec=0.000094 (RMSE=0.009705)  val_kld=0.000000  total=0.000094
+Epoch 072 | train_rec=0.000034  train_kld=0.000000 | val_rec=0.000022 (RMSE=0.004704)  val_kld=0.000000  total=0.000022
+Epoch 073 | train_rec=0.000090  train_kld=0.000000 | val_rec=0.000003 (RMSE=0.001645)  val_kld=0.000000  total=0.000003
+Epoch 074 | train_rec=0.000033  train_kld=0.000000 | val_rec=0.000086 (RMSE=0.009268)  val_kld=0.000000  total=0.000086
+Epoch 075 | train_rec=0.000039  train_kld=0.000000 | val_rec=0.000009 (RMSE=0.003064)  val_kld=0.000000  total=0.000009
+Epoch 076 | train_rec=0.000035  train_kld=0.000000 | val_rec=0.000008 (RMSE=0.002811)  val_kld=0.000000  total=0.000008
+Epoch 077 | train_rec=0.000090  train_kld=0.000000 | val_rec=0.000024 (RMSE=0.004848)  val_kld=0.000000  total=0.000024
+Epoch 078 | train_rec=0.000018  train_kld=0.000000 | val_rec=0.000019 (RMSE=0.004371)  val_kld=0.000000  total=0.000019
+Epoch 079 | train_rec=0.000046  train_kld=0.000000 | val_rec=0.000004 (RMSE=0.001916)  val_kld=0.000000  total=0.000004
+Epoch 080 | train_rec=0.000025  train_kld=0.000000 | val_rec=0.000058 (RMSE=0.007623)  val_kld=0.000000  total=0.000058
+Epoch 081 | train_rec=0.000078  train_kld=0.000000 | val_rec=0.000010 (RMSE=0.003089)  val_kld=0.000000  total=0.000010
+Epoch 082 | train_rec=0.000010  train_kld=0.000000 | val_rec=0.000005 (RMSE=0.002305)  val_kld=0.000000  total=0.000005
+Epoch 083 | train_rec=0.000046  train_kld=0.000000 | val_rec=0.000004 (RMSE=0.002067)  val_kld=0.000000  total=0.000004
+Epoch 084 | train_rec=0.000127  train_kld=0.000000 | val_rec=0.000004 (RMSE=0.002114)  val_kld=0.000000  total=0.000004
+Epoch 085 | train_rec=0.000010  train_kld=0.000000 | val_rec=0.000008 (RMSE=0.002868)  val_kld=0.000000  total=0.000008
+Epoch 086 | train_rec=0.000025  train_kld=0.000000 | val_rec=0.000483 (RMSE=0.021977)  val_kld=0.000000  total=0.000483
+Epoch 087 | train_rec=0.000069  train_kld=0.000000 | val_rec=0.000001 (RMSE=0.000993)  val_kld=0.000000  total=0.000001
+Epoch 088 | train_rec=0.000006  train_kld=0.000000 | val_rec=0.000001 (RMSE=0.001023)  val_kld=0.000000  total=0.000001
+Epoch 089 | train_rec=0.000008  train_kld=0.000000 | val_rec=0.000081 (RMSE=0.009006)  val_kld=0.000000  total=0.000081
+Epoch 090 | train_rec=0.000025  train_kld=0.000000 | val_rec=0.000009 (RMSE=0.002966)  val_kld=0.000000  total=0.000009
+Epoch 091 | train_rec=0.000039  train_kld=0.000000 | val_rec=0.000001 (RMSE=0.001190)  val_kld=0.000000  total=0.000001
+Epoch 092 | train_rec=0.000008  train_kld=0.000000 | val_rec=0.000001 (RMSE=0.001084)  val_kld=0.000000  total=0.000001
+Epoch 093 | train_rec=0.000038  train_kld=0.000000 | val_rec=0.000002 (RMSE=0.001335)  val_kld=0.000000  total=0.000002
+Epoch 094 | train_rec=0.000018  train_kld=0.000000 | val_rec=0.000003 (RMSE=0.001696)  val_kld=0.000000  total=0.000003
+Epoch 095 | train_rec=0.000014  train_kld=0.000000 | val_rec=0.000002 (RMSE=0.001367)  val_kld=0.000000  total=0.000002
+Epoch 096 | train_rec=0.000008  train_kld=0.000000 | val_rec=0.000007 (RMSE=0.002645)  val_kld=0.000000  total=0.000007
+Epoch 097 | train_rec=0.000036  train_kld=0.000000 | val_rec=0.000006 (RMSE=0.002424)  val_kld=0.000000  total=0.000006
+Epoch 098 | train_rec=0.000012  train_kld=0.000000 | val_rec=0.000003 (RMSE=0.001864)  val_kld=0.000000  total=0.000003
+Epoch 099 | train_rec=0.000023  train_kld=0.000000 | val_rec=0.000002 (RMSE=0.001565)  val_kld=0.000000  total=0.000002
+Epoch 100 | train_rec=0.000012  train_kld=0.000000 | val_rec=0.000009 (RMSE=0.002931)  val_kld=0.000000  total=0.000009
+Epoch 101 | train_rec=0.000029  train_kld=0.000000 | val_rec=0.000130 (RMSE=0.011401)  val_kld=0.000000  total=0.000130
+Epoch 102 | train_rec=0.000724  train_kld=0.000000 | val_rec=0.000010 (RMSE=0.003112)  val_kld=0.000000  total=0.000010
+Epoch 103 | train_rec=0.000031  train_kld=0.000000 | val_rec=0.000005 (RMSE=0.002207)  val_kld=0.000000  total=0.000005
+Epoch 104 | train_rec=0.000031  train_kld=0.000000 | val_rec=0.000004 (RMSE=0.002056)  val_kld=0.000000  total=0.000004
+Epoch 105 | train_rec=0.000014  train_kld=0.000000 | val_rec=0.000006 (RMSE=0.002369)  val_kld=0.000000  total=0.000006
+Epoch 106 | train_rec=0.000010  train_kld=0.000000 | val_rec=0.000005 (RMSE=0.002273)  val_kld=0.000000  total=0.000005
+Epoch 107 | train_rec=0.000008  train_kld=0.000000 | val_rec=0.000002 (RMSE=0.001402)  val_kld=0.000000  total=0.000002
+Done.
+{
+  "s_dim": 15,
+  "latent_dim": 128,
+  "epochs_run": 107,
+  "best_val_total": 9.861847185675288e-07,
+  "best_model_path": "\\Users\\a1021500655\\Desktop\\radar\\outputs\\state_vae\\state_ae_or_vae.pt",
+  "embeddings_mu_path": "\\Users\\a1021500655\\Desktop\\radar\\outputs\\state_vae\\state_embeddings_mu.npy",
+  "model_type": "AE",
+  "contrast_w": 3.0
+}
+=== 2b/6 生成 VAE 重建可视化 (5×4 对比 + 绝对误差) ===
+[OK] 重建对比图已保存: /Users/a1021500655/Desktop/radar/outputs/figures/reconstructed_samples.png
+[OK] 重建绝对误差图已保存: /Users/a1021500655/Desktop/radar/outputs/figures/reconstruction_abs_error.png
+=== 2c/6 潜向量 t-SNE 可视化 (干扰类型) ===
+[INFO] Loaded embeddings: (100000, 128), scenarios=5000, intra_max_dist_mean=9.64e-06
+[OK] 场景 μ 一致性统计: /Users/a1021500655/Desktop/radar/outputs/figures/latent/scenario_mu_stats.txt
+[OK] 场景内 μ 一致性直方图: /Users/a1021500655/Desktop/radar/outputs/figures/latent/scenario_mu_consistency.png
+[INFO] t-SNE: n=5000 scenarios, 7 jammer types, perplexity=50
+[t-SNE] Computing 151 nearest neighbors...
+[t-SNE] Indexed 5000 samples in 0.000s...
+[t-SNE] Computed neighbors for 5000 samples in 0.302s...
+[t-SNE] Computed conditional probabilities for sample 1000 / 5000
+[t-SNE] Computed conditional probabilities for sample 2000 / 5000
+[t-SNE] Computed conditional probabilities for sample 3000 / 5000
+[t-SNE] Computed conditional probabilities for sample 4000 / 5000
+[t-SNE] Computed conditional probabilities for sample 5000 / 5000
+[t-SNE] Mean sigma: 28.078996
+[t-SNE] KL divergence after 250 iterations with early exaggeration: 70.051743
+[t-SNE] KL divergence after 1000 iterations: 1.101520
+[OK] t-SNE 散点图已保存: /Users/a1021500655/Desktop/radar/outputs/figures/latent/tsne_scatter.png
+[OK] t-SNE 密度图已保存: /Users/a1021500655/Desktop/radar/outputs/figures/latent/tsne_density.png
+=== 2d/6 潜空间无监督聚类 (KMeans) ===
+
+=== Clustering Summary ===
+Embeddings: /Users/a1021500655/Desktop/radar/outputs/state_vae/state_embeddings_mu.npy  |  n=20000, dim=128
+Best Silhouette:      k=19  score=0.1094  (higher=better)
+Best Davies–Bouldin:  k=2  score=2.1021  (lower=better)
+
+已写入: /Users/a1021500655/Desktop/radar/outputs/q_value/holdout_baselines/comparison_table_detailed.csv
+已写入: /Users/a1021500655/Desktop/radar/outputs/q_value/holdout_baselines/comparison_table.md
+ k silhouette davies_bouldin
+ 2     0.0676         2.1021
+ 3     0.0821         2.9800
+ 4     0.0862         4.0116
+ 5     0.0926         4.4610
+ 6     0.0925         4.3912
+ 7     0.0999         4.1223
+ 8     0.0943         3.8638
+ 9     0.0989         3.8006
+10     0.0746         3.9175
+11     0.1052         3.8744
+12     0.1056         3.6233
+13     0.0846         3.6859
+14     0.0879         3.5359
+15     0.0861         3.3082
+16     0.0997         3.1368
+17     0.0975         3.2908
+18     0.0987         3.1781
+19     0.1094         3.1979
+20     0.1054         3.1081
+[OK] 聚类曲线已保存: /Users/a1021500655/Desktop/radar/outputs/figures/clustering
+=== 3/6 训练 Q 网络 Q(z,A)->R ===
+设备: cpu
+加载缓存潜向量: /Users/a1021500655/Desktop/radar/outputs/q_value/latent_q/state_latent_mu.npy (100000, 128)
+数据: z(100000, 128), A(100000, 9), R(100000,), scenarios=5000, K≈20/场景
+划分: train 4000 场景 / val 1000 场景
+检索 ranking: Top-5, λ=0.5, 每 epoch 32×4 场景
+开始训练 QLatentNet: epochs<=300, patience=25
+Epoch 001 | train_mse=0.18643 rank_nll=3.6886 | val_mse=10.06111 val_rank_nll=3.1210 combined=11.62161
+Epoch 020 | train_mse=0.12248 rank_nll=3.8870 | val_mse=0.68488 val_rank_nll=3.3935 combined=2.38165
+早停 @ epoch 27 (combined=val_mse+0.5*val_rank_nll)
+
+--- Q(z,A) 回归（验证集，R 为标准化 SINR）---
+{
+  "val_rmse_std": 0.4787200179808819,
+  "val_mae_std": 0.3427327275276184,
+  "val_r2_std": 0.7621039152145386,
+  "val_pearson_std": 0.8895637602827998,
+  "best_val_combined": 2.236835151910782,
+  "rank_lambda": 0.5,
+  "top_k_retrieve": 5,
+  "epochs_run": 27,
+  "z_dim": 128,
+  "a_dim": 9,
+  "latent_cache": "/Users/a1021500655/Desktop/radar/outputs/q_value/latent_q/state_latent_mu.npy",
+  "model_path": "/Users/a1021500655/Desktop/radar/outputs/q_value/latent_q/q_latent_best.pt"
+}
+
+--- 动作推荐（每场景 K=20 A 内 argmax Q）---
+{
+  "n_eval_scenarios": 1000,
+  "actions_per_scenario_mean": 20.0,
+  "oracle_hit_at_1": 0.413,
+  "mean_regret_sinr_db": 1.5318413,
+  "median_regret_sinr_db": 0.3144999999999998,
+  "frac_zero_regret": 0.413,
+  "mean_rank_of_oracle_action_by_q": 1.0
+}
+
+--- 检索候选池推荐（Top-5 train 场景, ~100 A, 对齐 Retrieve+Q）---
+{
+  "n_eval_scenarios": 1000,
+  "candidates_per_scenario_mean": 100.0,
+  "oracle_hit_at_1": 0.323,
+  "mean_regret_sinr_db": 1.1741067,
+  "median_regret_sinr_db": 0.4046000000000003,
+  "frac_zero_regret": 0.323,
+  "mean_rank_nll": 4.011947985887527
+}
+
+模型已保存: /Users/a1021500655/Desktop/radar/outputs/q_value/latent_q/q_latent_best.pt
+指标已保存: /Users/a1021500655/Desktop/radar/outputs/q_value/latent_q/metrics.json
+=== 4/6 训练检索条件 Q Q(z,z_ctx,A)->R ===
+设备: cpu
+加载缓存潜向量: /Users/a1021500655/Desktop/radar/outputs/q_value/latent_q/state_latent_mu.npy (100000, 128)
+加载 z_ctx 缓存: /Users/a1021500655/Desktop/radar/outputs/q_value/latent_q_retrieval/z_ctx_per_row.npy (100000, 128)
+训练 QRetrievalNet: Top-5 ctx, MSE + λ=0.5 ranking
+Epoch 001 | train_mse=0.18916 rank=3.8699 | val_mse=6.08271 val_rank=3.2588 combined=7.71209
+Epoch 020 | train_mse=0.13337 rank=3.8259 | val_mse=0.89011 val_rank=3.4685 combined=2.62434
+Epoch 040 | train_mse=0.12581 rank=3.8866 | val_mse=1.41263 val_rank=3.4694 combined=3.14732
+Epoch 060 | train_mse=0.12359 rank=3.9036 | val_mse=0.99602 val_rank=3.5546 combined=2.77332
+Epoch 080 | train_mse=0.11537 rank=3.8277 | val_mse=0.64276 val_rank=3.5161 combined=2.40084
+早停 @ epoch 94
+
+--- QRetrievalNet 验证 ---
+{
+  "val_rmse_std": 0.6287884098326149,
+  "val_mae_std": 0.49780794978141785,
+  "val_r2_std": 0.5895756483078003,
+  "val_pearson_std": 0.875197497717047,
+  "best_val_combined": 2.1840083301067352,
+  "top_k_retrieve": 5,
+  "epochs_run": 94,
+  "model_path": "/Users/a1021500655/Desktop/radar/outputs/q_value/latent_q_retrieval/q_retrieval_best.pt"
+}
+
+模型已保存: /Users/a1021500655/Desktop/radar/outputs/q_value/latent_q_retrieval/q_retrieval_best.pt
+=== 5/6 留出场景推理评估 ===
+留出集: 500 场景, K=10, 检索库 4000 train 场景
+评估方法: ['random', 'retrieval_max_r', 'q_only', 'retrieve_q_union', 'oracle_wide']
+
+--- random: Random（检索候选池内随机） ---
+  [random] 1/500 sid=1000000 rec=9.60 oracle_k20=11.28 regret=1.68
+  [random] 2/500 sid=1000001 rec=1.69 oracle_k20=12.47 regret=10.77
+  [random] 101/500 sid=1000100 rec=11.95 oracle_k20=15.94 regret=3.99
+  [random] 201/500 sid=1000200 rec=18.74 oracle_k20=18.68 regret=-0.06
+  [random] 301/500 sid=1000300 rec=28.89 oracle_k20=30.84 regret=1.95
+  [random] 401/500 sid=1000400 rec=9.52 oracle_k20=12.42 regret=2.89
+--- retrieval_max_r: Retrieval-only（训练 R 最高） ---
+  [retrieval_max_r] 1/500 sid=1000000 rec=12.61 oracle_k20=11.28 regret=-1.33
+  [retrieval_max_r] 2/500 sid=1000001 rec=12.92 oracle_k20=12.47 regret=-0.45
+  [retrieval_max_r] 101/500 sid=1000100 rec=18.22 oracle_k20=15.94 regret=-2.28
+  [retrieval_max_r] 201/500 sid=1000200 rec=19.57 oracle_k20=18.68 regret=-0.89
+  [retrieval_max_r] 301/500 sid=1000300 rec=31.42 oracle_k20=30.84 regret=-0.57
+  [retrieval_max_r] 401/500 sid=1000400 rec=13.48 oracle_k20=12.42 regret=-1.06
+--- q_only: Q-only（无检索，随机 5 A） ---
+  [q_only] 1/500 sid=1000000 rec=11.32 oracle_k20=11.28 regret=-0.04
+  [q_only] 2/500 sid=1000001 rec=12.46 oracle_k20=12.47 regret=0.01
+  [q_only] 101/500 sid=1000100 rec=11.35 oracle_k20=15.94 regret=4.59
+  [q_only] 201/500 sid=1000200 rec=18.98 oracle_k20=18.68 regret=-0.30
+  [q_only] 301/500 sid=1000300 rec=31.10 oracle_k20=30.84 regret=-0.26
+  [q_only] 401/500 sid=1000400 rec=11.49 oracle_k20=12.42 regret=0.93
+--- retrieve_q_union: Retrieve+Q（检索池 ∪ 随机 100 A） ---
+  [retrieve_q_union] 1/500 sid=1000000 rec=12.06 oracle_k20=11.28 regret=-0.78
+  [retrieve_q_union] 2/500 sid=1000001 rec=13.00 oracle_k20=12.47 regret=-0.53
+  [retrieve_q_union] 101/500 sid=1000100 rec=17.44 oracle_k20=15.94 regret=-1.50
+  [retrieve_q_union] 201/500 sid=1000200 rec=19.62 oracle_k20=18.68 regret=-0.94
+  [retrieve_q_union] 301/500 sid=1000300 rec=32.48 oracle_k20=30.84 regret=-1.64
+  [retrieve_q_union] 401/500 sid=1000400 rec=13.32 oracle_k20=12.42 regret=-0.90
+--- oracle_wide: Oracle-Wide（查询 S 上 100 随机 A 上界） ---
+  [oracle_wide] 1/500 sid=1000000 rec=12.20 oracle_k20=11.28 regret=-0.91
+  [oracle_wide] 2/500 sid=1000001 rec=13.48 oracle_k20=12.47 regret=-1.01
+  [oracle_wide] 101/500 sid=1000100 rec=18.22 oracle_k20=15.94 regret=-2.28
+  [oracle_wide] 201/500 sid=1000200 rec=19.34 oracle_k20=18.68 regret=-0.66
+  [oracle_wide] 301/500 sid=1000300 rec=32.39 oracle_k20=30.84 regret=-1.55
+  [oracle_wide] 401/500 sid=1000400 rec=14.68 oracle_k20=12.42 regret=-2.26
+
+--- 配对胜率（相对 Q-only，逐场景 SINR 更高即胜）---
+  random             胜  97/500  (19.4%)
+  retrieval_max_r    胜 417/500  (83.4%)
+  retrieve_q_union   胜 411/500  (82.2%)
+
+=== 留出集 Baseline 对比汇总 (regret vs Oracle-K20) ===
+方法                   推荐SINR  Oracle-K20   regret  med_reg  Hit@K20
+random                14.67       18.59    3.922    3.311    10.0%
+retrieval_max_r       19.45       18.59   -0.855   -0.724    75.6%
+q_only                17.85       18.59    0.740    0.511    37.4%
+retrieve_q_union      19.33       18.59   -0.735   -0.814    76.8%
+oracle_wide           20.16       18.59   -1.567   -1.377    94.0%
+
+已保存: /Users/a1021500655/Desktop/radar/outputs/q_value/holdout_baselines/summary.json
+已保存: /Users/a1021500655/Desktop/radar/outputs/q_value/holdout_baselines/summary.csv
+=== 5b/6 生成训练效果分析图 ===
+[OK] /Users/a1021500655/Desktop/radar/outputs/figures/eval/vae_val_rmse.png
+[OK] /Users/a1021500655/Desktop/radar/outputs/figures/eval/q_training_curves.png
+[OK] /Users/a1021500655/Desktop/radar/outputs/figures/eval/q_selection_metrics.png
+[OK] /Users/a1021500655/Desktop/radar/outputs/figures/eval/baseline_regret_db.png
+[OK] /Users/a1021500655/Desktop/radar/outputs/figures/eval/baseline_oracle_recovery.png
+[OK] /Users/a1021500655/Desktop/radar/outputs/figures/eval/baseline_win_rate_vs_qonly.png
+[OK] /Users/a1021500655/Desktop/radar/outputs/figures/eval/training_dashboard.png
+=== 5c/6 导出留出集对比表 ===
+=== 5d/6 生成留出集主报图 (ΔSINR / 胜率 / regret 分位数) ===
+[OK] /Users/a1021500655/Desktop/radar/outputs/figures/eval/presentation_delta_sinr_vs_qonly.png
+[OK] /Users/a1021500655/Desktop/radar/outputs/figures/eval/presentation_win_rate_vs_qonly.png
+[OK] /Users/a1021500655/Desktop/radar/outputs/figures/eval/presentation_regret_quantiles.png
+[OK] /Users/a1021500655/Desktop/radar/outputs/figures/eval/presentation_regret_quantile_lines.png

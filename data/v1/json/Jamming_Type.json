@@ -1,0 +1,308 @@
+[
+    {
+        "Jamming_Type": "jammer_close"
+    },
+    {
+        "Jamming_Type": "jammer_close"
+    },
+    {
+        "Jamming_Type": "jammer_close"
+    },
+    {
+        "Jamming_Type": "jammer_close"
+    },
+    {
+        "Jamming_Type": "jammer_close"
+    },
+    {
+        "Jamming_Type": "jammer_close"
+    },
+    {
+        "Jamming_Type": "jammer_narrow_band"
+    },
+    {
+        "Jamming_Type": "jammer_narrow_band"
+    },
+    {
+        "Jamming_Type": "jammer_narrow_band"
+    },
+    {
+        "Jamming_Type": "jammer_narrow_band"
+    },
+    {
+        "Jamming_Type": "jammer_narrow_band"
+    },
+    {
+        "Jamming_Type": "jammer_narrow_band"
+    },
+    {
+        "Jamming_Type": "jammer_narrow_band"
+    },
+    {
+        "Jamming_Type": "jammer_narrow_band"
+    },
+    {
+        "Jamming_Type": "jammer_narrow_band"
+    },
+    {
+        "Jamming_Type": "jammer_narrow_band"
+    },
+    {
+        "Jamming_Type": "jammer_narrow_band"
+    },
+    {
+        "Jamming_Type": "jammer_narrow_band"
+    },
+    {
+        "Jamming_Type": "jammer_wide_band"
+    },
+    {
+        "Jamming_Type": "jammer_wide_band"
+    },
+    {
+        "Jamming_Type": "jammer_wide_band"
+    },
+    {
+        "Jamming_Type": "jammer_wide_band"
+    },
+    {
+        "Jamming_Type": "jammer_wide_band"
+    },
+    {
+        "Jamming_Type": "jammer_wide_band"
+    },
+    {
+        "Jamming_Type": "jammer_multi_false_targets"
+    },
+    {
+        "Jamming_Type": "jammer_multi_false_targets"
+    },
+    {
+        "Jamming_Type": "jammer_multi_false_targets"
+    },
+    {
+        "Jamming_Type": "jammer_multi_false_targets"
+    },
+    {
+        "Jamming_Type": "jammer_multi_false_targets"
+    },
+    {
+        "Jamming_Type": "jammer_multi_false_targets"
+    },
+    {
+        "Jamming_Type": "jammer_multi_false_targets"
+    },
+    {
+        "Jamming_Type": "jammer_multi_false_targets"
+    },
+    {
+        "Jamming_Type": "jammer_multi_false_targets"
+    },
+    {
+        "Jamming_Type": "jammer_multi_false_targets"
+    },
+    {
+        "Jamming_Type": "jammer_multi_false_targets"
+    },
+    {
+        "Jamming_Type": "jammer_multi_false_targets"
+    },
+    {
+        "Jamming_Type": "jammer_multi_false_targets"
+    },
+    {
+        "Jamming_Type": "jammer_multi_false_targets"
+    },
+    {
+        "Jamming_Type": "jammer_multi_false_targets"
+    },
+    {
+        "Jamming_Type": "jammer_multi_false_targets"
+    },
+    {
+        "Jamming_Type": "jammer_multi_false_targets"
+    },
+    {
+        "Jamming_Type": "jammer_multi_false_targets"
+    },
+    {
+        "Jamming_Type": "jammer_InterruptedSampling"
+    },
+    {
+        "Jamming_Type": "jammer_InterruptedSampling"
+    },
+    {
+        "Jamming_Type": "jammer_InterruptedSampling"
+    },
+    {
+        "Jamming_Type": "jammer_InterruptedSampling"
+    },
+    {
+        "Jamming_Type": "jammer_InterruptedSampling"
+    },
+    {
+        "Jamming_Type": "jammer_InterruptedSampling"
+    },
+    {
+        "Jamming_Type": "jammer_InterruptedSampling"
+    },
+    {
+        "Jamming_Type": "jammer_InterruptedSampling"
+    },
+    {
+        "Jamming_Type": "jammer_InterruptedSampling"
+    },
+    {
+        "Jamming_Type": "jammer_InterruptedSampling"
+    },
+    {
+        "Jamming_Type": "jammer_InterruptedSampling"
+    },
+    {
+        "Jamming_Type": "jammer_InterruptedSampling"
+    },
+    {
+        "Jamming_Type": "jammer_InterruptedSampling"
+    },
+    {
+        "Jamming_Type": "jammer_InterruptedSampling"
+    },
+    {
+        "Jamming_Type": "jammer_InterruptedSampling"
+    },
+    {
+        "Jamming_Type": "jammer_InterruptedSampling"
+    },
+    {
+        "Jamming_Type": "jammer_InterruptedSampling"
+    },
+    {
+        "Jamming_Type": "jammer_InterruptedSampling"
+    },
+    {
+        "Jamming_Type": "jammer_RANDOM"
+    },
+    {
+        "Jamming_Type": "jammer_RANDOM"
+    },
+    {
+        "Jamming_Type": "jammer_RANDOM"
+    },
+    {
+        "Jamming_Type": "jammer_RANDOM"
+    },
+    {
+        "Jamming_Type": "jammer_RANDOM"
+    },
+    {
+        "Jamming_Type": "jammer_RANDOM"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    },
+    {
+        "Jamming_Type": "jammer_swept"
+    }
+]

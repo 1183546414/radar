@@ -1,0 +1,37 @@
+﻿[split] train 4000 场景 / val 1000 场景
+[val] 固定 val 集 4096 样本 | device=cuda
+[seed 42] epoch   1 | train 0.2893 | val 0.2077 | best 0.2077 @ 1
+[seed 42] epoch  10 | train 0.1718 | val 0.1887 | best 0.1855 @ 8
+[seed 42] epoch  20 | train 0.1610 | val 0.1882 | best 0.1848 @ 17
+[seed 42] epoch  30 | train 0.1490 | val 0.1868 | best 0.1848 @ 17
+[seed 42] epoch  40 | train 0.1413 | val 0.1862 | best 0.1848 @ 17
+[seed 42] 早停于 epoch 42（best 0.1848 @ 17）
+[seed 1042] epoch   1 | train 0.2750 | val 0.2060 | best 0.2060 @ 1
+[seed 1042] epoch  10 | train 0.1721 | val 0.1925 | best 0.1850 @ 8
+[seed 1042] epoch  20 | train 0.1583 | val 0.1880 | best 0.1850 @ 8
+[seed 1042] epoch  30 | train 0.1470 | val 0.1934 | best 0.1848 @ 27
+[seed 1042] epoch  40 | train 0.1398 | val 0.1933 | best 0.1842 @ 31
+[seed 1042] epoch  50 | train 0.1288 | val 0.1974 | best 0.1842 @ 31
+[seed 1042] 早停于 epoch 56（best 0.1842 @ 31）
+[seed 2042] epoch   1 | train 0.3070 | val 0.2112 | best 0.2112 @ 1
+[seed 2042] epoch  10 | train 0.1732 | val 0.1829 | best 0.1829 @ 10
+[seed 2042] epoch  20 | train 0.1550 | val 0.1803 | best 0.1803 @ 20
+[seed 2042] epoch  30 | train 0.1482 | val 0.1914 | best 0.1803 @ 20
+[seed 2042] epoch  40 | train 0.1432 | val 0.1893 | best 0.1803 @ 20
+[seed 2042] 早停于 epoch 45（best 0.1803 @ 20）
+[seed 3042] epoch   1 | train 0.2726 | val 0.2091 | best 0.2091 @ 1
+[seed 3042] epoch  10 | train 0.1685 | val 0.1902 | best 0.1884 @ 7
+[seed 3042] epoch  20 | train 0.1583 | val 0.1893 | best 0.1838 @ 17
+[seed 3042] epoch  30 | train 0.1484 | val 0.1893 | best 0.1838 @ 17
+[seed 3042] epoch  40 | train 0.1374 | val 0.1920 | best 0.1838 @ 17
+[seed 3042] 早停于 epoch 42（best 0.1838 @ 17）
+[seed 4042] epoch   1 | train 0.2805 | val 0.2011 | best 0.2011 @ 1
+[seed 4042] epoch  10 | train 0.1763 | val 0.1853 | best 0.1853 @ 10
+[seed 4042] epoch  20 | train 0.1571 | val 0.1870 | best 0.1845 @ 19
+[seed 4042] epoch  30 | train 0.1468 | val 0.1925 | best 0.1841 @ 27
+[seed 4042] epoch  40 | train 0.1392 | val 0.1891 | best 0.1841 @ 27
+[seed 4042] epoch  50 | train 0.1298 | val 0.2039 | best 0.1841 @ 27
+[seed 4042] 早停于 epoch 52（best 0.1841 @ 27）
+
+全部成员完成: val_mse = [0.1848, 0.1842, 0.1803, 0.1838, 0.1841]
+总耗时 17.7 min | 报告: C:\Users\Administrator\Desktop\文件\radar\radar\outputs\20261013_icdt\train_report.json

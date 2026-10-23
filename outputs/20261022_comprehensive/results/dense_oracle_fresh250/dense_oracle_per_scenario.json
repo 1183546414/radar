@@ -1,0 +1,4779 @@
+{
+  "summary": {
+    "protocol": {
+      "n_holdout": 250,
+      "n_random": 5000,
+      "max_sweeps": 8,
+      "seed": 20261022,
+      "jsr_db": 10.0,
+      "backend": "SignalSinrBackend",
+      "grid": "载频/带宽 1MHz、脉宽 100ns、增益 1dB、类型 4 选 1（与既有评估同口径）",
+      "holdout_csv": "C:\\Users\\Administrator\\Desktop\\文件\\radar\\radar\\outputs\\20261022_comprehensive\\results\\dense_oracle_fresh250\\holdout_fresh250.csv"
+    },
+    "dense_oracle": {
+      "mean_db": 25.06315133154053,
+      "median_db": 22.98075,
+      "min_db": 7.2072,
+      "max_db": 42.392888181104325
+    },
+    "reference": {
+      "oracle_k20_mean_db": 18.250229200000003,
+      "oracle_k20_check_note": "应与 Round2 报告的 17.25 dB 一致（同 CSV 同列）",
+      "oracle_wide_mean_db_reported": "Round2 报告 23.18（100 随机，供对照）"
+    },
+    "backend_stats": "仿真次数=940761, 缓存命中=940761, 相位编码回退=314289",
+    "elapsed_min": 66.5
+  },
+  "per_scenario": [
+    {
+      "sid": 1000050,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 11.519,
+      "random_best_db": 39.412526890709756,
+      "random_mean_db": -11.250531416670517,
+      "dense_oracle_db": 39.412526890709756,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 11,
+      "best_action": {
+        "r_freq": 4800000000.0,
+        "r_bw": 7000000.0,
+        "r_pw": 26500,
+        "r_gain": 26,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000051,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 21.3971,
+      "random_best_db": 21.3587,
+      "random_mean_db": 2.791017740750697,
+      "dense_oracle_db": 21.3748,
+      "refine_gain_db": 0.016100000000001558,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 4240000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 37700,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000052,
+      "jammer_type": "jammer_narrow_band",
+      "oracle_k20_db": 33.0373,
+      "random_best_db": 33.0515,
+      "random_mean_db": 3.6059129839755477,
+      "dense_oracle_db": 33.1023,
+      "refine_gain_db": 0.0508000000000024,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4220000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39600,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000053,
+      "jammer_type": "jammer_narrow_band",
+      "oracle_k20_db": 31.9057,
+      "random_best_db": 33.903,
+      "random_mean_db": 6.880532419553981,
+      "dense_oracle_db": 33.9551,
+      "refine_gain_db": 0.05210000000000292,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4520000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 36600,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000054,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 16.8439,
+      "random_best_db": 16.7856,
+      "random_mean_db": -4.471117646285886,
+      "dense_oracle_db": 16.9103,
+      "refine_gain_db": 0.1247000000000007,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3830000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 40000,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000055,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 11.0608,
+      "random_best_db": 38.961856984054386,
+      "random_mean_db": -11.007544688433821,
+      "dense_oracle_db": 38.961856984054386,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 10,
+      "best_action": {
+        "r_freq": 4110000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 21500,
+        "r_gain": 38,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000056,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 15.4709,
+      "random_best_db": 18.969248597969223,
+      "random_mean_db": 0.16307020335302527,
+      "dense_oracle_db": 18.969248597969223,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 11,
+      "best_action": {
+        "r_freq": 3660000000.0,
+        "r_bw": 6000000.0,
+        "r_pw": 20800,
+        "r_gain": 35,
+        "r_type": "非线性调频1",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000057,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 10.4223,
+      "random_best_db": 42.323556927570095,
+      "random_mean_db": -11.300941415233805,
+      "dense_oracle_db": 42.323556927570095,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 11,
+      "best_action": {
+        "r_freq": 4420000000.0,
+        "r_bw": 7000000.0,
+        "r_pw": 27100,
+        "r_gain": 36,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000058,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 26.952,
+      "random_best_db": 25.9995,
+      "random_mean_db": 2.9625014669598184,
+      "dense_oracle_db": 26.0153,
+      "refine_gain_db": 0.015799999999998704,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 4540000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 38400,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000059,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 18.5166,
+      "random_best_db": 18.7175,
+      "random_mean_db": -2.802763908996385,
+      "dense_oracle_db": 18.742,
+      "refine_gain_db": 0.024499999999999744,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3760000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 38700,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000060,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 12.3882,
+      "random_best_db": 13.5678,
+      "random_mean_db": 1.357994578631086,
+      "dense_oracle_db": 13.584,
+      "refine_gain_db": 0.016199999999999548,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 4270000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 37400,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000061,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 17.449,
+      "random_best_db": 24.66612080366918,
+      "random_mean_db": 1.9783134139297254,
+      "dense_oracle_db": 26.163901344546787,
+      "refine_gain_db": 1.4977805408776064,
+      "n_random": 5000,
+      "n_refine_evals": 21,
+      "best_action": {
+        "r_freq": 4890000000.0,
+        "r_bw": 22000000.0,
+        "r_pw": 38400,
+        "r_gain": 20,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000062,
+      "jammer_type": "jammer_narrow_band",
+      "oracle_k20_db": 30.9873,
+      "random_best_db": 32.7248,
+      "random_mean_db": 5.925311803927223,
+      "dense_oracle_db": 32.7418,
+      "refine_gain_db": 0.016999999999995907,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3500000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 35800,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000063,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 16.8308,
+      "random_best_db": 18.83159975587406,
+      "random_mean_db": 0.5646041216805384,
+      "dense_oracle_db": 19.173581693910783,
+      "refine_gain_db": 0.3419819380367244,
+      "n_random": 5000,
+      "n_refine_evals": 43,
+      "best_action": {
+        "r_freq": 4360000000.0,
+        "r_bw": 6000000.0,
+        "r_pw": 23500,
+        "r_gain": 21,
+        "r_type": "非线性调频1",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000064,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 12.0662,
+      "random_best_db": 41.909580804064525,
+      "random_mean_db": -11.396955481387721,
+      "dense_oracle_db": 41.909580804064525,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 10,
+      "best_action": {
+        "r_freq": 4360000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 25500,
+        "r_gain": 39,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000065,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 16.8872,
+      "random_best_db": 18.949,
+      "random_mean_db": 1.6094853956768727,
+      "dense_oracle_db": 18.9765,
+      "refine_gain_db": 0.027499999999999858,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 4780000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39600,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000066,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 10.3965,
+      "random_best_db": 12.11978858122076,
+      "random_mean_db": -0.29810192783361783,
+      "dense_oracle_db": 14.076548117544148,
+      "refine_gain_db": 1.9567595363233874,
+      "n_random": 5000,
+      "n_refine_evals": 79,
+      "best_action": {
+        "r_freq": 4250000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 23200,
+        "r_gain": 20,
+        "r_type": "非线性调频1",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000067,
+      "jammer_type": "jammer_narrow_band",
+      "oracle_k20_db": 28.4136,
+      "random_best_db": 32.0775,
+      "random_mean_db": 6.2479777172432485,
+      "dense_oracle_db": 32.2038,
+      "refine_gain_db": 0.12630000000000052,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4600000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39700,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000068,
+      "jammer_type": "jammer_narrow_band",
+      "oracle_k20_db": 31.6553,
+      "random_best_db": 33.2437,
+      "random_mean_db": 6.290934250152982,
+      "dense_oracle_db": 33.3334,
+      "refine_gain_db": 0.08970000000000056,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4870000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 35300,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000069,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 20.6927,
+      "random_best_db": 20.277,
+      "random_mean_db": 1.678939755435699,
+      "dense_oracle_db": 20.2923,
+      "refine_gain_db": 0.01529999999999987,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3950000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 39600,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000070,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 19.4677,
+      "random_best_db": 20.9226,
+      "random_mean_db": 2.555093530958053,
+      "dense_oracle_db": 20.9759,
+      "refine_gain_db": 0.053300000000000125,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 4830000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 40000,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000071,
+      "jammer_type": "jammer_narrow_band",
+      "oracle_k20_db": 32.5308,
+      "random_best_db": 33.3515,
+      "random_mean_db": 6.553569359456155,
+      "dense_oracle_db": 33.4023,
+      "refine_gain_db": 0.05079999999999529,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3100000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39600,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000072,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 18.721,
+      "random_best_db": 20.6558,
+      "random_mean_db": 3.2874136274248245,
+      "dense_oracle_db": 20.707,
+      "refine_gain_db": 0.05120000000000147,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4660000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 38700,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000073,
+      "jammer_type": "jammer_narrow_band",
+      "oracle_k20_db": 33.5307,
+      "random_best_db": 34.479,
+      "random_mean_db": 6.9003828563342395,
+      "dense_oracle_db": 34.6053,
+      "refine_gain_db": 0.12630000000000052,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3970000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39800,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000074,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 17.8092,
+      "random_best_db": 18.8356,
+      "random_mean_db": 2.4672057353155883,
+      "dense_oracle_db": 18.8517,
+      "refine_gain_db": 0.016100000000001558,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 4020000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 37800,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000075,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 12.775,
+      "random_best_db": 16.148,
+      "random_mean_db": 0.9361488192390091,
+      "dense_oracle_db": 16.1651,
+      "refine_gain_db": 0.017099999999999227,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3160000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 35400,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000076,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 21.7236,
+      "random_best_db": 21.8296,
+      "random_mean_db": 3.194792828739599,
+      "dense_oracle_db": 21.8451,
+      "refine_gain_db": 0.015499999999999403,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3710000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39000,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000077,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 12.9305,
+      "random_best_db": 14.4052,
+      "random_mean_db": 1.6121789182890083,
+      "dense_oracle_db": 14.4932,
+      "refine_gain_db": 0.08799999999999919,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4660000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39100,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000078,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 14.3724,
+      "random_best_db": 25.375159552835747,
+      "random_mean_db": -0.3245415585905992,
+      "dense_oracle_db": 27.642251518918957,
+      "refine_gain_db": 2.2670919660832105,
+      "n_random": 5000,
+      "n_refine_evals": 31,
+      "best_action": {
+        "r_freq": 4220000000.0,
+        "r_bw": 21000000.0,
+        "r_pw": 38000,
+        "r_gain": 20,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000079,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 25.5526,
+      "random_best_db": 25.2763,
+      "random_mean_db": 4.310581069791496,
+      "dense_oracle_db": 25.3287,
+      "refine_gain_db": 0.05240000000000222,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4820000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 36000,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000080,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 12.8358,
+      "random_best_db": 40.75004325154863,
+      "random_mean_db": -11.148663240647267,
+      "dense_oracle_db": 40.75004325154863,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 10,
+      "best_action": {
+        "r_freq": 4020000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 31100,
+        "r_gain": 28,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000081,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 11.5119,
+      "random_best_db": 40.299633227401124,
+      "random_mean_db": -11.856600545963433,
+      "dense_oracle_db": 40.299633227401124,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 10,
+      "best_action": {
+        "r_freq": 4800000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 25900,
+        "r_gain": 38,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000082,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 21.5149,
+      "random_best_db": 23.1613,
+      "random_mean_db": 2.3370904900120952,
+      "dense_oracle_db": 23.177,
+      "refine_gain_db": 0.015699999999998937,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3920000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 38600,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000083,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 12.4775,
+      "random_best_db": 13.738,
+      "random_mean_db": -0.13079768105922493,
+      "dense_oracle_db": 13.7579,
+      "refine_gain_db": 0.019899999999999807,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3150000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 33600,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000084,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 12.5909,
+      "random_best_db": 40.06116343944089,
+      "random_mean_db": -12.047557693718062,
+      "dense_oracle_db": 40.06116343944089,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 11,
+      "best_action": {
+        "r_freq": 3890000000.0,
+        "r_bw": 6000000.0,
+        "r_pw": 21900,
+        "r_gain": 38,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000085,
+      "jammer_type": "jammer_narrow_band",
+      "oracle_k20_db": 34.0461,
+      "random_best_db": 34.5222,
+      "random_mean_db": 7.384867076495322,
+      "dense_oracle_db": 34.6083,
+      "refine_gain_db": 0.08610000000000184,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3110000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 40000,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000086,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 12.673,
+      "random_best_db": 42.392888181104325,
+      "random_mean_db": -10.806799969594232,
+      "dense_oracle_db": 42.392888181104325,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 11,
+      "best_action": {
+        "r_freq": 4200000000.0,
+        "r_bw": 6000000.0,
+        "r_pw": 25200,
+        "r_gain": 39,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000087,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 27.5366,
+      "random_best_db": 28.3459,
+      "random_mean_db": 5.340486060972094,
+      "dense_oracle_db": 28.4353,
+      "refine_gain_db": 0.08940000000000126,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3590000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 35800,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000088,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 12.9567,
+      "random_best_db": 13.0151,
+      "random_mean_db": 0.9965099805016856,
+      "dense_oracle_db": 13.0307,
+      "refine_gain_db": 0.01559999999999917,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3950000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39100,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000089,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 19.8561,
+      "random_best_db": 22.14451443253548,
+      "random_mean_db": 2.122418351434992,
+      "dense_oracle_db": 24.51887563195852,
+      "refine_gain_db": 2.3743611994230385,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3980000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 29500,
+        "r_gain": 20,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000090,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 23.4382,
+      "random_best_db": 24.5313,
+      "random_mean_db": 4.219893204715525,
+      "dense_oracle_db": 24.6143,
+      "refine_gain_db": 0.08299999999999841,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3530000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 40000,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000091,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 21.7839,
+      "random_best_db": 22.8897,
+      "random_mean_db": 2.3725479692948372,
+      "dense_oracle_db": 22.9143,
+      "refine_gain_db": 0.02459999999999951,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3630000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 24900,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000092,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 17.7602,
+      "random_best_db": 18.8755,
+      "random_mean_db": 0.9574665252425264,
+      "dense_oracle_db": 18.8983,
+      "refine_gain_db": 0.022800000000000153,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3780000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 26800,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000093,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 20.4768,
+      "random_best_db": 20.8492,
+      "random_mean_db": 1.3742305432669473,
+      "dense_oracle_db": 20.8647,
+      "refine_gain_db": 0.015499999999999403,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3930000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 39100,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000094,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 12.4701,
+      "random_best_db": 42.112409158801825,
+      "random_mean_db": -11.371008029866836,
+      "dense_oracle_db": 42.112409158801825,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 11,
+      "best_action": {
+        "r_freq": 4270000000.0,
+        "r_bw": 7000000.0,
+        "r_pw": 25800,
+        "r_gain": 35,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000095,
+      "jammer_type": "jammer_narrow_band",
+      "oracle_k20_db": 35.8529,
+      "random_best_db": 36.918,
+      "random_mean_db": 7.304861447264075,
+      "dense_oracle_db": 36.9696,
+      "refine_gain_db": 0.051600000000000534,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3150000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 37500,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000096,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 21.7112,
+      "random_best_db": 23.8123,
+      "random_mean_db": 3.865718338134448,
+      "dense_oracle_db": 23.8277,
+      "refine_gain_db": 0.015399999999999636,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3080000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39400,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000097,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 15.9192,
+      "random_best_db": 16.7942,
+      "random_mean_db": 2.3550626483929418,
+      "dense_oracle_db": 16.8101,
+      "refine_gain_db": 0.01589999999999847,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 4320000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 38100,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000098,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 20.8796,
+      "random_best_db": 19.9476,
+      "random_mean_db": 2.8766529017846443,
+      "dense_oracle_db": 20.0358,
+      "refine_gain_db": 0.08819999999999695,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3510000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 38400,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000099,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 15.9345,
+      "random_best_db": 16.67969507796442,
+      "random_mean_db": 0.6427823246986796,
+      "dense_oracle_db": 18.29139196594889,
+      "refine_gain_db": 1.6116968879844684,
+      "n_random": 5000,
+      "n_refine_evals": 65,
+      "best_action": {
+        "r_freq": 4980000000.0,
+        "r_bw": 9000000.0,
+        "r_pw": 20700,
+        "r_gain": 40,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000100,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 15.9396,
+      "random_best_db": 14.7768,
+      "random_mean_db": 1.368214663693642,
+      "dense_oracle_db": 14.7768,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 9,
+      "best_action": {
+        "r_freq": 4860000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39500,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000101,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 21.696,
+      "random_best_db": 21.5087,
+      "random_mean_db": 3.0542342194402288,
+      "dense_oracle_db": 21.5811,
+      "refine_gain_db": 0.07239999999999824,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4170000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39700,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000102,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 14.6318,
+      "random_best_db": 16.5323,
+      "random_mean_db": 0.10074096740780568,
+      "dense_oracle_db": 16.5541,
+      "refine_gain_db": 0.02179999999999893,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3350000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39500,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000103,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 17.27,
+      "random_best_db": 15.8008,
+      "random_mean_db": 1.3550729687990497,
+      "dense_oracle_db": 15.8539,
+      "refine_gain_db": 0.053099999999998815,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3280000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 34400,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000104,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 14.4301,
+      "random_best_db": 13.6711,
+      "random_mean_db": 1.48107376670638,
+      "dense_oracle_db": 13.6874,
+      "refine_gain_db": 0.01630000000000109,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 4260000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 37300,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000105,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 7.4144,
+      "random_best_db": 9.86713659179198,
+      "random_mean_db": -0.5730407535652347,
+      "dense_oracle_db": 9.86713659179198,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 10,
+      "best_action": {
+        "r_freq": 3730000000.0,
+        "r_bw": 6000000.0,
+        "r_pw": 20700,
+        "r_gain": 40,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000106,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 15.1237,
+      "random_best_db": 32.42912864980501,
+      "random_mean_db": 1.2420610117868738,
+      "dense_oracle_db": 32.42912864980501,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 10,
+      "best_action": {
+        "r_freq": 4420000000.0,
+        "r_bw": 6000000.0,
+        "r_pw": 34200,
+        "r_gain": 20,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000107,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 13.2179,
+      "random_best_db": 12.7893,
+      "random_mean_db": -1.4664247279867337,
+      "dense_oracle_db": 12.8405,
+      "refine_gain_db": 0.05119999999999969,
+      "n_random": 5000,
+      "n_refine_evals": 17,
+      "best_action": {
+        "r_freq": 3000000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 38700,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000108,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 20.152,
+      "random_best_db": 30.248191044994755,
+      "random_mean_db": 2.0946083628698644,
+      "dense_oracle_db": 30.248191044994755,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 11,
+      "best_action": {
+        "r_freq": 3070000000.0,
+        "r_bw": 7000000.0,
+        "r_pw": 25000,
+        "r_gain": 34,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000109,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 21.5361,
+      "random_best_db": 30.36828212990118,
+      "random_mean_db": 2.6559184062921597,
+      "dense_oracle_db": 31.32557930740603,
+      "refine_gain_db": 0.9572971775048522,
+      "n_random": 5000,
+      "n_refine_evals": 44,
+      "best_action": {
+        "r_freq": 3650000000.0,
+        "r_bw": 7000000.0,
+        "r_pw": 25500,
+        "r_gain": 30,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000110,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 17.408,
+      "random_best_db": 17.6757,
+      "random_mean_db": 1.7394882274168548,
+      "dense_oracle_db": 17.7267,
+      "refine_gain_db": 0.05100000000000193,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3750000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39100,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000111,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 7.8077,
+      "random_best_db": 7.1911,
+      "random_mean_db": -0.38656628261162335,
+      "dense_oracle_db": 7.2072,
+      "refine_gain_db": 0.01610000000000067,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3110000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 37600,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000112,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 11.6796,
+      "random_best_db": 12.2132,
+      "random_mean_db": 0.6552483331070706,
+      "dense_oracle_db": 12.231,
+      "refine_gain_db": 0.017799999999999372,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 4450000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 38100,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000113,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 16.3034,
+      "random_best_db": 19.735,
+      "random_mean_db": 2.058034124534992,
+      "dense_oracle_db": 19.7877,
+      "refine_gain_db": 0.05270000000000152,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3160000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 35200,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000114,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 17.5596,
+      "random_best_db": 18.288,
+      "random_mean_db": 0.25511291923477014,
+      "dense_oracle_db": 18.4395,
+      "refine_gain_db": 0.15149999999999864,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3370000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39400,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000115,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 17.5244,
+      "random_best_db": 18.677025905788646,
+      "random_mean_db": -7.847077984401901,
+      "dense_oracle_db": 18.677025905788646,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 11,
+      "best_action": {
+        "r_freq": 3380000000.0,
+        "r_bw": 6000000.0,
+        "r_pw": 20200,
+        "r_gain": 23,
+        "r_type": "频率编码2",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000116,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 15.6747,
+      "random_best_db": 16.0311,
+      "random_mean_db": 2.1323279224528604,
+      "dense_oracle_db": 16.0466,
+      "refine_gain_db": 0.015500000000002956,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 4740000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39000,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000117,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 15.6333,
+      "random_best_db": 16.0203,
+      "random_mean_db": 1.1020820781273166,
+      "dense_oracle_db": 16.0558,
+      "refine_gain_db": 0.03550000000000253,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4970000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39600,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000118,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 12.3251,
+      "random_best_db": 13.0938,
+      "random_mean_db": 1.3114475474888878,
+      "dense_oracle_db": 13.2205,
+      "refine_gain_db": 0.1266999999999996,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3590000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 38700,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000119,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 19.2616,
+      "random_best_db": 19.9448,
+      "random_mean_db": 3.2569293670113564,
+      "dense_oracle_db": 19.9448,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 9,
+      "best_action": {
+        "r_freq": 4280000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39700,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000120,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 16.328,
+      "random_best_db": 32.02565968415571,
+      "random_mean_db": 1.907173995763154,
+      "dense_oracle_db": 32.822845345920776,
+      "refine_gain_db": 0.797185661765063,
+      "n_random": 5000,
+      "n_refine_evals": 33,
+      "best_action": {
+        "r_freq": 4580000000.0,
+        "r_bw": 7000000.0,
+        "r_pw": 26800,
+        "r_gain": 28,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000121,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 16.1346,
+      "random_best_db": 23.292469567263247,
+      "random_mean_db": -0.7112203108278727,
+      "dense_oracle_db": 23.457134601946752,
+      "refine_gain_db": 0.16466503468350524,
+      "n_random": 5000,
+      "n_refine_evals": 33,
+      "best_action": {
+        "r_freq": 4540000000.0,
+        "r_bw": 7000000.0,
+        "r_pw": 25200,
+        "r_gain": 23,
+        "r_type": "频率编码2",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000122,
+      "jammer_type": "jammer_narrow_band",
+      "oracle_k20_db": 31.3916,
+      "random_best_db": 33.8775,
+      "random_mean_db": 6.433381146174544,
+      "dense_oracle_db": 34.0038,
+      "refine_gain_db": 0.12630000000000052,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3430000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39700,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000123,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 13.3603,
+      "random_best_db": 14.0681,
+      "random_mean_db": -0.6913811255960767,
+      "dense_oracle_db": 14.2393,
+      "refine_gain_db": 0.17120000000000068,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4590000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 36900,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000124,
+      "jammer_type": "jammer_narrow_band",
+      "oracle_k20_db": 32.1624,
+      "random_best_db": 32.7653,
+      "random_mean_db": 6.122457402117834,
+      "dense_oracle_db": 32.8008,
+      "refine_gain_db": 0.03549999999999898,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4240000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39500,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000125,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 29.6284,
+      "random_best_db": 33.231,
+      "random_mean_db": 5.810678508638583,
+      "dense_oracle_db": 33.2823,
+      "refine_gain_db": 0.05129999999999768,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3470000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 38300,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000126,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 17.7671,
+      "random_best_db": 14.7228,
+      "random_mean_db": 1.4942700655930505,
+      "dense_oracle_db": 14.7737,
+      "refine_gain_db": 0.05090000000000039,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4620000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39300,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000127,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 12.4912,
+      "random_best_db": 41.47945635153043,
+      "random_mean_db": -11.416197828234031,
+      "dense_oracle_db": 41.47945635153043,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 11,
+      "best_action": {
+        "r_freq": 4880000000.0,
+        "r_bw": 7000000.0,
+        "r_pw": 25700,
+        "r_gain": 35,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000128,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 21.6276,
+      "random_best_db": 23.7432,
+      "random_mean_db": 3.9759681721267683,
+      "dense_oracle_db": 23.7949,
+      "refine_gain_db": 0.05169999999999675,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3520000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 37300,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000129,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 21.658,
+      "random_best_db": 20.8664,
+      "random_mean_db": -0.9447965629519672,
+      "dense_oracle_db": 20.8837,
+      "refine_gain_db": 0.017300000000002314,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3050000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 35200,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000130,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 15.1741,
+      "random_best_db": 16.8873,
+      "random_mean_db": 1.6242134352808206,
+      "dense_oracle_db": 16.9854,
+      "refine_gain_db": 0.09809999999999874,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4110000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39700,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000131,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 17.0657,
+      "random_best_db": 31.13083462507298,
+      "random_mean_db": 3.4468408583781347,
+      "dense_oracle_db": 31.13083462507298,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 10,
+      "best_action": {
+        "r_freq": 3660000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 20300,
+        "r_gain": 22,
+        "r_type": "非线性调频1",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000132,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 9.657,
+      "random_best_db": 8.80820690865791,
+      "random_mean_db": -0.12773445176922119,
+      "dense_oracle_db": 9.483780662866266,
+      "refine_gain_db": 0.6755737542083562,
+      "n_random": 5000,
+      "n_refine_evals": 88,
+      "best_action": {
+        "r_freq": 3230000000.0,
+        "r_bw": 6000000.0,
+        "r_pw": 20300,
+        "r_gain": 37,
+        "r_type": "非线性调频1",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000133,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 24.7948,
+      "random_best_db": 26.0598,
+      "random_mean_db": 4.482192252159327,
+      "dense_oracle_db": 26.1479,
+      "refine_gain_db": 0.08810000000000073,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3040000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 38600,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000134,
+      "jammer_type": "jammer_narrow_band",
+      "oracle_k20_db": 33.1667,
+      "random_best_db": 33.9653,
+      "random_mean_db": 6.765095851234942,
+      "dense_oracle_db": 34.0008,
+      "refine_gain_db": 0.03549999999999898,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3550000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39500,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000135,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 15.8041,
+      "random_best_db": 13.0088,
+      "random_mean_db": 0.619879118116214,
+      "dense_oracle_db": 13.0245,
+      "refine_gain_db": 0.015699999999998937,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3910000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 38700,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000136,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 13.1911,
+      "random_best_db": 16.414,
+      "random_mean_db": 0.34313724464256595,
+      "dense_oracle_db": 16.5055,
+      "refine_gain_db": 0.09149999999999991,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3920000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39800,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000137,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 8.0763,
+      "random_best_db": 11.483291199648898,
+      "random_mean_db": -0.08193109500394485,
+      "dense_oracle_db": 12.04955522550514,
+      "refine_gain_db": 0.5662640258562419,
+      "n_random": 5000,
+      "n_refine_evals": 80,
+      "best_action": {
+        "r_freq": 3370000000.0,
+        "r_bw": 6000000.0,
+        "r_pw": 20000,
+        "r_gain": 35,
+        "r_type": "非线性调频1",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000138,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 18.0087,
+      "random_best_db": 27.85772448689238,
+      "random_mean_db": 2.536983425052903,
+      "dense_oracle_db": 29.80835972318245,
+      "refine_gain_db": 1.9506352362900685,
+      "n_random": 5000,
+      "n_refine_evals": 32,
+      "best_action": {
+        "r_freq": 4910000000.0,
+        "r_bw": 23000000.0,
+        "r_pw": 24900,
+        "r_gain": 20,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000139,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 12.7058,
+      "random_best_db": 40.31148483423898,
+      "random_mean_db": -11.377969789082755,
+      "dense_oracle_db": 40.31148483423898,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 10,
+      "best_action": {
+        "r_freq": 3840000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 22400,
+        "r_gain": 33,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000140,
+      "jammer_type": "jammer_narrow_band",
+      "oracle_k20_db": 31.0907,
+      "random_best_db": 34.5229,
+      "random_mean_db": 6.968593343210962,
+      "dense_oracle_db": 34.5744,
+      "refine_gain_db": 0.051499999999997215,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3420000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 37800,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000141,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 13.6351,
+      "random_best_db": 41.47363970887725,
+      "random_mean_db": -10.892920074918697,
+      "dense_oracle_db": 41.47363970887725,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 11,
+      "best_action": {
+        "r_freq": 3720000000.0,
+        "r_bw": 6000000.0,
+        "r_pw": 29000,
+        "r_gain": 29,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000142,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 12.879,
+      "random_best_db": 14.9734,
+      "random_mean_db": -1.563707439905224,
+      "dense_oracle_db": 15.0458,
+      "refine_gain_db": 0.07240000000000002,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4110000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39900,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000143,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 17.1217,
+      "random_best_db": 19.7645,
+      "random_mean_db": 3.268988485035253,
+      "dense_oracle_db": 19.8153,
+      "refine_gain_db": 0.050799999999998846,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4480000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39700,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000144,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 21.8898,
+      "random_best_db": 21.6203,
+      "random_mean_db": 2.052637814165289,
+      "dense_oracle_db": 21.6437,
+      "refine_gain_db": 0.023399999999998755,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3130000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39600,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000145,
+      "jammer_type": "jammer_narrow_band",
+      "oracle_k20_db": 35.3006,
+      "random_best_db": 35.7179,
+      "random_mean_db": 7.252922103129805,
+      "dense_oracle_db": 35.7351,
+      "refine_gain_db": 0.017200000000002547,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3960000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 35400,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000146,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 12.2325,
+      "random_best_db": 20.735830926411516,
+      "random_mean_db": -2.5500477633135676,
+      "dense_oracle_db": 20.802068650624648,
+      "refine_gain_db": 0.06623772421313134,
+      "n_random": 5000,
+      "n_refine_evals": 55,
+      "best_action": {
+        "r_freq": 4940000000.0,
+        "r_bw": 6000000.0,
+        "r_pw": 20300,
+        "r_gain": 35,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000147,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 16.5187,
+      "random_best_db": 16.0019,
+      "random_mean_db": 1.864235771244697,
+      "dense_oracle_db": 16.0527,
+      "refine_gain_db": 0.0508000000000024,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3380000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39400,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000148,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 14.1587,
+      "random_best_db": 16.507076438073476,
+      "random_mean_db": 0.001520711642565459,
+      "dense_oracle_db": 16.553077240043134,
+      "refine_gain_db": 0.046000801969658056,
+      "n_random": 5000,
+      "n_refine_evals": 33,
+      "best_action": {
+        "r_freq": 4160000000.0,
+        "r_bw": 6000000.0,
+        "r_pw": 21100,
+        "r_gain": 29,
+        "r_type": "非线性调频1",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000149,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 7.8908,
+      "random_best_db": 7.770712674152415,
+      "random_mean_db": -0.4375821725808597,
+      "dense_oracle_db": 7.770712674152415,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 10,
+      "best_action": {
+        "r_freq": 4700000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 21900,
+        "r_gain": 37,
+        "r_type": "非线性调频1",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000150,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 17.8795,
+      "random_best_db": 25.074021021735547,
+      "random_mean_db": 1.0928747255023925,
+      "dense_oracle_db": 25.074021021735547,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 10,
+      "best_action": {
+        "r_freq": 4630000000.0,
+        "r_bw": 7000000.0,
+        "r_pw": 27000,
+        "r_gain": 20,
+        "r_type": "频率编码2",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000151,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 28.7938,
+      "random_best_db": 29.152,
+      "random_mean_db": 5.4359306333145305,
+      "dense_oracle_db": 29.2406,
+      "refine_gain_db": 0.08859999999999957,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3170000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 37500,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000152,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 18.7622,
+      "random_best_db": 19.055,
+      "random_mean_db": 2.000300458054998,
+      "dense_oracle_db": 19.1071,
+      "refine_gain_db": 0.05209999999999937,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3350000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 36600,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000153,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 16.3395,
+      "random_best_db": 16.2711,
+      "random_mean_db": 1.6383983101088004,
+      "dense_oracle_db": 16.3973,
+      "refine_gain_db": 0.12620000000000076,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 4800000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 40000,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000154,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 5.5666,
+      "random_best_db": 11.571322937084885,
+      "random_mean_db": -1.2175038001967267,
+      "dense_oracle_db": 12.137450243303752,
+      "refine_gain_db": 0.566127306218867,
+      "n_random": 5000,
+      "n_refine_evals": 54,
+      "best_action": {
+        "r_freq": 3700000000.0,
+        "r_bw": 6000000.0,
+        "r_pw": 20900,
+        "r_gain": 40,
+        "r_type": "非线性调频1",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000155,
+      "jammer_type": "jammer_narrow_band",
+      "oracle_k20_db": 34.6917,
+      "random_best_db": 35.941,
+      "random_mean_db": 6.78971662521617,
+      "dense_oracle_db": 35.9948,
+      "refine_gain_db": 0.05379999999999541,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4030000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 33100,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000156,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 14.1376,
+      "random_best_db": 21.180073346818197,
+      "random_mean_db": 0.6260794466109607,
+      "dense_oracle_db": 26.052913186428356,
+      "refine_gain_db": 4.872839839610158,
+      "n_random": 5000,
+      "n_refine_evals": 88,
+      "best_action": {
+        "r_freq": 3101000000.0,
+        "r_bw": 9000000.0,
+        "r_pw": 23800,
+        "r_gain": 33,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000157,
+      "jammer_type": "jammer_narrow_band",
+      "oracle_k20_db": 31.189,
+      "random_best_db": 31.8261,
+      "random_mean_db": 5.8582213477492715,
+      "dense_oracle_db": 31.8776,
+      "refine_gain_db": 0.05150000000000077,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4270000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 38000,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000158,
+      "jammer_type": "jammer_narrow_band",
+      "oracle_k20_db": 30.792,
+      "random_best_db": 31.5962,
+      "random_mean_db": 5.8081957210907715,
+      "dense_oracle_db": 31.6083,
+      "refine_gain_db": 0.012100000000000222,
+      "n_random": 5000,
+      "n_refine_evals": 17,
+      "best_action": {
+        "r_freq": 3200000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 40000,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000159,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 11.4079,
+      "random_best_db": 11.9415,
+      "random_mean_db": -9.145170420997855,
+      "dense_oracle_db": 11.9969,
+      "refine_gain_db": 0.05540000000000056,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4100000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 38000,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000160,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 5.5325,
+      "random_best_db": 27.907332357055665,
+      "random_mean_db": -1.167646190571091,
+      "dense_oracle_db": 31.8438655512062,
+      "refine_gain_db": 3.9365331941505346,
+      "n_random": 5000,
+      "n_refine_evals": 32,
+      "best_action": {
+        "r_freq": 4780000000.0,
+        "r_bw": 7000000.0,
+        "r_pw": 32000,
+        "r_gain": 20,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000161,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 18.4991,
+      "random_best_db": 17.0494,
+      "random_mean_db": 2.12698457360163,
+      "dense_oracle_db": 17.0656,
+      "refine_gain_db": 0.016200000000001324,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3380000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 37500,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000162,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 9.2428,
+      "random_best_db": 12.058781086335502,
+      "random_mean_db": -1.2210859313370013,
+      "dense_oracle_db": 14.43363289046124,
+      "refine_gain_db": 2.374851804125738,
+      "n_random": 5000,
+      "n_refine_evals": 25,
+      "best_action": {
+        "r_freq": 4450000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 20000,
+        "r_gain": 40,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000163,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 9.6431,
+      "random_best_db": 11.5429,
+      "random_mean_db": 0.21651156845199399,
+      "dense_oracle_db": 11.6711,
+      "refine_gain_db": 0.12819999999999965,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 4590000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 40000,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000164,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 18.3522,
+      "random_best_db": 17.5635,
+      "random_mean_db": 1.8469153347782714,
+      "dense_oracle_db": 17.652,
+      "refine_gain_db": 0.0884999999999998,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4250000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 37900,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000165,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 14.9655,
+      "random_best_db": 15.2407,
+      "random_mean_db": -0.30264911956945045,
+      "dense_oracle_db": 15.33,
+      "refine_gain_db": 0.08929999999999971,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4690000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 36100,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000166,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 13.0405,
+      "random_best_db": 41.23768479684277,
+      "random_mean_db": -11.511045804893087,
+      "dense_oracle_db": 41.23768479684277,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 10,
+      "best_action": {
+        "r_freq": 3380000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 31800,
+        "r_gain": 24,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000167,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 18.3392,
+      "random_best_db": 18.1834,
+      "random_mean_db": 0.18404544231851028,
+      "dense_oracle_db": 18.2558,
+      "refine_gain_db": 0.0724000000000018,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3470000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39700,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000168,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 10.902,
+      "random_best_db": 41.58191819002046,
+      "random_mean_db": -11.837624952431478,
+      "dense_oracle_db": 41.58191819002046,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 11,
+      "best_action": {
+        "r_freq": 4190000000.0,
+        "r_bw": 6000000.0,
+        "r_pw": 26400,
+        "r_gain": 35,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000169,
+      "jammer_type": "jammer_narrow_band",
+      "oracle_k20_db": 34.4304,
+      "random_best_db": 34.7826,
+      "random_mean_db": 6.8971319408407235,
+      "dense_oracle_db": 34.8712,
+      "refine_gain_db": 0.08859999999999957,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4890000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 37600,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000170,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 19.0408,
+      "random_best_db": 19.7123,
+      "random_mean_db": 1.2347393515292666,
+      "dense_oracle_db": 19.7123,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 9,
+      "best_action": {
+        "r_freq": 3520000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 39600,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000171,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 11.0548,
+      "random_best_db": 41.98290209788914,
+      "random_mean_db": -11.71036699809903,
+      "dense_oracle_db": 41.98290209788914,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 10,
+      "best_action": {
+        "r_freq": 4220000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 28600,
+        "r_gain": 31,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000172,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 13.2536,
+      "random_best_db": 12.8559,
+      "random_mean_db": -7.14827667104777,
+      "dense_oracle_db": 12.9283,
+      "refine_gain_db": 0.07240000000000002,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3480000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39900,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000173,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 19.6296,
+      "random_best_db": 21.359,
+      "random_mean_db": 3.2612753884800383,
+      "dense_oracle_db": 21.4122,
+      "refine_gain_db": 0.053199999999996805,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3940000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 34300,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000174,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 12.9528,
+      "random_best_db": 39.181010188537975,
+      "random_mean_db": -11.611142642064992,
+      "dense_oracle_db": 39.58570608880888,
+      "refine_gain_db": 0.40469590027090163,
+      "n_random": 5000,
+      "n_refine_evals": 21,
+      "best_action": {
+        "r_freq": 4290000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 22500,
+        "r_gain": 33,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000175,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 11.7624,
+      "random_best_db": 13.6406,
+      "random_mean_db": 1.4677789066814046,
+      "dense_oracle_db": 13.6578,
+      "refine_gain_db": 0.01720000000000077,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3360000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 35500,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000176,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 11.3503,
+      "random_best_db": 40.401310912201865,
+      "random_mean_db": -11.411133545741965,
+      "dense_oracle_db": 40.619901471341926,
+      "refine_gain_db": 0.2185905591400612,
+      "n_random": 5000,
+      "n_refine_evals": 21,
+      "best_action": {
+        "r_freq": 3970000000.0,
+        "r_bw": 6000000.0,
+        "r_pw": 30100,
+        "r_gain": 20,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000177,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 21.4666,
+      "random_best_db": 21.3237,
+      "random_mean_db": 2.7265544570218108,
+      "dense_oracle_db": 21.4907,
+      "refine_gain_db": 0.1670000000000016,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3110000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39100,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000178,
+      "jammer_type": "jammer_narrow_band",
+      "oracle_k20_db": 33.893,
+      "random_best_db": 34.1912,
+      "random_mean_db": 4.732489026248099,
+      "dense_oracle_db": 34.2091,
+      "refine_gain_db": 0.017899999999997362,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 4610000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 33900,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000179,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 10.7239,
+      "random_best_db": 41.43916094781196,
+      "random_mean_db": -11.895722966142548,
+      "dense_oracle_db": 41.43916094781196,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 10,
+      "best_action": {
+        "r_freq": 4690000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 31300,
+        "r_gain": 22,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000180,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 13.7357,
+      "random_best_db": 23.51495443174549,
+      "random_mean_db": -0.8572676561752364,
+      "dense_oracle_db": 27.93556938871955,
+      "refine_gain_db": 4.42061495697406,
+      "n_random": 5000,
+      "n_refine_evals": 29,
+      "best_action": {
+        "r_freq": 4350000000.0,
+        "r_bw": 9000000.0,
+        "r_pw": 40000,
+        "r_gain": 20,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000181,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 12.3546,
+      "random_best_db": 41.4246072124529,
+      "random_mean_db": -11.636382659290442,
+      "dense_oracle_db": 41.4246072124529,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 10,
+      "best_action": {
+        "r_freq": 4090000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 25600,
+        "r_gain": 36,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000182,
+      "jammer_type": "jammer_narrow_band",
+      "oracle_k20_db": 31.5347,
+      "random_best_db": 35.4192,
+      "random_mean_db": 5.569275882502719,
+      "dense_oracle_db": 35.5068,
+      "refine_gain_db": 0.0876000000000019,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4460000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39900,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000183,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 21.6561,
+      "random_best_db": 22.9839,
+      "random_mean_db": 3.6914196331825426,
+      "dense_oracle_db": 23.0563,
+      "refine_gain_db": 0.0724000000000018,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4570000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39800,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000184,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 16.2169,
+      "random_best_db": 18.2478,
+      "random_mean_db": 2.621213356948793,
+      "dense_oracle_db": 18.3745,
+      "refine_gain_db": 0.1266999999999996,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3830000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 38700,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000185,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 25.4536,
+      "random_best_db": 26.8244,
+      "random_mean_db": 4.772907913851488,
+      "dense_oracle_db": 26.877,
+      "refine_gain_db": 0.052599999999998204,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4840000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 35600,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000186,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 17.1353,
+      "random_best_db": 36.74108243280372,
+      "random_mean_db": 3.9112895502694855,
+      "dense_oracle_db": 38.12957427578837,
+      "refine_gain_db": 1.3884918429846493,
+      "n_random": 5000,
+      "n_refine_evals": 54,
+      "best_action": {
+        "r_freq": 4360000000.0,
+        "r_bw": 6000000.0,
+        "r_pw": 21400,
+        "r_gain": 37,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000187,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 19.7233,
+      "random_best_db": 20.4711,
+      "random_mean_db": 2.7044096816318377,
+      "dense_oracle_db": 20.5973,
+      "refine_gain_db": 0.12620000000000076,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3890000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 40000,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000188,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 6.2322,
+      "random_best_db": 35.38381037288621,
+      "random_mean_db": -2.169540235419877,
+      "dense_oracle_db": 35.427471315087324,
+      "refine_gain_db": 0.043660942201114494,
+      "n_random": 5000,
+      "n_refine_evals": 20,
+      "best_action": {
+        "r_freq": 4850000000.0,
+        "r_bw": 17000000.0,
+        "r_pw": 20000,
+        "r_gain": 21,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000189,
+      "jammer_type": "jammer_narrow_band",
+      "oracle_k20_db": 31.3348,
+      "random_best_db": 33.9623,
+      "random_mean_db": 6.888155307033184,
+      "dense_oracle_db": 34.0083,
+      "refine_gain_db": 0.045999999999999375,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3390000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 40000,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000190,
+      "jammer_type": "jammer_narrow_band",
+      "oracle_k20_db": 31.1421,
+      "random_best_db": 31.8437,
+      "random_mean_db": 5.885624963768722,
+      "dense_oracle_db": 31.8947,
+      "refine_gain_db": 0.05100000000000193,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4620000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39100,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000191,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 17.5095,
+      "random_best_db": 21.947684201444776,
+      "random_mean_db": 1.506980418451181,
+      "dense_oracle_db": 23.053316771854405,
+      "refine_gain_db": 1.1056325704096288,
+      "n_random": 5000,
+      "n_refine_evals": 21,
+      "best_action": {
+        "r_freq": 4790000000.0,
+        "r_bw": 19000000.0,
+        "r_pw": 30600,
+        "r_gain": 20,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000192,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 17.0675,
+      "random_best_db": 30.854119318917288,
+      "random_mean_db": 1.1933428734957106,
+      "dense_oracle_db": 32.174308729876955,
+      "refine_gain_db": 1.3201894109596672,
+      "n_random": 5000,
+      "n_refine_evals": 30,
+      "best_action": {
+        "r_freq": 3200000000.0,
+        "r_bw": 22000000.0,
+        "r_pw": 25100,
+        "r_gain": 20,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000193,
+      "jammer_type": "jammer_narrow_band",
+      "oracle_k20_db": 30.3601,
+      "random_best_db": 33.6791,
+      "random_mean_db": 6.658079957013941,
+      "dense_oracle_db": 33.6947,
+      "refine_gain_db": 0.01559999999999917,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 4550000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39100,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000194,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 13.0478,
+      "random_best_db": 19.09202613850671,
+      "random_mean_db": -2.3212391536694508,
+      "dense_oracle_db": 19.322331279515215,
+      "refine_gain_db": 0.23030514100850397,
+      "n_random": 5000,
+      "n_refine_evals": 33,
+      "best_action": {
+        "r_freq": 3260000000.0,
+        "r_bw": 6000000.0,
+        "r_pw": 21500,
+        "r_gain": 34,
+        "r_type": "非线性调频1",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000195,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 13.3454,
+      "random_best_db": 13.6938,
+      "random_mean_db": 1.6075668697333612,
+      "dense_oracle_db": 13.7293,
+      "refine_gain_db": 0.03550000000000075,
+      "n_random": 5000,
+      "n_refine_evals": 17,
+      "best_action": {
+        "r_freq": 4070000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 40000,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000196,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 14.8683,
+      "random_best_db": 14.9369,
+      "random_mean_db": 1.1156291295775005,
+      "dense_oracle_db": 15.0268,
+      "refine_gain_db": 0.08990000000000009,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3300000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 34800,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000197,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 19.7631,
+      "random_best_db": 19.5117,
+      "random_mean_db": 1.6293087221186993,
+      "dense_oracle_db": 19.5636,
+      "refine_gain_db": 0.051899999999999835,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4600000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 37000,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000198,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 11.2483,
+      "random_best_db": 41.14276508256265,
+      "random_mean_db": -11.535956169562288,
+      "dense_oracle_db": 41.14276508256265,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 10,
+      "best_action": {
+        "r_freq": 4970000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 32400,
+        "r_gain": 34,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000199,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 21.5056,
+      "random_best_db": 21.4613,
+      "random_mean_db": 3.566870668816393,
+      "dense_oracle_db": 21.4968,
+      "refine_gain_db": 0.03549999999999898,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3080000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39500,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000200,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 18.6763,
+      "random_best_db": 19.68744420723658,
+      "random_mean_db": 0.3515775464098856,
+      "dense_oracle_db": 20.126913407291266,
+      "refine_gain_db": 0.4394692000546847,
+      "n_random": 5000,
+      "n_refine_evals": 88,
+      "best_action": {
+        "r_freq": 4870000000.0,
+        "r_bw": 7000000.0,
+        "r_pw": 21900,
+        "r_gain": 34,
+        "r_type": "非线性调频1",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000201,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 18.7667,
+      "random_best_db": 18.9545,
+      "random_mean_db": -5.0115539252792285,
+      "dense_oracle_db": 18.99,
+      "refine_gain_db": 0.03549999999999898,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3310000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39900,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000202,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 9.7152,
+      "random_best_db": 13.6493,
+      "random_mean_db": 1.5744480714190519,
+      "dense_oracle_db": 13.7218,
+      "refine_gain_db": 0.07249999999999979,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4730000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39500,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000203,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 10.9169,
+      "random_best_db": 41.04985717511059,
+      "random_mean_db": -11.715890752501819,
+      "dense_oracle_db": 41.04985717511059,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 10,
+      "best_action": {
+        "r_freq": 4320000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 26600,
+        "r_gain": 33,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000204,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 21.0992,
+      "random_best_db": 27.28806252777783,
+      "random_mean_db": 3.422799317429599,
+      "dense_oracle_db": 32.10056850882209,
+      "refine_gain_db": 4.812505981044264,
+      "n_random": 5000,
+      "n_refine_evals": 88,
+      "best_action": {
+        "r_freq": 4330000000.0,
+        "r_bw": 7000000.0,
+        "r_pw": 23400,
+        "r_gain": 29,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000205,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 14.4629,
+      "random_best_db": 28.116060250493792,
+      "random_mean_db": 1.6365202853404779,
+      "dense_oracle_db": 28.836540118481544,
+      "refine_gain_db": 0.720479867987752,
+      "n_random": 5000,
+      "n_refine_evals": 21,
+      "best_action": {
+        "r_freq": 4480000000.0,
+        "r_bw": 7000000.0,
+        "r_pw": 33300,
+        "r_gain": 20,
+        "r_type": "非线性调频1",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000206,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 11.1888,
+      "random_best_db": 38.09974095801301,
+      "random_mean_db": 2.857175245189508,
+      "dense_oracle_db": 38.147860678771856,
+      "refine_gain_db": 0.04811972075884796,
+      "n_random": 5000,
+      "n_refine_evals": 31,
+      "best_action": {
+        "r_freq": 4760000000.0,
+        "r_bw": 23000000.0,
+        "r_pw": 21400,
+        "r_gain": 20,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000207,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 13.1057,
+      "random_best_db": 40.92360644295543,
+      "random_mean_db": -11.499003530527368,
+      "dense_oracle_db": 40.92360644295543,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 11,
+      "best_action": {
+        "r_freq": 4080000000.0,
+        "r_bw": 6000000.0,
+        "r_pw": 25200,
+        "r_gain": 32,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000208,
+      "jammer_type": "jammer_narrow_band",
+      "oracle_k20_db": 33.8157,
+      "random_best_db": 34.8592,
+      "random_mean_db": 7.211012685530643,
+      "dense_oracle_db": 34.9083,
+      "refine_gain_db": 0.0490999999999957,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 4930000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 40000,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000209,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 15.9475,
+      "random_best_db": 20.43054680865685,
+      "random_mean_db": -0.4808120509327604,
+      "dense_oracle_db": 20.68516473660116,
+      "refine_gain_db": 0.2546179279443095,
+      "n_random": 5000,
+      "n_refine_evals": 33,
+      "best_action": {
+        "r_freq": 4520000000.0,
+        "r_bw": 8000000.0,
+        "r_pw": 29400,
+        "r_gain": 23,
+        "r_type": "非线性调频1",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000210,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 14.9669,
+      "random_best_db": 18.5149,
+      "random_mean_db": -0.4906024493469624,
+      "dense_oracle_db": 18.5308,
+      "refine_gain_db": 0.01589999999999847,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 4970000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 38200,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000211,
+      "jammer_type": "jammer_narrow_band",
+      "oracle_k20_db": 34.023,
+      "random_best_db": 33.9869,
+      "random_mean_db": 6.8173729252441175,
+      "dense_oracle_db": 34.0023,
+      "refine_gain_db": 0.015399999999999636,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3910000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39600,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000212,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 17.652,
+      "random_best_db": 37.08133820209254,
+      "random_mean_db": 9.402486643398582,
+      "dense_oracle_db": 38.54903809448471,
+      "refine_gain_db": 1.4676998923921687,
+      "n_random": 5000,
+      "n_refine_evals": 44,
+      "best_action": {
+        "r_freq": 3160000000.0,
+        "r_bw": 8000000.0,
+        "r_pw": 26700,
+        "r_gain": 25,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000213,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 21.8114,
+      "random_best_db": 21.3973,
+      "random_mean_db": 3.42782687192188,
+      "dense_oracle_db": 21.4494,
+      "refine_gain_db": 0.05209999999999937,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3040000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 36500,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000214,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 12.127,
+      "random_best_db": 40.68789864026424,
+      "random_mean_db": -10.909510749488378,
+      "dense_oracle_db": 40.68789864026424,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 11,
+      "best_action": {
+        "r_freq": 3050000000.0,
+        "r_bw": 7000000.0,
+        "r_pw": 23300,
+        "r_gain": 37,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000215,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 12.4393,
+      "random_best_db": 40.95536653977529,
+      "random_mean_db": -10.984880366696997,
+      "dense_oracle_db": 40.95536653977529,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 11,
+      "best_action": {
+        "r_freq": 4710000000.0,
+        "r_bw": 6000000.0,
+        "r_pw": 31300,
+        "r_gain": 22,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000216,
+      "jammer_type": "jammer_narrow_band",
+      "oracle_k20_db": 31.8103,
+      "random_best_db": 32.7179,
+      "random_mean_db": 5.88829610706545,
+      "dense_oracle_db": 32.7351,
+      "refine_gain_db": 0.017200000000002547,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 4240000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 35400,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000217,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 16.2599,
+      "random_best_db": 18.2075,
+      "random_mean_db": 1.4604369971131974,
+      "dense_oracle_db": 18.259,
+      "refine_gain_db": 0.05150000000000077,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4210000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39500,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000218,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 15.9745,
+      "random_best_db": 28.02928270244211,
+      "random_mean_db": -0.8017420927863265,
+      "dense_oracle_db": 28.02928270244211,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 10,
+      "best_action": {
+        "r_freq": 4680000000.0,
+        "r_bw": 18000000.0,
+        "r_pw": 38000,
+        "r_gain": 20,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000219,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 15.3881,
+      "random_best_db": 24.213037620398996,
+      "random_mean_db": 2.5080824333679717,
+      "dense_oracle_db": 24.261327951449037,
+      "refine_gain_db": 0.048290331050040436,
+      "n_random": 5000,
+      "n_refine_evals": 21,
+      "best_action": {
+        "r_freq": 3350000000.0,
+        "r_bw": 6000000.0,
+        "r_pw": 20300,
+        "r_gain": 20,
+        "r_type": "非线性调频1",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000220,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 19.7069,
+      "random_best_db": 19.66,
+      "random_mean_db": 2.4975554940586604,
+      "dense_oracle_db": 19.6753,
+      "refine_gain_db": 0.01529999999999987,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 4860000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39700,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000221,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 20.7386,
+      "random_best_db": 22.912359725649395,
+      "random_mean_db": 2.252470526730094,
+      "dense_oracle_db": 24.003470969970927,
+      "refine_gain_db": 1.0911112443215316,
+      "n_random": 5000,
+      "n_refine_evals": 31,
+      "best_action": {
+        "r_freq": 4450000000.0,
+        "r_bw": 22000000.0,
+        "r_pw": 37800,
+        "r_gain": 20,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000222,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 14.971,
+      "random_best_db": 26.461948679618438,
+      "random_mean_db": -1.8713781195817842,
+      "dense_oracle_db": 26.461948679618438,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 11,
+      "best_action": {
+        "r_freq": 4420000000.0,
+        "r_bw": 7000000.0,
+        "r_pw": 30300,
+        "r_gain": 28,
+        "r_type": "频率编码2",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000223,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 19.0567,
+      "random_best_db": 22.057721967130277,
+      "random_mean_db": 3.376015237029514,
+      "dense_oracle_db": 22.057721967130277,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 10,
+      "best_action": {
+        "r_freq": 3500000000.0,
+        "r_bw": 7000000.0,
+        "r_pw": 20700,
+        "r_gain": 20,
+        "r_type": "非线性调频1",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000224,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 34.0946,
+      "random_best_db": 35.9283,
+      "random_mean_db": 7.112912853219788,
+      "dense_oracle_db": 36.0008,
+      "refine_gain_db": 0.07249999999999801,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3180000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39500,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000225,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 18.4322,
+      "random_best_db": 20.9577,
+      "random_mean_db": 2.371510822961912,
+      "dense_oracle_db": 20.9577,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 9,
+      "best_action": {
+        "r_freq": 4990000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39700,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000226,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 21.6217,
+      "random_best_db": 23.4106,
+      "random_mean_db": 5.6835484534668925,
+      "dense_oracle_db": 23.4266,
+      "refine_gain_db": 0.01600000000000179,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3830000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 38000,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000227,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 13.4557,
+      "random_best_db": 41.81664595950487,
+      "random_mean_db": -11.411562050431995,
+      "dense_oracle_db": 41.81664595950487,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 11,
+      "best_action": {
+        "r_freq": 4740000000.0,
+        "r_bw": 6000000.0,
+        "r_pw": 29400,
+        "r_gain": 35,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000228,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 21.8389,
+      "random_best_db": 23.8006,
+      "random_mean_db": 2.1855852868032972,
+      "dense_oracle_db": 24.2224,
+      "refine_gain_db": 0.42180000000000106,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3510000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 27900,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000229,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 10.8791,
+      "random_best_db": 34.01165429049184,
+      "random_mean_db": -1.8890634894564065,
+      "dense_oracle_db": 34.59831579053994,
+      "refine_gain_db": 0.5866615000481019,
+      "n_random": 5000,
+      "n_refine_evals": 22,
+      "best_action": {
+        "r_freq": 4630000000.0,
+        "r_bw": 17000000.0,
+        "r_pw": 21700,
+        "r_gain": 26,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000230,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 12.7509,
+      "random_best_db": 41.17161345435413,
+      "random_mean_db": -11.58343319594976,
+      "dense_oracle_db": 41.17161345435413,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 11,
+      "best_action": {
+        "r_freq": 3280000000.0,
+        "r_bw": 7000000.0,
+        "r_pw": 25500,
+        "r_gain": 34,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000231,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 16.2338,
+      "random_best_db": 19.39356097127402,
+      "random_mean_db": 1.1852750754949444,
+      "dense_oracle_db": 19.784588900268545,
+      "refine_gain_db": 0.3910279289945251,
+      "n_random": 5000,
+      "n_refine_evals": 21,
+      "best_action": {
+        "r_freq": 4350000000.0,
+        "r_bw": 6000000.0,
+        "r_pw": 21500,
+        "r_gain": 20,
+        "r_type": "频率编码2",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000232,
+      "jammer_type": "jammer_narrow_band",
+      "oracle_k20_db": 36.3009,
+      "random_best_db": 36.8744,
+      "random_mean_db": 7.529334185708462,
+      "dense_oracle_db": 37.0008,
+      "refine_gain_db": 0.12639999999999674,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3580000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39500,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000233,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 19.5719,
+      "random_best_db": 19.8709,
+      "random_mean_db": 3.234114103810145,
+      "dense_oracle_db": 19.9988,
+      "refine_gain_db": 0.12790000000000035,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4470000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 36100,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000234,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 23.0759,
+      "random_best_db": 23.166,
+      "random_mean_db": 2.8989234860503306,
+      "dense_oracle_db": 23.1816,
+      "refine_gain_db": 0.01559999999999917,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3600000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 38900,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000235,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 13.791,
+      "random_best_db": 14.508,
+      "random_mean_db": -0.3482424606006448,
+      "dense_oracle_db": 14.5613,
+      "refine_gain_db": 0.053300000000000125,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3220000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 34100,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000236,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 16.6894,
+      "random_best_db": 16.4103,
+      "random_mean_db": 1.8350593378450482,
+      "dense_oracle_db": 16.4264,
+      "refine_gain_db": 0.016100000000001558,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3290000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 37800,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000237,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 29.411,
+      "random_best_db": 29.1824,
+      "random_mean_db": 5.4811650814382356,
+      "dense_oracle_db": 29.2702,
+      "refine_gain_db": 0.08779999999999788,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3380000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39400,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000238,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 8.8029,
+      "random_best_db": 35.92798622723654,
+      "random_mean_db": -6.359103496046607,
+      "dense_oracle_db": 36.114329414414954,
+      "refine_gain_db": 0.1863431871784158,
+      "n_random": 5000,
+      "n_refine_evals": 33,
+      "best_action": {
+        "r_freq": 4830000000.0,
+        "r_bw": 24000000.0,
+        "r_pw": 20300,
+        "r_gain": 32,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000239,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 17.0217,
+      "random_best_db": 20.2192,
+      "random_mean_db": 3.9383423437517426,
+      "dense_oracle_db": 20.2369,
+      "refine_gain_db": 0.01769999999999783,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3340000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 37900,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000240,
+      "jammer_type": "jammer_narrow_band",
+      "oracle_k20_db": 29.7865,
+      "random_best_db": 30.9067,
+      "random_mean_db": 5.287958804449399,
+      "dense_oracle_db": 30.9947,
+      "refine_gain_db": 0.08800000000000097,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4120000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39100,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000241,
+      "jammer_type": "jammer_narrow_band",
+      "oracle_k20_db": 33.4995,
+      "random_best_db": 34.4701,
+      "random_mean_db": 6.526389860686256,
+      "dense_oracle_db": 34.5231,
+      "refine_gain_db": 0.05299999999999727,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4830000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 34700,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000242,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 16.8107,
+      "random_best_db": 16.0263,
+      "random_mean_db": 2.0544812537572943,
+      "dense_oracle_db": 16.0618,
+      "refine_gain_db": 0.03550000000000253,
+      "n_random": 5000,
+      "n_refine_evals": 17,
+      "best_action": {
+        "r_freq": 4240000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 40000,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000243,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 23.986,
+      "random_best_db": 24.5313,
+      "random_mean_db": 3.9744454359397774,
+      "dense_oracle_db": 24.6143,
+      "refine_gain_db": 0.08299999999999841,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 4820000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 40000,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000244,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 28.9631,
+      "random_best_db": 28.4496,
+      "random_mean_db": 5.007465658191653,
+      "dense_oracle_db": 28.5003,
+      "refine_gain_db": 0.05069999999999908,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4980000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39900,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000245,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 19.1627,
+      "random_best_db": 18.1972,
+      "random_mean_db": -3.578495127598684,
+      "dense_oracle_db": 18.2136,
+      "refine_gain_db": 0.01640000000000086,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3750000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 37000,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000246,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 22.8491,
+      "random_best_db": 22.9962,
+      "random_mean_db": 3.6734619109667133,
+      "dense_oracle_db": 23.0472,
+      "refine_gain_db": 0.05099999999999838,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4790000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39200,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000247,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 13.6937,
+      "random_best_db": 14.4577,
+      "random_mean_db": 1.8759465562766073,
+      "dense_oracle_db": 14.5068,
+      "refine_gain_db": 0.049099999999999255,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 4460000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 40000,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000248,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 15.2344,
+      "random_best_db": 14.456,
+      "random_mean_db": 1.035547395864439,
+      "dense_oracle_db": 14.4915,
+      "refine_gain_db": 0.03550000000000075,
+      "n_random": 5000,
+      "n_refine_evals": 17,
+      "best_action": {
+        "r_freq": 4780000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 40000,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000249,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 12.3946,
+      "random_best_db": 41.23645764748076,
+      "random_mean_db": -11.009315780437332,
+      "dense_oracle_db": 41.23645764748076,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 9,
+      "best_action": {
+        "r_freq": 3880000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 31300,
+        "r_gain": 20,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000250,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 17.7543,
+      "random_best_db": 22.253630630618662,
+      "random_mean_db": 3.2577750265292926,
+      "dense_oracle_db": 22.620572064185538,
+      "refine_gain_db": 0.3669414335668755,
+      "n_random": 5000,
+      "n_refine_evals": 43,
+      "best_action": {
+        "r_freq": 4430000000.0,
+        "r_bw": 7000000.0,
+        "r_pw": 24300,
+        "r_gain": 36,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000251,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 12.8836,
+      "random_best_db": 40.65520472206421,
+      "random_mean_db": -11.167068858343942,
+      "dense_oracle_db": 40.65520472206421,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 11,
+      "best_action": {
+        "r_freq": 4700000000.0,
+        "r_bw": 6000000.0,
+        "r_pw": 27600,
+        "r_gain": 27,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000252,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 13.7404,
+      "random_best_db": 11.2673,
+      "random_mean_db": 0.49129989365259646,
+      "dense_oracle_db": 11.3028,
+      "refine_gain_db": 0.03549999999999898,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4830000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39900,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000253,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 13.0497,
+      "random_best_db": 15.378793881119728,
+      "random_mean_db": 1.1227581737193688,
+      "dense_oracle_db": 15.378793881119728,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 11,
+      "best_action": {
+        "r_freq": 4010000000.0,
+        "r_bw": 8000000.0,
+        "r_pw": 38000,
+        "r_gain": 24,
+        "r_type": "频率编码2",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000254,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 9.5371,
+      "random_best_db": 32.20731743240155,
+      "random_mean_db": 1.110385122851856,
+      "dense_oracle_db": 32.20731743240155,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 10,
+      "best_action": {
+        "r_freq": 4640000000.0,
+        "r_bw": 20000000.0,
+        "r_pw": 27300,
+        "r_gain": 20,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000255,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 23.4638,
+      "random_best_db": 24.4936,
+      "random_mean_db": 4.277269354604084,
+      "dense_oracle_db": 24.5461,
+      "refine_gain_db": 0.05249999999999844,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3320000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 35700,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000256,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 20.6883,
+      "random_best_db": 20.8355,
+      "random_mean_db": 1.1771935012049002,
+      "dense_oracle_db": 20.8526,
+      "refine_gain_db": 0.017099999999999227,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3500000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 35500,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000257,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 10.385,
+      "random_best_db": 39.355938788874106,
+      "random_mean_db": -11.519429952298992,
+      "dense_oracle_db": 39.355938788874106,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 11,
+      "best_action": {
+        "r_freq": 4710000000.0,
+        "r_bw": 6000000.0,
+        "r_pw": 27800,
+        "r_gain": 28,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000258,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 18.1794,
+      "random_best_db": 20.024120116168234,
+      "random_mean_db": 2.9335818444515147,
+      "dense_oracle_db": 28.40542862791922,
+      "refine_gain_db": 8.381308511750987,
+      "n_random": 5000,
+      "n_refine_evals": 44,
+      "best_action": {
+        "r_freq": 4840000000.0,
+        "r_bw": 6000000.0,
+        "r_pw": 20300,
+        "r_gain": 23,
+        "r_type": "非线性调频1",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000259,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 18.9446,
+      "random_best_db": 21.527,
+      "random_mean_db": 1.7788582560512571,
+      "dense_oracle_db": 21.5757,
+      "refine_gain_db": 0.04870000000000019,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 4200000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 40000,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000260,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 20.8013,
+      "random_best_db": 32.91781451766218,
+      "random_mean_db": 10.518381881602435,
+      "dense_oracle_db": 35.82136550399131,
+      "refine_gain_db": 2.9035509863291296,
+      "n_random": 5000,
+      "n_refine_evals": 29,
+      "best_action": {
+        "r_freq": 4060000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 20200,
+        "r_gain": 20,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000261,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 20.7313,
+      "random_best_db": 26.186239231870346,
+      "random_mean_db": 2.7080830579740423,
+      "dense_oracle_db": 27.69815766683005,
+      "refine_gain_db": 1.5119184349597035,
+      "n_random": 5000,
+      "n_refine_evals": 41,
+      "best_action": {
+        "r_freq": 4750000000.0,
+        "r_bw": 21000000.0,
+        "r_pw": 26200,
+        "r_gain": 20,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000262,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 18.1955,
+      "random_best_db": 23.5338302585971,
+      "random_mean_db": 1.3732265435825033,
+      "dense_oracle_db": 23.5338302585971,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 11,
+      "best_action": {
+        "r_freq": 4670000000.0,
+        "r_bw": 6000000.0,
+        "r_pw": 20900,
+        "r_gain": 38,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000263,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 19.7052,
+      "random_best_db": 21.3687,
+      "random_mean_db": 1.6309726690769335,
+      "dense_oracle_db": 21.4576,
+      "refine_gain_db": 0.08889999999999887,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4040000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 37000,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000264,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 19.2597,
+      "random_best_db": 20.6407,
+      "random_mean_db": 3.253288625339928,
+      "dense_oracle_db": 20.7268,
+      "refine_gain_db": 0.08610000000000184,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 4430000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 40000,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000265,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 16.6472,
+      "random_best_db": 23.26702990548653,
+      "random_mean_db": 2.6008733147684993,
+      "dense_oracle_db": 27.066163022240758,
+      "refine_gain_db": 3.799133116754227,
+      "n_random": 5000,
+      "n_refine_evals": 88,
+      "best_action": {
+        "r_freq": 4570000000.0,
+        "r_bw": 6000000.0,
+        "r_pw": 30500,
+        "r_gain": 33,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000266,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 8.6274,
+      "random_best_db": 10.669,
+      "random_mean_db": 0.2625226967166999,
+      "dense_oracle_db": 10.7198,
+      "refine_gain_db": 0.050799999999998846,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4050000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39700,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000267,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 10.1068,
+      "random_best_db": 13.114206524453106,
+      "random_mean_db": -0.20662059054209286,
+      "dense_oracle_db": 13.896592563223564,
+      "refine_gain_db": 0.7823860387704578,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4620000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 22600,
+        "r_gain": 40,
+        "r_type": "非线性调频1",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000268,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 12.8453,
+      "random_best_db": 41.51070104551558,
+      "random_mean_db": -12.045379933526391,
+      "dense_oracle_db": 41.51070104551558,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 10,
+      "best_action": {
+        "r_freq": 3310000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 24900,
+        "r_gain": 38,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000269,
+      "jammer_type": "jammer_narrow_band",
+      "oracle_k20_db": 30.5651,
+      "random_best_db": 33.5349,
+      "random_mean_db": 6.826354401431464,
+      "dense_oracle_db": 33.6248,
+      "refine_gain_db": 0.08990000000000009,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4690000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 34800,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000270,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 20.1768,
+      "random_best_db": 19.6028,
+      "random_mean_db": 1.9011644393286573,
+      "dense_oracle_db": 19.6028,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 9,
+      "best_action": {
+        "r_freq": 3760000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39500,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000271,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 15.5499,
+      "random_best_db": 15.9565,
+      "random_mean_db": 1.9165822012607092,
+      "dense_oracle_db": 16.0086,
+      "refine_gain_db": 0.052100000000001145,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4290000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 36600,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000272,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 11.1272,
+      "random_best_db": 41.990941643531286,
+      "random_mean_db": -11.449852671317743,
+      "dense_oracle_db": 41.990941643531286,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 10,
+      "best_action": {
+        "r_freq": 4180000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 26700,
+        "r_gain": 33,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000273,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 17.1549,
+      "random_best_db": 15.8235,
+      "random_mean_db": 1.7916999138829772,
+      "dense_oracle_db": 15.912,
+      "refine_gain_db": 0.08850000000000158,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4240000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 37900,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000274,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 15.0737,
+      "random_best_db": 26.28664039927238,
+      "random_mean_db": 1.6686623499346276,
+      "dense_oracle_db": 26.28664039927238,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 10,
+      "best_action": {
+        "r_freq": 4930000000.0,
+        "r_bw": 6000000.0,
+        "r_pw": 28600,
+        "r_gain": 20,
+        "r_type": "非线性调频1",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000275,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 16.6557,
+      "random_best_db": 16.7292,
+      "random_mean_db": 2.585729202722738,
+      "dense_oracle_db": 16.8174,
+      "refine_gain_db": 0.0882000000000005,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4630000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 38500,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000276,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 11.8772,
+      "random_best_db": 13.2997,
+      "random_mean_db": -1.1877503565147447,
+      "dense_oracle_db": 13.3103,
+      "refine_gain_db": 0.010600000000000165,
+      "n_random": 5000,
+      "n_refine_evals": 17,
+      "best_action": {
+        "r_freq": 4740000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 40000,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000277,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 14.6323,
+      "random_best_db": 28.027814510090824,
+      "random_mean_db": 0.5038165066750862,
+      "dense_oracle_db": 28.202458029017812,
+      "refine_gain_db": 0.17464351892698815,
+      "n_random": 5000,
+      "n_refine_evals": 17,
+      "best_action": {
+        "r_freq": 3320000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 40000,
+        "r_gain": 20,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000278,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 19.3608,
+      "random_best_db": 18.6421,
+      "random_mean_db": 2.0976890098086347,
+      "dense_oracle_db": 18.6587,
+      "refine_gain_db": 0.016600000000000392,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 4280000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 36700,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000279,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 20.1845,
+      "random_best_db": 23.7723,
+      "random_mean_db": 2.531089390122126,
+      "dense_oracle_db": 23.7723,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 9,
+      "best_action": {
+        "r_freq": 4290000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 39600,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000280,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 17.3481,
+      "random_best_db": 18.523,
+      "random_mean_db": 2.389349020272241,
+      "dense_oracle_db": 18.574,
+      "refine_gain_db": 0.05100000000000193,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3240000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 38900,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000281,
+      "jammer_type": "jammer_multi_false_targets",
+      "oracle_k20_db": 14.3745,
+      "random_best_db": 14.6476,
+      "random_mean_db": -0.686961504647981,
+      "dense_oracle_db": 14.699,
+      "refine_gain_db": 0.051399999999999224,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3470000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 38000,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000282,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 16.496,
+      "random_best_db": 37.95885049609459,
+      "random_mean_db": 0.5459342701521275,
+      "dense_oracle_db": 39.88416112411696,
+      "refine_gain_db": 1.9253106280223662,
+      "n_random": 5000,
+      "n_refine_evals": 80,
+      "best_action": {
+        "r_freq": 3530000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 26400,
+        "r_gain": 34,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000283,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 9.4544,
+      "random_best_db": 10.490534864772926,
+      "random_mean_db": 0.09541538384346039,
+      "dense_oracle_db": 10.490534864772926,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 10,
+      "best_action": {
+        "r_freq": 4350000000.0,
+        "r_bw": 6000000.0,
+        "r_pw": 21800,
+        "r_gain": 40,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000284,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 13.1399,
+      "random_best_db": 16.3313,
+      "random_mean_db": -11.570054716575402,
+      "dense_oracle_db": 16.3825,
+      "refine_gain_db": 0.05120000000000147,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3790000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 40000,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000285,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 12.4026,
+      "random_best_db": 40.63667068250225,
+      "random_mean_db": -11.31357879697262,
+      "dense_oracle_db": 41.607830117166216,
+      "refine_gain_db": 0.9711594346639671,
+      "n_random": 5000,
+      "n_refine_evals": 21,
+      "best_action": {
+        "r_freq": 4060000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 23300,
+        "r_gain": 39,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000286,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 20.1088,
+      "random_best_db": 19.0769,
+      "random_mean_db": 1.1509059147693936,
+      "dense_oracle_db": 19.0932,
+      "refine_gain_db": 0.01630000000000109,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 4490000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 37100,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000287,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 22.6304,
+      "random_best_db": 23.1418,
+      "random_mean_db": 2.506485685241329,
+      "dense_oracle_db": 23.1581,
+      "refine_gain_db": 0.01630000000000109,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 3730000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 37400,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000288,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 12.2562,
+      "random_best_db": 18.260027138707144,
+      "random_mean_db": -0.34491283187323996,
+      "dense_oracle_db": 18.63579289648218,
+      "refine_gain_db": 0.37576575777503507,
+      "n_random": 5000,
+      "n_refine_evals": 21,
+      "best_action": {
+        "r_freq": 4760000000.0,
+        "r_bw": 7000000.0,
+        "r_pw": 23300,
+        "r_gain": 20,
+        "r_type": "非线性调频1",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000289,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 20.3926,
+      "random_best_db": 20.6067,
+      "random_mean_db": 3.5110064738206375,
+      "dense_oracle_db": 20.7177,
+      "refine_gain_db": 0.11100000000000065,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3850000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 39400,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000290,
+      "jammer_type": "jammer_InterruptedSampling",
+      "oracle_k20_db": 11.8082,
+      "random_best_db": 17.890409824671817,
+      "random_mean_db": -0.2871558570418191,
+      "dense_oracle_db": 19.96527252398479,
+      "refine_gain_db": 2.0748626993129733,
+      "n_random": 5000,
+      "n_refine_evals": 30,
+      "best_action": {
+        "r_freq": 3010000000.0,
+        "r_bw": 6000000.0,
+        "r_pw": 25700,
+        "r_gain": 40,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000291,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 8.9488,
+      "random_best_db": 7.6329,
+      "random_mean_db": -0.3797538093678635,
+      "dense_oracle_db": 7.7234,
+      "refine_gain_db": 0.09049999999999958,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4230000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 33800,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000292,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 27.1851,
+      "random_best_db": 28.3618,
+      "random_mean_db": 5.153189193464548,
+      "dense_oracle_db": 28.4149,
+      "refine_gain_db": 0.05310000000000059,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4420000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 34600,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000293,
+      "jammer_type": "jammer_RANDOM",
+      "oracle_k20_db": 16.165,
+      "random_best_db": 18.341,
+      "random_mean_db": 1.1496323214748045,
+      "dense_oracle_db": 18.5599,
+      "refine_gain_db": 0.21889999999999787,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3680000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 30400,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000294,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 17.1221,
+      "random_best_db": 17.0006,
+      "random_mean_db": 1.2338819957790461,
+      "dense_oracle_db": 17.0291,
+      "refine_gain_db": 0.02850000000000108,
+      "n_random": 5000,
+      "n_refine_evals": 18,
+      "best_action": {
+        "r_freq": 4090000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 21600,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000295,
+      "jammer_type": "jammer_close",
+      "oracle_k20_db": 7.9878,
+      "random_best_db": 41.355248509145255,
+      "random_mean_db": -12.181530159006737,
+      "dense_oracle_db": 41.355248509145255,
+      "refine_gain_db": 0.0,
+      "n_random": 5000,
+      "n_refine_evals": 11,
+      "best_action": {
+        "r_freq": 4400000000.0,
+        "r_bw": 6000000.0,
+        "r_pw": 28300,
+        "r_gain": 35,
+        "r_type": "线性调频0",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000296,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 15.1786,
+      "random_best_db": 16.9352,
+      "random_mean_db": 0.6276728689422992,
+      "dense_oracle_db": 17.3516,
+      "refine_gain_db": 0.416400000000003,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3040000000.0,
+        "r_bw": 5000000.0,
+        "r_pw": 37000,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000297,
+      "jammer_type": "jammer_narrow_band",
+      "oracle_k20_db": 31.4605,
+      "random_best_db": 33.3358,
+      "random_mean_db": 6.716111469262137,
+      "dense_oracle_db": 33.3869,
+      "refine_gain_db": 0.05109999999999815,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 3160000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 38600,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000298,
+      "jammer_type": "jammer_swept",
+      "oracle_k20_db": 15.3533,
+      "random_best_db": 12.8815,
+      "random_mean_db": 1.201728824937185,
+      "dense_oracle_db": 12.9711,
+      "refine_gain_db": 0.08959999999999901,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4400000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 35400,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    },
+    {
+      "sid": 1000299,
+      "jammer_type": "jammer_wide_band",
+      "oracle_k20_db": 12.9661,
+      "random_best_db": 13.6439,
+      "random_mean_db": 1.4437377729843772,
+      "dense_oracle_db": 13.6954,
+      "refine_gain_db": 0.05149999999999899,
+      "n_random": 5000,
+      "n_refine_evals": 19,
+      "best_action": {
+        "r_freq": 4020000000.0,
+        "r_bw": 25000000.0,
+        "r_pw": 37800,
+        "r_gain": 40,
+        "r_type": "相位编码3",
+        "r_chirp": "NegativeTriangle"
+      }
+    }
+  ]
+}

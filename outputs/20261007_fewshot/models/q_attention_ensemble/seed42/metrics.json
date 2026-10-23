@@ -1,0 +1,8 @@
+{
+  "seed": 42,
+  "epochs_run": 37,
+  "best_val_hit_at_1": 0.55,
+  "val_rmse_std": 1.2274447141577423,
+  "val_r2_std": -0.5264462232589722,
+  "elapsed_min": 4.22
+}

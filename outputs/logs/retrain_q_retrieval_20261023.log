@@ -1,0 +1,34 @@
+设备: cuda
+加载缓存潜向量: /home/lab1523-1-4/Desktop/TianPeiru/radar_2026/radar/radar/outputs/q_value/latent_q/state_latent_mu.npy (100000, 128)
+预计算每行 z_ctx（同类型 Top-K 相似度加权）...
+QLatentNet 热启动: /home/lab1523-1-4/Desktop/TianPeiru/radar_2026/radar/radar/outputs/q_value/latent_q/q_latent_best.pt
+训练 QRetrievalNet: Top-5 加权 ctx, MSE + λ=0.5 ranking, 早停=检索池 Hit@1
+Epoch 001 | train_mse=0.11861 rank=3.4088 | val_mse=10.67981 val_rank=2.5554 val_hit@1=0.260
+Epoch 020 | train_mse=0.10230 rank=3.6751 | val_mse=0.93188 val_rank=3.0871 val_hit@1=0.390
+Epoch 040 | train_mse=0.08691 rank=3.7154 | val_mse=0.86803 val_rank=3.1676 val_hit@1=0.330
+早停 @ epoch 52 (val_retrieval_hit@1=0.310)
+
+--- QRetrievalNet 验证 ---
+{
+  "val_rmse_std": 0.939220724882754,
+  "val_mae_std": 0.7524006962776184,
+  "val_r2_std": 0.08428692817687988,
+  "val_pearson_std": 0.8790716668623579,
+  "best_val_retrieval_hit_at_1": 0.44,
+  "top_k_retrieve": 5,
+  "epochs_run": 52,
+  "warm_start_from_q_latent": true,
+  "z_ctx_cache": "/home/lab1523-1-4/Desktop/TianPeiru/radar_2026/radar/radar/outputs/q_value/latent_q_retrieval/z_ctx_per_row_same_type_weighted.npy",
+  "model_path": "/home/lab1523-1-4/Desktop/TianPeiru/radar_2026/radar/radar/outputs/q_value/latent_q_retrieval/q_retrieval_best.pt",
+  "retrieval_pool_selection": {
+    "n_eval_scenarios": 1000,
+    "candidates_per_scenario_mean": 100.0,
+    "oracle_hit_at_1": 0.366,
+    "mean_regret_sinr_db": 0.5450012,
+    "median_regret_sinr_db": 0.24604999999999855,
+    "frac_zero_regret": 0.366,
+    "mean_rank_nll": 3.0090924941301345
+  }
+}
+
+模型已保存: /home/lab1523-1-4/Desktop/TianPeiru/radar_2026/radar/radar/outputs/q_value/latent_q_retrieval/q_retrieval_best.pt

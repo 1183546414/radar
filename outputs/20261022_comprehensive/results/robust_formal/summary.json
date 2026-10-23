@@ -1,0 +1,71 @@
+{
+  "seed": 20261022,
+  "n_scenarios": 5000,
+  "n_random_directions": 20,
+  "radii": [
+    0.02,
+    0.05,
+    0.1,
+    0.15,
+    0.2
+  ],
+  "search": "random + one-coordinate boundary search",
+  "sanity": {
+    "n_checked": 3000,
+    "max_abs_diff_db": 1.086500000000001,
+    "mean_abs_diff_db": 0.2825417333333333
+  },
+  "by_radius": [
+    {
+      "rho": 0.02,
+      "n": 5000,
+      "mean_worst_degradation": 0.475101,
+      "median_worst_degradation": 0.14860000000000095,
+      "p95_worst_degradation": 2.055645000000001,
+      "cvar10_worst_degradation": 2.7086466000000002,
+      "mean_max_static_regret": 0.40951220000000005,
+      "any_flip_rate": 0.3994
+    },
+    {
+      "rho": 0.05,
+      "n": 5000,
+      "mean_worst_degradation": 1.1740567800000001,
+      "median_worst_degradation": 0.3808000000000007,
+      "p95_worst_degradation": 5.294300000000004,
+      "cvar10_worst_degradation": 6.7889132,
+      "mean_max_static_regret": 1.0564828200000003,
+      "any_flip_rate": 0.5186
+    },
+    {
+      "rho": 0.1,
+      "n": 5000,
+      "mean_worst_degradation": 1.8293549,
+      "median_worst_degradation": 0.7774999999999999,
+      "p95_worst_degradation": 8.181970000000005,
+      "cvar10_worst_degradation": 8.8487386,
+      "mean_max_static_regret": 1.5421370200000002,
+      "any_flip_rate": 0.5696
+    },
+    {
+      "rho": 0.15,
+      "n": 5000,
+      "mean_worst_degradation": 2.2622046399999998,
+      "median_worst_degradation": 1.1661999999999981,
+      "p95_worst_degradation": 9.332394999999998,
+      "cvar10_worst_degradation": 9.544535,
+      "mean_max_static_regret": 1.8076124800000002,
+      "any_flip_rate": 0.5984
+    },
+    {
+      "rho": 0.2,
+      "n": 5000,
+      "mean_worst_degradation": 2.58790694,
+      "median_worst_degradation": 1.5549999999999997,
+      "p95_worst_degradation": 9.889720000000002,
+      "cvar10_worst_degradation": 9.8538666,
+      "mean_max_static_regret": 1.9721783600000002,
+      "any_flip_rate": 0.6238
+    }
+  ],
+  "elapsed_min": 5.8
+}

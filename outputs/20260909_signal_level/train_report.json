@@ -1,0 +1,19 @@
+{
+  "stages": {
+    "build_processed(信号级 R)": {
+      "elapsed_min": 0.03
+    },
+    "train_q_latent": {
+      "elapsed_min": 31.84
+    },
+    "train_q_retrieval": {
+      "elapsed_min": 7.64
+    }
+  },
+  "total_min": 39.5,
+  "round_processed": "C:\\Users\\Administrator\\Desktop\\radar\\radar\\outputs\\20260909_signal_level\\processed",
+  "round_models": "C:\\Users\\Administrator\\Desktop\\radar\\radar\\outputs\\20260909_signal_level\\models",
+  "jsr_db": 10.0,
+  "ranking_oracle": "radarsimpy_signal_level",
+  "backend_stats": "仿真次数=338560, 缓存命中=338560, 相位编码回退=1612673"
+}

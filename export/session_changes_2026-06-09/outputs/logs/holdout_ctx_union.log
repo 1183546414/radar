@@ -1,0 +1,24 @@
+/Users/a1021500655/miniconda3/lib/python3.13/site-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator SimpleImputer from version 1.6.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/Users/a1021500655/miniconda3/lib/python3.13/site-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator StandardScaler from version 1.6.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/Users/a1021500655/miniconda3/lib/python3.13/site-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator OneHotEncoder from version 1.6.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+Traceback (most recent call last):
+  File "<string>", line 6, in <module>
+    r = evaluate_method(ctx, m, verbose=False)
+  File "/Users/a1021500655/Desktop/radar/src/radar/infer/holdout_baselines.py", line 625, in evaluate_method
+    _, z_q = _encode_query(ctx, jammer_row)
+             ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/a1021500655/Desktop/radar/src/radar/infer/holdout_baselines.py", line 194, in _encode_query
+    s_imp = ctx.artifacts["imp_S"].transform(s_vec.reshape(1, -1))
+  File "/Users/a1021500655/miniconda3/lib/python3.13/site-packages/sklearn/utils/_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/Users/a1021500655/miniconda3/lib/python3.13/site-packages/sklearn/impute/_base.py", line 632, in transform
+    self._fill_dtype, copy=False
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'SimpleImputer' object has no attribute '_fill_dtype'. Did you mean: '_fit_dtype'?
+数据路径： /Users/a1021500655/Desktop/radar/data/v2/processed

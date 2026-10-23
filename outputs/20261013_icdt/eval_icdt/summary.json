@@ -1,0 +1,700 @@
+{
+  "round": "20261013_icdt",
+  "n_holdout_scenarios": 50,
+  "holdout_seed": 2026,
+  "jsr_db": 10.0,
+  "reference_regret": "oracle_k20 = max SINR among holdout K random A per scenario",
+  "lambda_pessimistic": 1.0,
+  "icdt_seeds": [
+    42,
+    1042,
+    2042,
+    3042,
+    4042
+  ],
+  "methods": [
+    {
+      "method": "q_only",
+      "label": "Q-only（无检索，随机 5 A）",
+      "n_evaluated": 50,
+      "mean_recommended_sinr_db": 12.458799641001738,
+      "mean_regret_vs_k20_db": 4.7932744792060635,
+      "median_regret_vs_k20_db": 2.355686017624686,
+      "frac_zero_regret_vs_k20": 0.32
+    },
+    {
+      "method": "retrieve_q_union",
+      "label": "Retrieve+Q-Union（Round2 基线）",
+      "n_evaluated": 50,
+      "mean_recommended_sinr_db": 22.333142245597273,
+      "mean_regret_vs_k20_db": -5.0810681253894705,
+      "median_regret_vs_k20_db": -1.8866102060068597,
+      "frac_zero_regret_vs_k20": 0.84
+    },
+    {
+      "method": "ens_pessimistic",
+      "label": "Q-Ens-悲观 μ−1.0σ（20261007 默认）",
+      "n_evaluated": 50,
+      "mean_recommended_sinr_db": 22.222166215343435,
+      "mean_regret_vs_k20_db": -4.9700920951356355,
+      "median_regret_vs_k20_db": -3.0775000000000006,
+      "frac_zero_regret_vs_k20": 0.82
+    },
+    {
+      "method": "icdt_m0",
+      "label": "ICDT 零观测",
+      "n_evaluated": 50,
+      "mean_recommended_sinr_db": 22.328749320047187,
+      "mean_regret_vs_k20_db": -5.076675199839387,
+      "median_regret_vs_k20_db": -2.0961500000000006,
+      "frac_zero_regret_vs_k20": 0.9,
+      "total_truth_queries": 0
+    },
+    {
+      "method": "icdt_rand_m1",
+      "label": "ICDT 随机观测 m=1",
+      "n_evaluated": 50,
+      "mean_recommended_sinr_db": 22.26755932004719,
+      "mean_regret_vs_k20_db": -5.015485199839387,
+      "median_regret_vs_k20_db": -1.9360999999999997,
+      "frac_zero_regret_vs_k20": 0.88,
+      "total_truth_queries": 50
+    },
+    {
+      "method": "icdt_rand_m3",
+      "label": "ICDT 随机观测 m=3",
+      "n_evaluated": 50,
+      "mean_recommended_sinr_db": 22.24586332004719,
+      "mean_regret_vs_k20_db": -4.993789199839387,
+      "median_regret_vs_k20_db": -2.0961500000000006,
+      "frac_zero_regret_vs_k20": 0.88,
+      "total_truth_queries": 150
+    },
+    {
+      "method": "icdt_rand_m5",
+      "label": "ICDT 随机观测 m=5",
+      "n_evaluated": 50,
+      "mean_recommended_sinr_db": 22.46228464651285,
+      "mean_regret_vs_k20_db": -5.210210526305044,
+      "median_regret_vs_k20_db": -2.722200000000001,
+      "frac_zero_regret_vs_k20": 0.88,
+      "total_truth_queries": 250
+    },
+    {
+      "method": "icdt_rand_m8",
+      "label": "ICDT 随机观测 m=8",
+      "n_evaluated": 50,
+      "mean_recommended_sinr_db": 22.450092646512843,
+      "mean_regret_vs_k20_db": -5.198018526305043,
+      "median_regret_vs_k20_db": -2.038949999999999,
+      "frac_zero_regret_vs_k20": 0.88,
+      "total_truth_queries": 400
+    },
+    {
+      "method": "icdt_act_m1",
+      "label": "ICDT 主动观测 m=1",
+      "n_evaluated": 50,
+      "mean_recommended_sinr_db": 22.33806332004719,
+      "mean_regret_vs_k20_db": -5.0859891998393865,
+      "median_regret_vs_k20_db": -1.9360999999999997,
+      "frac_zero_regret_vs_k20": 0.9,
+      "total_truth_queries": 50
+    },
+    {
+      "method": "icdt_act_m3",
+      "label": "ICDT 主动观测 m=3",
+      "n_evaluated": 50,
+      "mean_recommended_sinr_db": 22.36238532004719,
+      "mean_regret_vs_k20_db": -5.110311199839386,
+      "median_regret_vs_k20_db": -1.9360999999999997,
+      "frac_zero_regret_vs_k20": 0.9,
+      "total_truth_queries": 150
+    },
+    {
+      "method": "icdt_act_m5",
+      "label": "ICDT 主动观测 m=5",
+      "n_evaluated": 50,
+      "mean_recommended_sinr_db": 22.320801320047188,
+      "mean_regret_vs_k20_db": -5.068727199839386,
+      "median_regret_vs_k20_db": -1.9360999999999997,
+      "frac_zero_regret_vs_k20": 0.9,
+      "total_truth_queries": 250
+    },
+    {
+      "method": "icdt_act_m8",
+      "label": "ICDT 主动观测 m=8",
+      "n_evaluated": 50,
+      "mean_recommended_sinr_db": 22.28308332004719,
+      "mean_regret_vs_k20_db": -5.031009199839388,
+      "median_regret_vs_k20_db": -1.9360999999999997,
+      "frac_zero_regret_vs_k20": 0.9,
+      "total_truth_queries": 400
+    },
+    {
+      "method": "oracle_k20",
+      "label": "Oracle-K20（留出 K 随机 A 上界）",
+      "n_evaluated": 50,
+      "mean_recommended_sinr_db": 17.2520741202078,
+      "mean_regret_vs_k20_db": 0.0,
+      "median_regret_vs_k20_db": 0.0,
+      "frac_zero_regret_vs_k20": 1.0
+    },
+    {
+      "method": "oracle_wide",
+      "label": "Oracle-Wide（100 随机 A 上界）",
+      "n_evaluated": 50,
+      "mean_recommended_sinr_db": 22.98020776976266,
+      "mean_regret_vs_k20_db": -5.728133649554865,
+      "median_regret_vs_k20_db": -2.5371500000000005,
+      "frac_zero_regret_vs_k20": 0.92
+    }
+  ],
+  "buckets": {
+    "q_only": {
+      "rare_type": {
+        "n": 25,
+        "mean_regret_vs_k20_db": 1.6592400407028725,
+        "median_regret_vs_k20_db": 1.4194999999999993,
+        "frac_zero_regret_vs_k20": 0.36
+      },
+      "common_type": {
+        "n": 25,
+        "mean_regret_vs_k20_db": 7.9273089177092535,
+        "median_regret_vs_k20_db": 2.968399999999999,
+        "frac_zero_regret_vs_k20": 0.28
+      },
+      "low_sim": {
+        "n": 25,
+        "mean_regret_vs_k20_db": 2.2150528466119956,
+        "median_regret_vs_k20_db": 1.0664999999999996,
+        "frac_zero_regret_vs_k20": 0.36
+      },
+      "high_sim": {
+        "n": 25,
+        "mean_regret_vs_k20_db": 7.37149611180013,
+        "median_regret_vs_k20_db": 3.438720129729121,
+        "frac_zero_regret_vs_k20": 0.28
+      },
+      "hard": {
+        "n": 9,
+        "mean_regret_vs_k20_db": 1.4232641427403634,
+        "median_regret_vs_k20_db": 0.5621000000000009,
+        "frac_zero_regret_vs_k20": 0.3333333333333333
+      }
+    },
+    "retrieve_q_union": {
+      "rare_type": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -3.969040758363995,
+        "median_regret_vs_k20_db": -1.5351999999999997,
+        "frac_zero_regret_vs_k20": 0.84
+      },
+      "common_type": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -6.193095492414946,
+        "median_regret_vs_k20_db": -3.2316000000000003,
+        "frac_zero_regret_vs_k20": 0.84
+      },
+      "low_sim": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -2.344805557560784,
+        "median_regret_vs_k20_db": -1.5351999999999997,
+        "frac_zero_regret_vs_k20": 0.84
+      },
+      "high_sim": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -7.817330693218156,
+        "median_regret_vs_k20_db": -4.371499999999999,
+        "frac_zero_regret_vs_k20": 0.84
+      },
+      "hard": {
+        "n": 9,
+        "mean_regret_vs_k20_db": -1.678203107194514,
+        "median_regret_vs_k20_db": -1.4284999999999997,
+        "frac_zero_regret_vs_k20": 0.8888888888888888
+      }
+    },
+    "ens_pessimistic": {
+      "rare_type": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -4.393792758363995,
+        "median_regret_vs_k20_db": -2.923400000000001,
+        "frac_zero_regret_vs_k20": 0.8
+      },
+      "common_type": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -5.546391431907276,
+        "median_regret_vs_k20_db": -3.2316000000000003,
+        "frac_zero_regret_vs_k20": 0.84
+      },
+      "low_sim": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -2.6643535575607835,
+        "median_regret_vs_k20_db": -1.5396999999999998,
+        "frac_zero_regret_vs_k20": 0.8
+      },
+      "high_sim": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -7.275830632710487,
+        "median_regret_vs_k20_db": -3.595299999999998,
+        "frac_zero_regret_vs_k20": 0.84
+      },
+      "hard": {
+        "n": 9,
+        "mean_regret_vs_k20_db": -2.539191996083403,
+        "median_regret_vs_k20_db": -1.4284999999999997,
+        "frac_zero_regret_vs_k20": 0.7777777777777778
+      }
+    },
+    "icdt_m0": {
+      "rare_type": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -4.279440758363996,
+        "median_regret_vs_k20_db": -1.5014999999999983,
+        "frac_zero_regret_vs_k20": 0.88
+      },
+      "common_type": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -5.873909641314778,
+        "median_regret_vs_k20_db": -3.2316000000000003,
+        "frac_zero_regret_vs_k20": 0.92
+      },
+      "low_sim": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -2.5808575575607837,
+        "median_regret_vs_k20_db": -1.5014999999999983,
+        "frac_zero_regret_vs_k20": 0.84
+      },
+      "high_sim": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -7.57249284211799,
+        "median_regret_vs_k20_db": -3.528696394158686,
+        "frac_zero_regret_vs_k20": 0.96
+      },
+      "hard": {
+        "n": 9,
+        "mean_regret_vs_k20_db": -2.519280884972291,
+        "median_regret_vs_k20_db": -1.1372999999999962,
+        "frac_zero_regret_vs_k20": 0.7777777777777778
+      }
+    },
+    "icdt_rand_m1": {
+      "rare_type": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -4.207376758363996,
+        "median_regret_vs_k20_db": -1.4989000000000026,
+        "frac_zero_regret_vs_k20": 0.84
+      },
+      "common_type": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -5.823593641314778,
+        "median_regret_vs_k20_db": -3.2316000000000003,
+        "frac_zero_regret_vs_k20": 0.92
+      },
+      "low_sim": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -2.468633557560784,
+        "median_regret_vs_k20_db": -1.2737999999999978,
+        "frac_zero_regret_vs_k20": 0.8
+      },
+      "high_sim": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -7.56233684211799,
+        "median_regret_vs_k20_db": -3.528696394158686,
+        "frac_zero_regret_vs_k20": 0.96
+      },
+      "hard": {
+        "n": 9,
+        "mean_regret_vs_k20_db": -2.3473142183056246,
+        "median_regret_vs_k20_db": -0.5475999999999992,
+        "frac_zero_regret_vs_k20": 0.6666666666666666
+      }
+    },
+    "icdt_rand_m3": {
+      "rare_type": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -4.120496758363996,
+        "median_regret_vs_k20_db": -1.4989000000000026,
+        "frac_zero_regret_vs_k20": 0.84
+      },
+      "common_type": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -5.867081641314778,
+        "median_regret_vs_k20_db": -3.2316000000000003,
+        "frac_zero_regret_vs_k20": 0.92
+      },
+      "low_sim": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -2.4627175575607847,
+        "median_regret_vs_k20_db": -1.2737999999999978,
+        "frac_zero_regret_vs_k20": 0.8
+      },
+      "high_sim": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -7.524860842117989,
+        "median_regret_vs_k20_db": -3.528696394158686,
+        "frac_zero_regret_vs_k20": 0.96
+      },
+      "hard": {
+        "n": 9,
+        "mean_regret_vs_k20_db": -2.2100808849722915,
+        "median_regret_vs_k20_db": -0.5475999999999992,
+        "frac_zero_regret_vs_k20": 0.6666666666666666
+      }
+    },
+    "icdt_rand_m5": {
+      "rare_type": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -4.216660758363996,
+        "median_regret_vs_k20_db": -1.4989000000000026,
+        "frac_zero_regret_vs_k20": 0.84
+      },
+      "common_type": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -6.203760294246091,
+        "median_regret_vs_k20_db": -3.528696394158686,
+        "frac_zero_regret_vs_k20": 0.92
+      },
+      "low_sim": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -2.4958775575607843,
+        "median_regret_vs_k20_db": -1.2737999999999978,
+        "frac_zero_regret_vs_k20": 0.8
+      },
+      "high_sim": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -7.924543495049302,
+        "median_regret_vs_k20_db": -3.8887999999999963,
+        "frac_zero_regret_vs_k20": 0.96
+      },
+      "hard": {
+        "n": 9,
+        "mean_regret_vs_k20_db": -2.302191996083403,
+        "median_regret_vs_k20_db": -0.5475999999999992,
+        "frac_zero_regret_vs_k20": 0.6666666666666666
+      }
+    },
+    "icdt_rand_m8": {
+      "rare_type": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -4.192512758363995,
+        "median_regret_vs_k20_db": -1.4989000000000026,
+        "frac_zero_regret_vs_k20": 0.84
+      },
+      "common_type": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -6.203524294246091,
+        "median_regret_vs_k20_db": -3.528696394158686,
+        "frac_zero_regret_vs_k20": 0.92
+      },
+      "low_sim": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -2.5119655575607838,
+        "median_regret_vs_k20_db": -1.2422000000000004,
+        "frac_zero_regret_vs_k20": 0.8
+      },
+      "high_sim": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -7.884071495049302,
+        "median_regret_vs_k20_db": -3.8887999999999963,
+        "frac_zero_regret_vs_k20": 0.96
+      },
+      "hard": {
+        "n": 9,
+        "mean_regret_vs_k20_db": -2.347536440527848,
+        "median_regret_vs_k20_db": -0.5475999999999992,
+        "frac_zero_regret_vs_k20": 0.6666666666666666
+      }
+    },
+    "icdt_act_m1": {
+      "rare_type": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -4.287820758363996,
+        "median_regret_vs_k20_db": -1.5014999999999983,
+        "frac_zero_regret_vs_k20": 0.88
+      },
+      "common_type": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -5.884157641314777,
+        "median_regret_vs_k20_db": -3.2316000000000003,
+        "frac_zero_regret_vs_k20": 0.92
+      },
+      "low_sim": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -2.621937557560784,
+        "median_regret_vs_k20_db": -1.319300000000002,
+        "frac_zero_regret_vs_k20": 0.84
+      },
+      "high_sim": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -7.55004084211799,
+        "median_regret_vs_k20_db": -3.528696394158686,
+        "frac_zero_regret_vs_k20": 0.96
+      },
+      "hard": {
+        "n": 9,
+        "mean_regret_vs_k20_db": -2.6049253294167354,
+        "median_regret_vs_k20_db": -1.1372999999999962,
+        "frac_zero_regret_vs_k20": 0.7777777777777778
+      }
+    },
+    "icdt_act_m3": {
+      "rare_type": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -4.289556758363995,
+        "median_regret_vs_k20_db": -1.5014999999999983,
+        "frac_zero_regret_vs_k20": 0.88
+      },
+      "common_type": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -5.931065641314778,
+        "median_regret_vs_k20_db": -3.2316000000000003,
+        "frac_zero_regret_vs_k20": 0.92
+      },
+      "low_sim": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -2.6705815575607836,
+        "median_regret_vs_k20_db": -1.5014999999999983,
+        "frac_zero_regret_vs_k20": 0.84
+      },
+      "high_sim": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -7.55004084211799,
+        "median_regret_vs_k20_db": -3.528696394158686,
+        "frac_zero_regret_vs_k20": 0.96
+      },
+      "hard": {
+        "n": 9,
+        "mean_regret_vs_k20_db": -2.6097475516389586,
+        "median_regret_vs_k20_db": -1.1372999999999962,
+        "frac_zero_regret_vs_k20": 0.7777777777777778
+      }
+    },
+    "icdt_act_m5": {
+      "rare_type": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -4.220036758363995,
+        "median_regret_vs_k20_db": -1.5014999999999983,
+        "frac_zero_regret_vs_k20": 0.88
+      },
+      "common_type": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -5.917417641314778,
+        "median_regret_vs_k20_db": -3.2316000000000003,
+        "frac_zero_regret_vs_k20": 0.92
+      },
+      "low_sim": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -2.656933557560784,
+        "median_regret_vs_k20_db": -1.5014999999999983,
+        "frac_zero_regret_vs_k20": 0.84
+      },
+      "high_sim": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -7.48052084211799,
+        "median_regret_vs_k20_db": -3.528696394158686,
+        "frac_zero_regret_vs_k20": 0.96
+      },
+      "hard": {
+        "n": 9,
+        "mean_regret_vs_k20_db": -2.6097475516389586,
+        "median_regret_vs_k20_db": -1.1372999999999962,
+        "frac_zero_regret_vs_k20": 0.7777777777777778
+      }
+    },
+    "icdt_act_m8": {
+      "rare_type": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -4.189936758363995,
+        "median_regret_vs_k20_db": -1.4989000000000026,
+        "frac_zero_regret_vs_k20": 0.88
+      },
+      "common_type": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -5.872081641314778,
+        "median_regret_vs_k20_db": -3.2316000000000003,
+        "frac_zero_regret_vs_k20": 0.92
+      },
+      "low_sim": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -2.5584135575607845,
+        "median_regret_vs_k20_db": -1.2737999999999978,
+        "frac_zero_regret_vs_k20": 0.84
+      },
+      "high_sim": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -7.50360484211799,
+        "median_regret_vs_k20_db": -3.528696394158686,
+        "frac_zero_regret_vs_k20": 0.96
+      },
+      "hard": {
+        "n": 9,
+        "mean_regret_vs_k20_db": -2.462014218305625,
+        "median_regret_vs_k20_db": -0.5493999999999986,
+        "frac_zero_regret_vs_k20": 0.7777777777777778
+      }
+    },
+    "oracle_k20": {
+      "rare_type": {
+        "n": 25,
+        "mean_regret_vs_k20_db": 0.0,
+        "median_regret_vs_k20_db": 0.0,
+        "frac_zero_regret_vs_k20": 1.0
+      },
+      "common_type": {
+        "n": 25,
+        "mean_regret_vs_k20_db": 0.0,
+        "median_regret_vs_k20_db": 0.0,
+        "frac_zero_regret_vs_k20": 1.0
+      },
+      "low_sim": {
+        "n": 25,
+        "mean_regret_vs_k20_db": 0.0,
+        "median_regret_vs_k20_db": 0.0,
+        "frac_zero_regret_vs_k20": 1.0
+      },
+      "high_sim": {
+        "n": 25,
+        "mean_regret_vs_k20_db": 0.0,
+        "median_regret_vs_k20_db": 0.0,
+        "frac_zero_regret_vs_k20": 1.0
+      },
+      "hard": {
+        "n": 9,
+        "mean_regret_vs_k20_db": 0.0,
+        "median_regret_vs_k20_db": 0.0,
+        "frac_zero_regret_vs_k20": 1.0
+      }
+    },
+    "oracle_wide": {
+      "rare_type": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -4.688935888393462,
+        "median_regret_vs_k20_db": -2.222899999999999,
+        "frac_zero_regret_vs_k20": 0.92
+      },
+      "common_type": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -6.767331410716268,
+        "median_regret_vs_k20_db": -2.8514000000000017,
+        "frac_zero_regret_vs_k20": 0.92
+      },
+      "low_sim": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -3.5211647751447255,
+        "median_regret_vs_k20_db": -1.133899999999997,
+        "frac_zero_regret_vs_k20": 0.84
+      },
+      "high_sim": {
+        "n": 25,
+        "mean_regret_vs_k20_db": -7.9351025239650035,
+        "median_regret_vs_k20_db": -3.6323380307349886,
+        "frac_zero_regret_vs_k20": 1.0
+      },
+      "hard": {
+        "n": 9,
+        "mean_regret_vs_k20_db": -2.7063655056865885,
+        "median_regret_vs_k20_db": -0.5843999999999987,
+        "frac_zero_regret_vs_k20": 0.7777777777777778
+      }
+    }
+  },
+  "paired_vs_q_only": {
+    "reference": "q_only",
+    "n_scenarios": 50,
+    "results": {
+      "retrieve_q_union": {
+        "n": 50,
+        "wins": 45,
+        "ties": 0,
+        "losses": 5,
+        "win_rate": 0.9
+      },
+      "ens_pessimistic": {
+        "n": 50,
+        "wins": 48,
+        "ties": 0,
+        "losses": 2,
+        "win_rate": 0.96
+      },
+      "icdt_m0": {
+        "n": 50,
+        "wins": 48,
+        "ties": 0,
+        "losses": 2,
+        "win_rate": 0.96
+      },
+      "icdt_rand_m1": {
+        "n": 50,
+        "wins": 47,
+        "ties": 0,
+        "losses": 3,
+        "win_rate": 0.94
+      },
+      "icdt_rand_m3": {
+        "n": 50,
+        "wins": 46,
+        "ties": 0,
+        "losses": 4,
+        "win_rate": 0.92
+      },
+      "icdt_rand_m5": {
+        "n": 50,
+        "wins": 47,
+        "ties": 0,
+        "losses": 3,
+        "win_rate": 0.94
+      },
+      "icdt_rand_m8": {
+        "n": 50,
+        "wins": 46,
+        "ties": 0,
+        "losses": 4,
+        "win_rate": 0.92
+      },
+      "icdt_act_m1": {
+        "n": 50,
+        "wins": 47,
+        "ties": 0,
+        "losses": 3,
+        "win_rate": 0.94
+      },
+      "icdt_act_m3": {
+        "n": 50,
+        "wins": 48,
+        "ties": 0,
+        "losses": 2,
+        "win_rate": 0.96
+      },
+      "icdt_act_m5": {
+        "n": 50,
+        "wins": 48,
+        "ties": 0,
+        "losses": 2,
+        "win_rate": 0.96
+      },
+      "icdt_act_m8": {
+        "n": 50,
+        "wins": 47,
+        "ties": 0,
+        "losses": 3,
+        "win_rate": 0.94
+      },
+      "oracle_k20": {
+        "n": 50,
+        "wins": 34,
+        "ties": 0,
+        "losses": 16,
+        "win_rate": 0.68
+      },
+      "oracle_wide": {
+        "n": 50,
+        "wins": 48,
+        "ties": 0,
+        "losses": 2,
+        "win_rate": 0.96
+      }
+    }
+  },
+  "elapsed_min": 0.9660648425420125
+}

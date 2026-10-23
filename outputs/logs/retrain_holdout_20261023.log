@@ -1,0 +1,55 @@
+数据路径： /home/lab1523-1-4/Desktop/TianPeiru/radar_2026/radar/radar/data/v2/processed
+留出集: 500 场景, K=10, 检索库 4000 train 场景
+评估方法: ['random', 'retrieval_max_r', 'q_only', 'retrieve_q_union', 'oracle_wide']
+
+--- random: Random（检索候选池内随机） ---
+  [random] 1/500 sid=1000000 rec=8.52 oracle_k20=11.28 regret=2.76
+  [random] 2/500 sid=1000001 rec=12.62 oracle_k20=12.47 regret=-0.15
+  [random] 101/500 sid=1000100 rec=11.75 oracle_k20=15.94 regret=4.19
+  [random] 201/500 sid=1000200 rec=14.12 oracle_k20=18.68 regret=4.56
+  [random] 301/500 sid=1000300 rec=28.92 oracle_k20=30.84 regret=1.92
+  [random] 401/500 sid=1000400 rec=1.38 oracle_k20=12.42 regret=11.03
+--- retrieval_max_r: Retrieval-only（训练 R 最高） ---
+  [retrieval_max_r] 1/500 sid=1000000 rec=11.54 oracle_k20=11.28 regret=-0.26
+  [retrieval_max_r] 2/500 sid=1000001 rec=12.94 oracle_k20=12.47 regret=-0.47
+  [retrieval_max_r] 101/500 sid=1000100 rec=17.10 oracle_k20=15.94 regret=-1.16
+  [retrieval_max_r] 201/500 sid=1000200 rec=19.03 oracle_k20=18.68 regret=-0.35
+  [retrieval_max_r] 301/500 sid=1000300 rec=31.65 oracle_k20=30.84 regret=-0.80
+  [retrieval_max_r] 401/500 sid=1000400 rec=13.42 oracle_k20=12.42 regret=-1.01
+--- q_only: Q-only（无检索，随机 5 A） ---
+  [q_only] 1/500 sid=1000000 rec=12.01 oracle_k20=11.28 regret=-0.73
+  [q_only] 2/500 sid=1000001 rec=12.86 oracle_k20=12.47 regret=-0.39
+  [q_only] 101/500 sid=1000100 rec=10.67 oracle_k20=15.94 regret=5.27
+  [q_only] 201/500 sid=1000200 rec=19.54 oracle_k20=18.68 regret=-0.86
+  [q_only] 301/500 sid=1000300 rec=30.85 oracle_k20=30.84 regret=-0.01
+  [q_only] 401/500 sid=1000400 rec=11.52 oracle_k20=12.42 regret=0.89
+--- retrieve_q_union: Retrieve+Q（检索池 ∪ 随机 100 A） ---
+  [retrieve_q_union] 1/500 sid=1000000 rec=12.80 oracle_k20=11.28 regret=-1.52
+  [retrieve_q_union] 2/500 sid=1000001 rec=12.22 oracle_k20=12.47 regret=0.25
+  [retrieve_q_union] 101/500 sid=1000100 rec=17.17 oracle_k20=15.94 regret=-1.23
+  [retrieve_q_union] 201/500 sid=1000200 rec=19.22 oracle_k20=18.68 regret=-0.54
+  [retrieve_q_union] 301/500 sid=1000300 rec=32.78 oracle_k20=30.84 regret=-1.93
+  [retrieve_q_union] 401/500 sid=1000400 rec=12.58 oracle_k20=12.42 regret=-0.16
+--- oracle_wide: Oracle-Wide（查询 S 上 100 随机 A 上界） ---
+  [oracle_wide] 1/500 sid=1000000 rec=12.28 oracle_k20=11.28 regret=-0.99
+  [oracle_wide] 2/500 sid=1000001 rec=14.17 oracle_k20=12.47 regret=-1.70
+  [oracle_wide] 101/500 sid=1000100 rec=17.15 oracle_k20=15.94 regret=-1.21
+  [oracle_wide] 201/500 sid=1000200 rec=19.70 oracle_k20=18.68 regret=-1.02
+  [oracle_wide] 301/500 sid=1000300 rec=32.28 oracle_k20=30.84 regret=-1.44
+  [oracle_wide] 401/500 sid=1000400 rec=14.62 oracle_k20=12.42 regret=-2.20
+
+--- 配对胜率（相对 Q-only，逐场景 SINR 更高即胜）---
+  random             胜  85/500  (17.0%)
+  retrieval_max_r    胜 415/500  (83.0%)
+  retrieve_q_union   胜 431/500  (86.2%)
+
+=== 留出集 Baseline 对比汇总 (regret vs Oracle-K20) ===
+方法                   推荐SINR  Oracle-K20   regret  med_reg  Hit@K20
+random                14.69       18.59    3.901    3.528     8.8%
+retrieval_max_r       19.50       18.59   -0.911   -0.828    76.8%
+q_only                17.91       18.59    0.687    0.492    34.2%
+retrieve_q_union      19.54       18.59   -0.943   -0.951    79.8%
+oracle_wide           20.15       18.59   -1.561   -1.370    96.0%
+
+已保存: /home/lab1523-1-4/Desktop/TianPeiru/radar_2026/radar/radar/outputs/q_value/holdout_baselines/summary.json
+已保存: /home/lab1523-1-4/Desktop/TianPeiru/radar_2026/radar/radar/outputs/q_value/holdout_baselines/summary.csv

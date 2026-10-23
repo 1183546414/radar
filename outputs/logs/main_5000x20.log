@@ -1,0 +1,304 @@
+/Users/a1021500655/miniconda3/lib/python3.13/site-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator SimpleImputer from version 1.6.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/Users/a1021500655/miniconda3/lib/python3.13/site-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator StandardScaler from version 1.6.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/Users/a1021500655/miniconda3/lib/python3.13/site-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator OneHotEncoder from version 1.6.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+日志文件: /Users/a1021500655/Desktop/radar/outputs/logs/main.log
+
+数据路径： /Users/a1021500655/Desktop/radar/data/v2/processed
+=== 1/6 数据处理 ===
+数据源 CSV: /Users/a1021500655/Desktop/radar/data/simulated/simulated_radar_jamming_high_contrast_10k.csv
+输出目录: /Users/a1021500655/Desktop/radar/data/v2/processed
+读取样本数: 100000
+Done. Shapes -> S_raw:(100000, 15), A_raw:(100000, 9), R_raw:(100000, 1)
+Standardized -> S_std:(100000, 15), A_std:(100000, 9), R_std:(100000, 1)
+干扰类型数: 7, 已保存 jammer_type_labels.json
+干扰场景数: 5000, 每场景动作数: 20, 已保存 scenario_id.npy
+Saved to: /Users/a1021500655/Desktop/radar/data/v2/processed
+=== 2/6 训练状态 VAE ===
+Epoch 001 | train_rec=0.663385  train_kld=0.000000 | val_rec=0.011617 (RMSE=0.107782)  val_kld=0.000000  total=0.011617
+Epoch 002 | train_rec=0.020606  train_kld=0.000000 | val_rec=0.003906 (RMSE=0.062496)  val_kld=0.000000  total=0.003906
+Epoch 003 | train_rec=0.007540  train_kld=0.000000 | val_rec=0.001799 (RMSE=0.042417)  val_kld=0.000000  total=0.001799
+Epoch 004 | train_rec=0.004995  train_kld=0.000000 | val_rec=0.001457 (RMSE=0.038166)  val_kld=0.000000  total=0.001457
+Epoch 005 | train_rec=0.003673  train_kld=0.000000 | val_rec=0.001542 (RMSE=0.039267)  val_kld=0.000000  total=0.001542
+Epoch 006 | train_rec=0.002881  train_kld=0.000000 | val_rec=0.001170 (RMSE=0.034206)  val_kld=0.000000  total=0.001170
+Epoch 007 | train_rec=0.002303  train_kld=0.000000 | val_rec=0.000654 (RMSE=0.025577)  val_kld=0.000000  total=0.000654
+Epoch 008 | train_rec=0.001978  train_kld=0.000000 | val_rec=0.000717 (RMSE=0.026773)  val_kld=0.000000  total=0.000717
+Epoch 009 | train_rec=0.001702  train_kld=0.000000 | val_rec=0.000761 (RMSE=0.027595)  val_kld=0.000000  total=0.000761
+Epoch 010 | train_rec=0.001527  train_kld=0.000000 | val_rec=0.000946 (RMSE=0.030755)  val_kld=0.000000  total=0.000946
+Epoch 011 | train_rec=0.001351  train_kld=0.000000 | val_rec=0.000408 (RMSE=0.020190)  val_kld=0.000000  total=0.000408
+Epoch 012 | train_rec=0.001235  train_kld=0.000000 | val_rec=0.000330 (RMSE=0.018165)  val_kld=0.000000  total=0.000330
+Epoch 013 | train_rec=0.001104  train_kld=0.000000 | val_rec=0.000268 (RMSE=0.016368)  val_kld=0.000000  total=0.000268
+Epoch 014 | train_rec=0.001061  train_kld=0.000000 | val_rec=0.000477 (RMSE=0.021842)  val_kld=0.000000  total=0.000477
+Epoch 015 | train_rec=0.000935  train_kld=0.000000 | val_rec=0.000655 (RMSE=0.025595)  val_kld=0.000000  total=0.000655
+Epoch 016 | train_rec=0.000859  train_kld=0.000000 | val_rec=0.000481 (RMSE=0.021925)  val_kld=0.000000  total=0.000481
+Epoch 017 | train_rec=0.000861  train_kld=0.000000 | val_rec=0.000545 (RMSE=0.023335)  val_kld=0.000000  total=0.000545
+Epoch 018 | train_rec=0.000791  train_kld=0.000000 | val_rec=0.000327 (RMSE=0.018086)  val_kld=0.000000  total=0.000327
+Epoch 019 | train_rec=0.000774  train_kld=0.000000 | val_rec=0.000719 (RMSE=0.026809)  val_kld=0.000000  total=0.000719
+Epoch 020 | train_rec=0.000669  train_kld=0.000000 | val_rec=0.000399 (RMSE=0.019972)  val_kld=0.000000  total=0.000399
+Epoch 021 | train_rec=0.000668  train_kld=0.000000 | val_rec=0.000941 (RMSE=0.030675)  val_kld=0.000000  total=0.000941
+Epoch 022 | train_rec=0.000618  train_kld=0.000000 | val_rec=0.000332 (RMSE=0.018215)  val_kld=0.000000  total=0.000332
+Epoch 023 | train_rec=0.000602  train_kld=0.000000 | val_rec=0.000386 (RMSE=0.019642)  val_kld=0.000000  total=0.000386
+Epoch 024 | train_rec=0.000551  train_kld=0.000000 | val_rec=0.000834 (RMSE=0.028879)  val_kld=0.000000  total=0.000834
+Epoch 025 | train_rec=0.000551  train_kld=0.000000 | val_rec=0.000527 (RMSE=0.022954)  val_kld=0.000000  total=0.000527
+Epoch 026 | train_rec=0.000513  train_kld=0.000000 | val_rec=0.000175 (RMSE=0.013224)  val_kld=0.000000  total=0.000175
+Epoch 027 | train_rec=0.000464  train_kld=0.000000 | val_rec=0.000285 (RMSE=0.016891)  val_kld=0.000000  total=0.000285
+Epoch 028 | train_rec=0.000484  train_kld=0.000000 | val_rec=0.000298 (RMSE=0.017265)  val_kld=0.000000  total=0.000298
+Epoch 029 | train_rec=0.000446  train_kld=0.000000 | val_rec=0.000195 (RMSE=0.013956)  val_kld=0.000000  total=0.000195
+Epoch 030 | train_rec=0.000400  train_kld=0.000000 | val_rec=0.000413 (RMSE=0.020324)  val_kld=0.000000  total=0.000413
+Epoch 031 | train_rec=0.000412  train_kld=0.000000 | val_rec=0.000645 (RMSE=0.025392)  val_kld=0.000000  total=0.000645
+Epoch 032 | train_rec=0.000367  train_kld=0.000000 | val_rec=0.000310 (RMSE=0.017615)  val_kld=0.000000  total=0.000310
+Epoch 033 | train_rec=0.000355  train_kld=0.000000 | val_rec=0.000205 (RMSE=0.014325)  val_kld=0.000000  total=0.000205
+Epoch 034 | train_rec=0.000336  train_kld=0.000000 | val_rec=0.000124 (RMSE=0.011156)  val_kld=0.000000  total=0.000124
+Epoch 035 | train_rec=0.000349  train_kld=0.000000 | val_rec=0.000095 (RMSE=0.009755)  val_kld=0.000000  total=0.000095
+Epoch 036 | train_rec=0.000291  train_kld=0.000000 | val_rec=0.000113 (RMSE=0.010617)  val_kld=0.000000  total=0.000113
+Epoch 037 | train_rec=0.000298  train_kld=0.000000 | val_rec=0.000206 (RMSE=0.014355)  val_kld=0.000000  total=0.000206
+Epoch 038 | train_rec=0.000282  train_kld=0.000000 | val_rec=0.000138 (RMSE=0.011766)  val_kld=0.000000  total=0.000138
+Epoch 039 | train_rec=0.000268  train_kld=0.000000 | val_rec=0.000203 (RMSE=0.014261)  val_kld=0.000000  total=0.000203
+Epoch 040 | train_rec=0.000261  train_kld=0.000000 | val_rec=0.000104 (RMSE=0.010177)  val_kld=0.000000  total=0.000104
+Epoch 041 | train_rec=0.000238  train_kld=0.000000 | val_rec=0.000218 (RMSE=0.014757)  val_kld=0.000000  total=0.000218
+Epoch 042 | train_rec=0.000235  train_kld=0.000000 | val_rec=0.000183 (RMSE=0.013541)  val_kld=0.000000  total=0.000183
+Epoch 043 | train_rec=0.000212  train_kld=0.000000 | val_rec=0.000235 (RMSE=0.015342)  val_kld=0.000000  total=0.000235
+Epoch 044 | train_rec=0.000209  train_kld=0.000000 | val_rec=0.000067 (RMSE=0.008160)  val_kld=0.000000  total=0.000067
+Epoch 045 | train_rec=0.000215  train_kld=0.000000 | val_rec=0.000088 (RMSE=0.009381)  val_kld=0.000000  total=0.000088
+Epoch 046 | train_rec=0.000176  train_kld=0.000000 | val_rec=0.000102 (RMSE=0.010080)  val_kld=0.000000  total=0.000102
+Epoch 047 | train_rec=0.000176  train_kld=0.000000 | val_rec=0.000047 (RMSE=0.006826)  val_kld=0.000000  total=0.000047
+Epoch 048 | train_rec=0.000186  train_kld=0.000000 | val_rec=0.000310 (RMSE=0.017608)  val_kld=0.000000  total=0.000310
+Epoch 049 | train_rec=0.000164  train_kld=0.000000 | val_rec=0.000134 (RMSE=0.011590)  val_kld=0.000000  total=0.000134
+Epoch 050 | train_rec=0.000151  train_kld=0.000000 | val_rec=0.000319 (RMSE=0.017847)  val_kld=0.000000  total=0.000319
+Epoch 051 | train_rec=0.000153  train_kld=0.000000 | val_rec=0.000081 (RMSE=0.008992)  val_kld=0.000000  total=0.000081
+Epoch 052 | train_rec=0.000140  train_kld=0.000000 | val_rec=0.000182 (RMSE=0.013485)  val_kld=0.000000  total=0.000182
+Epoch 053 | train_rec=0.000125  train_kld=0.000000 | val_rec=0.000071 (RMSE=0.008446)  val_kld=0.000000  total=0.000071
+Epoch 054 | train_rec=0.000129  train_kld=0.000000 | val_rec=0.000028 (RMSE=0.005276)  val_kld=0.000000  total=0.000028
+Epoch 055 | train_rec=0.000125  train_kld=0.000000 | val_rec=0.000044 (RMSE=0.006633)  val_kld=0.000000  total=0.000044
+Epoch 056 | train_rec=0.000107  train_kld=0.000000 | val_rec=0.000193 (RMSE=0.013892)  val_kld=0.000000  total=0.000193
+Epoch 057 | train_rec=0.000120  train_kld=0.000000 | val_rec=0.000440 (RMSE=0.020983)  val_kld=0.000000  total=0.000440
+Epoch 058 | train_rec=0.000125  train_kld=0.000000 | val_rec=0.000044 (RMSE=0.006670)  val_kld=0.000000  total=0.000044
+Epoch 059 | train_rec=0.000104  train_kld=0.000000 | val_rec=0.000032 (RMSE=0.005621)  val_kld=0.000000  total=0.000032
+Epoch 060 | train_rec=0.000134  train_kld=0.000000 | val_rec=0.000023 (RMSE=0.004815)  val_kld=0.000000  total=0.000023
+Epoch 061 | train_rec=0.000060  train_kld=0.000000 | val_rec=0.000015 (RMSE=0.003929)  val_kld=0.000000  total=0.000015
+Epoch 062 | train_rec=0.000093  train_kld=0.000000 | val_rec=0.000095 (RMSE=0.009729)  val_kld=0.000000  total=0.000095
+Epoch 063 | train_rec=0.000112  train_kld=0.000000 | val_rec=0.000024 (RMSE=0.004932)  val_kld=0.000000  total=0.000024/Users/a1021500655/miniconda3/lib/python3.13/site-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator SimpleImputer from version 1.6.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/Users/a1021500655/miniconda3/lib/python3.13/site-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator StandardScaler from version 1.6.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/Users/a1021500655/miniconda3/lib/python3.13/site-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator OneHotEncoder from version 1.6.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/Users/a1021500655/miniconda3/lib/python3.13/site-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator SimpleImputer from version 1.6.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/Users/a1021500655/miniconda3/lib/python3.13/site-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator StandardScaler from version 1.6.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/Users/a1021500655/miniconda3/lib/python3.13/site-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator OneHotEncoder from version 1.6.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+
+Epoch 064 | train_rec=0.000101  train_kld=0.000000 | val_rec=0.000017 (RMSE=0.004089)  val_kld=0.000000  total=0.000017
+Epoch 065 | train_rec=0.000045  train_kld=0.000000 | val_rec=0.000016 (RMSE=0.003972)  val_kld=0.000000  total=0.000016
+Epoch 066 | train_rec=0.000155  train_kld=0.000000 | val_rec=0.000004 (RMSE=0.001939)  val_kld=0.000000  total=0.000004
+Epoch 067 | train_rec=0.000029  train_kld=0.000000 | val_rec=0.000018 (RMSE=0.004274)  val_kld=0.000000  total=0.000018
+Epoch 068 | train_rec=0.000053  train_kld=0.000000 | val_rec=0.000025 (RMSE=0.004994)  val_kld=0.000000  total=0.000025
+Epoch 069 | train_rec=0.000057  train_kld=0.000000 | val_rec=0.000043 (RMSE=0.006562)  val_kld=0.000000  total=0.000043
+Epoch 070 | train_rec=0.000054  train_kld=0.000000 | val_rec=0.000012 (RMSE=0.003423)  val_kld=0.000000  total=0.000012
+Epoch 071 | train_rec=0.000079  train_kld=0.000000 | val_rec=0.000028 (RMSE=0.005283)  val_kld=0.000000  total=0.000028
+Epoch 072 | train_rec=0.000089  train_kld=0.000000 | val_rec=0.000023 (RMSE=0.004826)  val_kld=0.000000  total=0.000023
+Epoch 073 | train_rec=0.000026  train_kld=0.000000 | val_rec=0.000006 (RMSE=0.002403)  val_kld=0.000000  total=0.000006
+Epoch 074 | train_rec=0.000050  train_kld=0.000000 | val_rec=0.000060 (RMSE=0.007765)  val_kld=0.000000  total=0.000060
+Epoch 075 | train_rec=0.000047  train_kld=0.000000 | val_rec=0.000005 (RMSE=0.002196)  val_kld=0.000000  total=0.000005
+Epoch 076 | train_rec=0.000107  train_kld=0.000000 | val_rec=0.000009 (RMSE=0.002946)  val_kld=0.000000  total=0.000009
+Epoch 077 | train_rec=0.000023  train_kld=0.000000 | val_rec=0.000003 (RMSE=0.001845)  val_kld=0.000000  total=0.000003
+Epoch 078 | train_rec=0.000030  train_kld=0.000000 | val_rec=0.000015 (RMSE=0.003827)  val_kld=0.000000  total=0.000015
+Epoch 079 | train_rec=0.000060  train_kld=0.000000 | val_rec=0.000006 (RMSE=0.002519)  val_kld=0.000000  total=0.000006
+Epoch 080 | train_rec=0.000021  train_kld=0.000000 | val_rec=0.000191 (RMSE=0.013812)  val_kld=0.000000  total=0.000191
+Epoch 081 | train_rec=0.000048  train_kld=0.000000 | val_rec=0.000004 (RMSE=0.002016)  val_kld=0.000000  total=0.000004
+Epoch 082 | train_rec=0.000605  train_kld=0.000000 | val_rec=0.000123 (RMSE=0.011110)  val_kld=0.000000  total=0.000123
+Epoch 083 | train_rec=0.000553  train_kld=0.000000 | val_rec=0.000150 (RMSE=0.012255)  val_kld=0.000000  total=0.000150
+Epoch 084 | train_rec=0.004450  train_kld=0.000000 | val_rec=0.000426 (RMSE=0.020635)  val_kld=0.000000  total=0.000426
+Epoch 085 | train_rec=0.000341  train_kld=0.000000 | val_rec=0.000005 (RMSE=0.002224)  val_kld=0.000000  total=0.000005
+Epoch 086 | train_rec=0.000037  train_kld=0.000000 | val_rec=0.000009 (RMSE=0.002985)  val_kld=0.000000  total=0.000009
+Epoch 087 | train_rec=0.000035  train_kld=0.000000 | val_rec=0.000009 (RMSE=0.003046)  val_kld=0.000000  total=0.000009
+Epoch 088 | train_rec=0.000025  train_kld=0.000000 | val_rec=0.000008 (RMSE=0.002912)  val_kld=0.000000  total=0.000008
+Epoch 089 | train_rec=0.000022  train_kld=0.000000 | val_rec=0.000006 (RMSE=0.002417)  val_kld=0.000000  total=0.000006
+Epoch 090 | train_rec=0.000023  train_kld=0.000000 | val_rec=0.000019 (RMSE=0.004338)  val_kld=0.000000  total=0.000019
+Epoch 091 | train_rec=0.000030  train_kld=0.000000 | val_rec=0.000010 (RMSE=0.003110)  val_kld=0.000000  total=0.000010
+Epoch 092 | train_rec=0.000022  train_kld=0.000000 | val_rec=0.000005 (RMSE=0.002306)  val_kld=0.000000  total=0.000005
+Epoch 093 | train_rec=0.000049  train_kld=0.000000 | val_rec=0.000021 (RMSE=0.004581)  val_kld=0.000000  total=0.000021
+Epoch 094 | train_rec=0.000016  train_kld=0.000000 | val_rec=0.000004 (RMSE=0.002092)  val_kld=0.000000  total=0.000004
+Epoch 095 | train_rec=0.000032  train_kld=0.000000 | val_rec=0.000032 (RMSE=0.005645)  val_kld=0.000000  total=0.000032
+Epoch 096 | train_rec=0.000112  train_kld=0.000000 | val_rec=0.000005 (RMSE=0.002178)  val_kld=0.000000  total=0.000005
+Epoch 097 | train_rec=0.000016  train_kld=0.000000 | val_rec=0.000004 (RMSE=0.001923)  val_kld=0.000000  total=0.000004
+Done.
+{
+  "s_dim": 15,
+  "latent_dim": 128,
+  "epochs_run": 97,
+  "best_val_total": 3.4035346165183e-06,
+  "best_model_path": "\\Users\\a1021500655\\Desktop\\radar\\outputs\\state_vae\\state_ae_or_vae.pt",
+  "embeddings_mu_path": "\\Users\\a1021500655\\Desktop\\radar\\outputs\\state_vae\\state_embeddings_mu.npy",
+  "model_type": "AE",
+  "contrast_w": 3.0
+}
+=== 2b/6 生成 VAE 重建可视化 (5×4 对比 + 绝对误差) ===
+[OK] 重建对比图已保存: /Users/a1021500655/Desktop/radar/outputs/figures/reconstructed_samples.png
+[OK] 重建绝对误差图已保存: /Users/a1021500655/Desktop/radar/outputs/figures/reconstruction_abs_error.png
+=== 2c/6 潜向量 t-SNE 可视化 (干扰类型) ===
+[INFO] Loaded embeddings: (100000, 128), scenarios=5000, intra_max_dist_mean=8.76e-06
+[OK] 场景 μ 一致性统计: /Users/a1021500655/Desktop/radar/outputs/figures/latent/scenario_mu_stats.txt
+[OK] 场景内 μ 一致性直方图: /Users/a1021500655/Desktop/radar/outputs/figures/latent/scenario_mu_consistency.png
+[INFO] t-SNE: n=5000 scenarios, 7 jammer types, perplexity=50
+[t-SNE] Computing 151 nearest neighbors...
+[t-SNE] Indexed 5000 samples in 0.000s...
+[t-SNE] Computed neighbors for 5000 samples in 0.359s...
+[t-SNE] Computed conditional probabilities for sample 1000 / 5000
+[t-SNE] Computed conditional probabilities for sample 2000 / 5000
+[t-SNE] Computed conditional probabilities for sample 3000 / 5000
+[t-SNE] Computed conditional probabilities for sample 4000 / 5000
+[t-SNE] Computed conditional probabilities for sample 5000 / 5000
+[t-SNE] Mean sigma: 24.939166
+[t-SNE] KL divergence after 250 iterations with early exaggeration: 64.137222
+[t-SNE] KL divergence after 1000 iterations: 0.864552
+[OK] t-SNE 散点图已保存: /Users/a1021500655/Desktop/radar/outputs/figures/latent/tsne_scatter.png
+[OK] t-SNE 密度图已保存: /Users/a1021500655/Desktop/radar/outputs/figures/latent/tsne_density.png
+=== 2d/6 潜空间无监督聚类 (KMeans) ===
+
+=== Clustering Summary ===
+Embeddings: /Users/a1021500655/Desktop/radar/outputs/state_vae/state_embeddings_mu.npy  |  n=20000, dim=128
+Best Silhouette:      k=9  score=0.1486  (higher=better)
+Best Davies–Bouldin:  k=2  score=2.1068  (lower=better)
+
+ k silhouette davies_bouldin
+ 2     0.0730         2.1068
+ 3     0.0937         2.4019
+ 4     0.1137         2.7121
+ 5     0.1233         3.2862
+ 6     0.1317         3.3597
+ 7     0.1410         3.3359
+ 8     0.1455         3.2858
+ 9     0.1486         3.5174
+10     0.1233         3.2171
+11     0.1126         3.2711
+12     0.1335         3.1163
+13     0.1031         3.2605
+14     0.1010         3.2338
+15     0.1033         3.2219
+16     0.1109         3.1201
+17     0.1123         2.9622
+18     0.1184         2.9616
+19     0.1262         2.9559
+20     0.1341         2.7842
+[OK] 聚类曲线已保存: /Users/a1021500655/Desktop/radar/outputs/figures/clustering
+=== 3/6 训练 Q 网络 Q(z,A)->R ===
+设备: cpu
+冻结 VAE 编码 S_std -> μ, N=100000
+数据: z(100000, 128), A(100000, 9), R(100000,), scenarios=5000, K≈20/场景
+划分: train 4000 场景 / val 1000 场景
+检索 ranking: Top-5, λ=0.5, 每 epoch 32×4 场景
+开始训练 QLatentNet: epochs<=300, patience=25
+Epoch 001 | train_mse=0.82203 rank_nll=4.1743 | val_mse=1.79892 val_rank_nll=3.5440 combined=3.57093
+Epoch 020 | train_mse=0.46262 rank_nll=4.0786 | val_mse=0.96190 val_rank_nll=3.8357 combined=2.87973
+Epoch 040 | train_mse=0.39465 rank_nll=4.1000 | val_mse=0.83372 val_rank_nll=3.8570 combined=2.76222
+Epoch 060 | train_mse=0.38811 rank_nll=4.0070 | val_mse=0.86490 val_rank_nll=3.7035 combined=2.71665
+Epoch 080 | train_mse=0.37262 rank_nll=4.0081 | val_mse=1.01532 val_rank_nll=3.5779 combined=2.80427
+Epoch 100 | train_mse=0.36204 rank_nll=4.0076 | val_mse=0.71641 val_rank_nll=3.6699 combined=2.55138
+Epoch 120 | train_mse=0.35307 rank_nll=4.0071 | val_mse=0.76815 val_rank_nll=3.6760 combined=2.60618
+早停 @ epoch 132 (combined=val_mse+0.5*val_rank_nll)
+
+--- Q(z,A) 回归（验证集，R 为标准化 SINR）---
+{
+  "val_rmse_std": 0.7821679254049332,
+  "val_mae_std": 0.5601581335067749,
+  "val_r2_std": 0.3860613703727722,
+  "val_pearson_std": 0.7054301910956483,
+  "best_val_combined": 2.4490811228752136,
+  "rank_lambda": 0.5,
+  "top_k_retrieve": 5,
+  "epochs_run": 132,
+  "z_dim": 128,
+  "a_dim": 9,
+  "latent_cache": "/Users/a1021500655/Desktop/radar/outputs/q_value/latent_q/state_latent_mu.npy",
+  "model_path": "/Users/a1021500655/Desktop/radar/outputs/q_value/latent_q/q_latent_best.pt"
+}
+
+--- 动作推荐（每场景 K=20 A 内 argmax Q）---
+{
+  "n_eval_scenarios": 1000,
+  "actions_per_scenario_mean": 20.0,
+  "oracle_hit_at_1": 0.452,
+  "mean_regret_sinr_db": 1.0880416,
+  "median_regret_sinr_db": 0.0939000000000032,
+  "frac_zero_regret": 0.452,
+  "mean_rank_of_oracle_action_by_q": 1.0
+}
+
+--- 检索候选池推荐（Top-5 train 场景, ~100 A, 对齐 Retrieve+Q）---
+{
+  "n_eval_scenarios": 1000,
+  "candidates_per_scenario_mean": 100.0,
+  "oracle_hit_at_1": 0.202,
+  "mean_regret_sinr_db": 0.6419187,
+  "median_regret_sinr_db": 0.45655000000000356,
+  "frac_zero_regret": 0.202,
+  "mean_rank_nll": 3.7512982473373415
+}
+
+模型已保存: /Users/a1021500655/Desktop/radar/outputs/q_value/latent_q/q_latent_best.pt
+指标已保存: /Users/a1021500655/Desktop/radar/outputs/q_value/latent_q/metrics.json
+=== 4/6 训练检索条件 Q Q(z,z_ctx,A)->R ===
+设备: cpu
+加载缓存潜向量: /Users/a1021500655/Desktop/radar/outputs/q_value/latent_q/state_latent_mu.npy (100000, 128)
+预计算每行 z_ctx（Top-K 邻居均值）...
+训练 QRetrievalNet: Top-5 ctx, MSE + λ=0.5 ranking
+Epoch 001 | train_mse=0.82695 rank=4.3913 | val_mse=1.11067 val_rank=4.1152 combined=3.16827
+Epoch 020 | train_mse=0.53959 rank=4.1083 | val_mse=1.03547 val_rank=3.8306 combined=2.95075
+Epoch 040 | train_mse=0.46230 rank=4.0561 | val_mse=0.99889 val_rank=3.8327 combined=2.91525
+Epoch 060 | train_mse=0.41753 rank=3.9866 | val_mse=0.97413 val_rank=3.8029 combined=2.87559
+早停 @ epoch 63
+
+--- QRetrievalNet 验证 ---
+{
+  "val_rmse_std": 0.8791320510726853,
+  "val_mae_std": 0.6242409944534302,
+  "val_r2_std": 0.22440826892852783,
+  "val_pearson_std": 0.5899865190923388,
+  "best_val_combined": 2.701871395111084,
+  "top_k_retrieve": 5,
+  "epochs_run": 63,
+  "model_path": "/Users/a1021500655/Desktop/radar/outputs/q_value/latent_q_retrieval/q_retrieval_best.pt"
+}
+
+模型已保存: /Users/a1021500655/Desktop/radar/outputs/q_value/latent_q_retrieval/q_retrieval_best.pt
+=== 5/6 留出场景推理评估 ===
+留出集: 500 场景, K=10, 检索库 4000 train 场景
+评估方法: ['random', 'retrieval_max_r', 'q_only', 'retrieve_q_union', 'oracle_wide']
+
+--- random: Random（检索候选池内随机） ---
+Traceback (most recent call last):
+  File "/Users/a1021500655/Desktop/radar/main.py", line 78, in <module>
+    main()
+    ~~~~^^
+  File "/Users/a1021500655/Desktop/radar/main.py", line 49, in main
+    holdout_eval_main(regenerate_holdout=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/a1021500655/Desktop/radar/src/radar/infer/holdout_baselines.py", line 766, in holdout_eval_main
+    summary = run_all_baselines(**kwargs)
+  File "/Users/a1021500655/Desktop/radar/src/radar/infer/holdout_baselines.py", line 689, in run_all_baselines
+    row = evaluate_method(ctx, m, top_k=top_k, holdout_seed=holdout_seed, verbose=verbose)
+  File "/Users/a1021500655/Desktop/radar/src/radar/infer/holdout_baselines.py", line 567, in evaluate_method
+    _, z_q = _encode_query(ctx, jammer_row)
+             ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/a1021500655/Desktop/radar/src/radar/infer/holdout_baselines.py", line 186, in _encode_query
+    s_imp = ctx.artifacts["imp_S"].transform(s_vec.reshape(1, -1))
+  File "/Users/a1021500655/miniconda3/lib/python3.13/site-packages/sklearn/utils/_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/Users/a1021500655/miniconda3/lib/python3.13/site-packages/sklearn/impute/_base.py", line 632, in transform
+    self._fill_dtype, copy=False
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'SimpleImputer' object has no attribute '_fill_dtype'. Did you mean: '_fit_dtype'?

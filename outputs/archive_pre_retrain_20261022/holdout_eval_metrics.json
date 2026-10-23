@@ -1,0 +1,15 @@
+{
+  "n_holdout_scenarios": 500,
+  "actions_per_holdout_scenario": 10,
+  "top_k_retrieve": 5,
+  "holdout_seed": 2026,
+  "n_evaluated": 500,
+  "oracle_hit_at_1_sinr": 0.762,
+  "mean_regret_sinr_db": -0.7382673999999998,
+  "median_regret_sinr_db": -0.8197000000000001,
+  "mean_oracle_sinr_db": 18.5931414,
+  "mean_q_recommended_sinr_db": 19.331408800000002,
+  "mean_top1_cosine_sim": 0.8960404386520385,
+  "holdout_csv": "/Users/a1021500655/Desktop/radar/data/v2/processed/holdout_eval_scenarios.csv",
+  "description": "Retrieve+Q（检索池 ∪ 随机 100 A）"
+}

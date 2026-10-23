@@ -1,0 +1,313 @@
+{
+  "n_boot": 2000,
+  "boot_seed": 20261021,
+  "ablations": {
+    "pessimistic_scoring": {
+      "Retrieve+Q-Union（单模型，无集成）": {
+        "mean": 4.853,
+        "median": 1.669,
+        "p95": 17.299,
+        "frac_at_oracle": 0.02,
+        "win_vs_q_only": 0.9,
+        "n": 50
+      },
+      "① Ensemble-Mean（集成均值，无悲观项）": {
+        "mean": 4.931,
+        "median": 2.335,
+        "p95": 17.299,
+        "frac_at_oracle": 0.02,
+        "win_vs_q_only": 0.9,
+        "n": 50
+      },
+      "① Ensemble 悲观 μ−1.0σ": {
+        "mean": 4.964,
+        "median": 1.619,
+        "p95": 17.299,
+        "frac_at_oracle": 0.02,
+        "win_vs_q_only": 0.96,
+        "n": 50
+      }
+    },
+    "context_expr": {
+      "Retrieve+Q（无上下文，Top-5）": {
+        "mean": 6.408,
+        "median": 2.558,
+        "p95": 26.406,
+        "frac_at_oracle": 0.02,
+        "win_vs_q_only": 0.82,
+        "n": 50,
+        "hard_bucket_mean": 3.077
+      },
+      "Retrieve+Q-Ctx（z_ctx 加权均值）": {
+        "mean": 6.645,
+        "median": 2.335,
+        "p95": 26.413,
+        "frac_at_oracle": 0.02,
+        "win_vs_q_only": 0.8,
+        "n": 50,
+        "hard_bucket_mean": 3.304
+      },
+      "Retrieve+Q-Union（基线，无 ctx）": {
+        "mean": 4.853,
+        "median": 1.669,
+        "p95": 17.299,
+        "frac_at_oracle": 0.02,
+        "win_vs_q_only": 0.9,
+        "n": 50,
+        "hard_bucket_mean": 2.91
+      },
+      "② Set-Attention 单模型": {
+        "mean": 6.74,
+        "median": 2.369,
+        "p95": 26.958,
+        "frac_at_oracle": 0.0,
+        "win_vs_q_only": 0.9,
+        "n": 50,
+        "hard_bucket_mean": 2.148
+      },
+      "①+② Attention-Ensemble 悲观": {
+        "mean": 5.803,
+        "median": 2.756,
+        "p95": 26.095,
+        "frac_at_oracle": 0.02,
+        "win_vs_q_only": 0.9,
+        "n": 50,
+        "hard_bucket_mean": 3.079
+      }
+    },
+    "small_sample_buckets": {
+      "q_only": {
+        "rare_type": {
+          "n": 25,
+          "mean": 8.245,
+          "median": 5.099,
+          "win_vs_q_only": 0.0
+        },
+        "common_type": {
+          "n": 25,
+          "mean": 21.21,
+          "median": 17.168,
+          "win_vs_q_only": 0.0
+        },
+        "low_sim": {
+          "n": 25,
+          "mean": 10.223,
+          "median": 5.596,
+          "win_vs_q_only": 0.0
+        },
+        "high_sim": {
+          "n": 25,
+          "mean": 19.233,
+          "median": 10.101,
+          "win_vs_q_only": 0.0
+        },
+        "hard": {
+          "n": 9,
+          "mean": 6.011,
+          "median": 4.476,
+          "win_vs_q_only": 0.0
+        }
+      },
+      "Retrieve+Q-Union": {
+        "rare_type": {
+          "n": 25,
+          "mean": 2.617,
+          "median": 1.027,
+          "win_vs_q_only": 0.84
+        },
+        "common_type": {
+          "n": 25,
+          "mean": 7.09,
+          "median": 4.437,
+          "win_vs_q_only": 0.96
+        },
+        "low_sim": {
+          "n": 25,
+          "mean": 5.663,
+          "median": 1.027,
+          "win_vs_q_only": 0.88
+        },
+        "high_sim": {
+          "n": 25,
+          "mean": 4.044,
+          "median": 3.258,
+          "win_vs_q_only": 0.92
+        },
+        "hard": {
+          "n": 9,
+          "mean": 2.91,
+          "median": 1.027,
+          "win_vs_q_only": 0.778
+        }
+      },
+      "① Ensemble-Mean": {
+        "rare_type": {
+          "n": 25,
+          "mean": 2.788,
+          "median": 1.027,
+          "win_vs_q_only": 0.88
+        },
+        "common_type": {
+          "n": 25,
+          "mean": 7.074,
+          "median": 4.437,
+          "win_vs_q_only": 0.92
+        },
+        "low_sim": {
+          "n": 25,
+          "mean": 5.629,
+          "median": 1.153,
+          "win_vs_q_only": 0.88
+        },
+        "high_sim": {
+          "n": 25,
+          "mean": 4.233,
+          "median": 3.873,
+          "win_vs_q_only": 0.92
+        },
+        "hard": {
+          "n": 9,
+          "mean": 2.855,
+          "median": 1.027,
+          "win_vs_q_only": 0.889
+        }
+      },
+      "① Ensemble 悲观": {
+        "rare_type": {
+          "n": 25,
+          "mean": 2.192,
+          "median": 0.705,
+          "win_vs_q_only": 0.96
+        },
+        "common_type": {
+          "n": 25,
+          "mean": 7.736,
+          "median": 5.328,
+          "win_vs_q_only": 0.96
+        },
+        "low_sim": {
+          "n": 25,
+          "mean": 5.344,
+          "median": 0.985,
+          "win_vs_q_only": 0.96
+        },
+        "high_sim": {
+          "n": 25,
+          "mean": 4.585,
+          "median": 3.873,
+          "win_vs_q_only": 0.96
+        },
+        "hard": {
+          "n": 9,
+          "mean": 2.049,
+          "median": 0.705,
+          "win_vs_q_only": 1.0
+        }
+      },
+      "② Set-Attention 单模型": {
+        "rare_type": {
+          "n": 25,
+          "mean": 2.722,
+          "median": 1.027,
+          "win_vs_q_only": 0.88
+        },
+        "common_type": {
+          "n": 25,
+          "mean": 10.758,
+          "median": 5.922,
+          "win_vs_q_only": 0.92
+        },
+        "low_sim": {
+          "n": 25,
+          "mean": 5.479,
+          "median": 0.985,
+          "win_vs_q_only": 0.92
+        },
+        "high_sim": {
+          "n": 25,
+          "mean": 8.001,
+          "median": 4.369,
+          "win_vs_q_only": 0.88
+        },
+        "hard": {
+          "n": 9,
+          "mean": 2.148,
+          "median": 0.705,
+          "win_vs_q_only": 0.889
+        }
+      }
+    }
+  },
+  "main_ci": [
+    {
+      "method": "random（候选池内随机）",
+      "key": "random",
+      "mean_true_regret": 25.843,
+      "ci95_lo": 20.351,
+      "ci95_hi": 31.702
+    },
+    {
+      "method": "q_only（无检索，随机 5A）",
+      "key": "q_only",
+      "mean_true_regret": 14.728,
+      "ci95_lo": 10.392,
+      "ci95_hi": 19.492
+    },
+    {
+      "method": "retrieval_max_r（仅检索）",
+      "key": "retrieval_max_r",
+      "mean_true_regret": 8.713,
+      "ci95_lo": 5.555,
+      "ci95_hi": 12.254
+    },
+    {
+      "method": "Retrieve+Q（Top-5）",
+      "key": "retrieve_q",
+      "mean_true_regret": 6.408,
+      "ci95_lo": 4.206,
+      "ci95_hi": 8.842
+    },
+    {
+      "method": "Retrieve+Q-Union",
+      "key": "retrieve_q_union",
+      "mean_true_regret": 4.853,
+      "ci95_lo": 3.22,
+      "ci95_hi": 6.646
+    },
+    {
+      "method": "① Ensemble-Mean",
+      "key": "ensemble_ctx_mean",
+      "mean_true_regret": 4.931,
+      "ci95_lo": 3.274,
+      "ci95_hi": 6.827
+    },
+    {
+      "method": "① Ensemble 悲观 μ−1.0σ",
+      "key": "ensemble_ctx_pessimistic",
+      "mean_true_regret": 4.964,
+      "ci95_lo": 3.323,
+      "ci95_hi": 6.855
+    },
+    {
+      "method": "② Set-Attention 单模型",
+      "key": "attention_ctx",
+      "mean_true_regret": 6.74,
+      "ci95_lo": 4.332,
+      "ci95_hi": 9.441
+    },
+    {
+      "method": "①+② Attention-Ensemble 悲观",
+      "key": "attention_ens_pessimistic",
+      "mean_true_regret": 5.803,
+      "ci95_lo": 3.859,
+      "ci95_hi": 8.094
+    },
+    {
+      "method": "ICDT 零观测（5-seed）",
+      "key": "icdt_m0",
+      "mean_true_regret": 4.858,
+      "ci95_lo": 3.185,
+      "ci95_hi": 6.882
+    }
+  ]
+}

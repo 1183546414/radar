@@ -1,0 +1,12 @@
+method,n_better,n_tie,n_worse,mean_delta_db
+random,7,36,7,0.077
+retrieval_max_r,40,4,6,21.615
+q_only,39,9,2,14.726
+retrieve_q,50,0,0,27.153
+retrieve_q_union,50,0,0,28.201
+retrieve_q_local,50,0,0,28.797
+retrieve_q_gen,49,0,1,27.509
+retrieve_q_ctx,48,2,0,27.001
+retrieve_q_ctx_union,50,0,0,27.987
+oracle_k20,13,0,37,-2.049
+oracle_wide,18,0,32,-0.551

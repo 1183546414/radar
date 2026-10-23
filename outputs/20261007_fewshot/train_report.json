@@ -1,0 +1,103 @@
+{
+  "jsr_db": 10.0,
+  "seeds": [
+    42,
+    1042,
+    2042,
+    3042,
+    4042
+  ],
+  "backend_stats": "仿真次数=0, 缓存命中=0, 相位编码回退=0",
+  "stages": {
+    "q_ensemble": {
+      "members": [
+        {
+          "seed": 42,
+          "epochs_run": 50,
+          "best_val_hit_at_1": 0.57,
+          "val_rmse_std": 0.7470219615174509,
+          "val_r2_std": 0.434614896774292,
+          "elapsed_min": 18.64
+        },
+        {
+          "seed": 1042,
+          "epochs_run": 27,
+          "best_val_hit_at_1": 0.56,
+          "val_rmse_std": 0.8143769006714265,
+          "val_r2_std": 0.32806307077407837,
+          "elapsed_min": 4.11
+        },
+        {
+          "seed": 2042,
+          "epochs_run": 45,
+          "best_val_hit_at_1": 0.59,
+          "val_rmse_std": 0.7896973728035271,
+          "val_r2_std": 0.368171751499176,
+          "elapsed_min": 4.75
+        },
+        {
+          "seed": 3042,
+          "epochs_run": 82,
+          "best_val_hit_at_1": 0.63,
+          "val_rmse_std": 0.7593288391902424,
+          "val_r2_std": 0.4158324599266052,
+          "elapsed_min": 6.83
+        },
+        {
+          "seed": 4042,
+          "epochs_run": 56,
+          "best_val_hit_at_1": 0.56,
+          "val_rmse_std": 0.7804926825625734,
+          "val_r2_std": 0.38281506299972534,
+          "elapsed_min": 4.19
+        }
+      ]
+    },
+    "q_attention_ensemble": {
+      "members": [
+        {
+          "seed": 42,
+          "epochs_run": 37,
+          "best_val_hit_at_1": 0.55,
+          "val_rmse_std": 1.2274447141577423,
+          "val_r2_std": -0.5264462232589722,
+          "elapsed_min": 4.22
+        },
+        {
+          "seed": 1042,
+          "epochs_run": 80,
+          "best_val_hit_at_1": 0.62,
+          "val_rmse_std": 0.7992073408787278,
+          "val_r2_std": 0.35286247730255127,
+          "elapsed_min": 9.18
+        },
+        {
+          "seed": 2042,
+          "epochs_run": 45,
+          "best_val_hit_at_1": 0.56,
+          "val_rmse_std": 1.130122971131122,
+          "val_r2_std": -0.29398441314697266,
+          "elapsed_min": 18.83
+        },
+        {
+          "seed": 3042,
+          "epochs_run": 35,
+          "best_val_hit_at_1": 0.58,
+          "val_rmse_std": 1.1559570560002532,
+          "val_r2_std": -0.35382044315338135,
+          "elapsed_min": 6.52
+        },
+        {
+          "seed": 4042,
+          "epochs_run": 41,
+          "best_val_hit_at_1": 0.59,
+          "val_rmse_std": 1.294447131465657,
+          "val_r2_std": -0.6976426839828491,
+          "elapsed_min": 5.35
+        }
+      ]
+    }
+  },
+  "total_min": 30.86,
+  "backend_stats_final": "仿真次数=274858, 缓存命中=274858, 相位编码回退=687642"
+}

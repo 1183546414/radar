@@ -1,0 +1,16 @@
+﻿method,key,mean_rec_sinr_db,mean_true_regret_db,median_true_regret_db,p95_true_regret_db,min_true_regret_db,frac_at_dense_oracle,win_vs_q_only,mean_rec_minus_k20_db
+random（候选池内随机）,random,1.344,25.843,19.463,67.842,1.164,0.0,0.26,-15.908
+retrieval_max_r（仅检索，无 Q）,retrieval_max_r,18.473,8.713,2.405,35.569,-0.008,0.02,0.76,1.221
+q_only（无检索，随机 5A）,q_only,12.459,14.728,6.771,37.946,0.148,0.0,0.0,-4.793
+Retrieve+Q（Top-5 argmax）,retrieve_q,20.779,6.408,2.558,26.406,-0.008,0.02,0.82,3.527
+Retrieve+Q-Union（Round2 基线）,retrieve_q_union,22.333,4.853,1.669,17.299,-0.008,0.02,0.9,5.081
+Retrieve+Q-Local,retrieve_q_local,21.978,5.209,2.288,21.137,-0.04,0.04,0.94,4.726
+Retrieve+Q-Gen,retrieve_q_gen,21.438,5.748,1.432,26.159,-0.008,0.02,0.9,4.186
+Retrieve+Q-Ctx,retrieve_q_ctx,20.542,6.645,2.335,26.413,-0.008,0.02,0.8,3.29
+Retrieve+Q-Ctx-Union,retrieve_q_ctx_union,21.441,5.745,2.335,18.437,-0.008,0.02,0.88,4.189
+① Q-Ensemble-Mean（5×Q，union 池）,ensemble_ctx_mean,22.255,4.931,2.335,17.299,-0.008,0.02,0.9,5.003
+① Q-Ensemble 悲观 μ−1.0σ,ensemble_ctx_pessimistic,22.222,4.964,1.619,17.299,-0.008,0.02,0.96,4.97
+② Set-Attention（单模型，union 池）,attention_ctx,20.447,6.74,2.369,26.958,0.097,0.0,0.9,3.195
+①+② Attention-Ensemble 悲观,attention_ens_pessimistic,21.384,5.803,2.756,26.095,-0.008,0.02,0.9,4.131
+Oracle-K20（10 随机 A，弱参照）,oracle_k20,17.252,9.935,6.839,31.174,0.412,0.0,0.68,0.0
+Oracle-Wide（100 随机 A）,oracle_wide,23.176,4.011,1.188,16.153,0.082,0.0,0.96,5.924

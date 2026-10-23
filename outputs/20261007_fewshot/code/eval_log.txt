@@ -1,0 +1,109 @@
+﻿python.exe : RadarSimCpp: No license file path provided. Running in free tier mode.
+At line:15 char:2038
++ ... pgrep\bin'; & "D:\conda\envs\radar\python.exe" "c:\Users\Administrato ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (RadarSimCpp: No...free tier mode.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[SignalSinrBackend] JSR=10.0dB, 参考回波功率 P0=8.951e-08
+设备: cuda | JSR=10.0dB
+加载 holdout 上下文（Round2 检索库 + Q 模型）...
+数据路径： C:\Users\Administrator\Desktop\文件\radar\radar\data\v2\processed
+留出场景 50，检索库 4000 train 场景
+加载改进模型...
+QRetrievalNet ensemble ×5, QSetAttentionNet ×5
+--- 评估 q_only: Q-only（无检索，随机 5 A） ---
+[SignalSinrBackend] 相位编码 波形无法建模，回退解析公式
+  [q_only] 1/50 sid=1000000 rec=1.28 regret=3.44
+  [q_only] 2/50 sid=1000001 rec=12.09 regret=15.18
+  [q_only] 11/50 sid=1000010 rec=-1.56 regret=26.70
+  [q_only] 21/50 sid=1000020 rec=17.15 regret=-1.92
+  [q_only] 31/50 sid=1000030 rec=31.10 regret=4.59
+  [q_only] 41/50 sid=1000040 rec=3.08 regret=1.77
+--- 评估 retrieve_q: Retrieve+Q（Top-5 池 argmax Q） ---
+  [retrieve_q] 1/50 sid=1000000 rec=9.09 regret=-4.37
+  [retrieve_q] 2/50 sid=1000001 rec=5.10 regret=22.17
+  [retrieve_q] 11/50 sid=1000010 rec=28.39 regret=-3.26
+  [retrieve_q] 21/50 sid=1000020 rec=17.21 regret=-1.98
+  [retrieve_q] 31/50 sid=1000030 rec=34.73 regret=0.96
+  [retrieve_q] 41/50 sid=1000040 rec=9.11 regret=-4.26
+--- 评估 retrieve_q_union: Retrieve+Q（检索池∪随机100A） ---
+  [retrieve_q_union] 1/50 sid=1000000 rec=9.09 regret=-4.37
+  [retrieve_q_union] 2/50 sid=1000001 rec=37.45 regret=-10.18
+  [retrieve_q_union] 11/50 sid=1000010 rec=28.90 regret=-3.76
+  [retrieve_q_union] 21/50 sid=1000020 rec=17.21 regret=-1.98
+  [retrieve_q_union] 31/50 sid=1000030 rec=34.73 regret=0.96
+  [retrieve_q_union] 41/50 sid=1000040 rec=9.52 regret=-4.67
+--- 评估 retrieve_q_ctx: Retrieve+Q-Ctx（z_ctx 加权均值） ---
+  [retrieve_q_ctx] 1/50 sid=1000000 rec=9.09 regret=-4.37
+  [retrieve_q_ctx] 2/50 sid=1000001 rec=5.10 regret=22.17
+  [retrieve_q_ctx] 11/50 sid=1000010 rec=28.51 regret=-3.38
+  [retrieve_q_ctx] 21/50 sid=1000020 rec=16.92 regret=-1.69
+  [retrieve_q_ctx] 31/50 sid=1000030 rec=34.73 regret=0.96
+  [retrieve_q_ctx] 41/50 sid=1000040 rec=9.11 regret=-4.26
+--- 评估 retrieve_q_ctx_union: Retrieve+Q-Ctx-Union（Round2 最优 ctx 变体） ---
+  [retrieve_q_ctx_union] 1/50 sid=1000000 rec=9.09 regret=-4.37
+  [retrieve_q_ctx_union] 2/50 sid=1000001 rec=37.45 regret=-10.18
+  [retrieve_q_ctx_union] 11/50 sid=1000010 rec=28.90 regret=-3.76
+  [retrieve_q_ctx_union] 21/50 sid=1000020 rec=16.92 regret=-1.69
+  [retrieve_q_ctx_union] 31/50 sid=1000030 rec=34.73 regret=0.96
+  [retrieve_q_ctx_union] 41/50 sid=1000040 rec=9.52 regret=-4.67
+--- 评估 ensemble_ctx_mean: ① Ensemble-Mean（5×Q 检索池∪随机100A） ---
+  [ensemble_ctx_mean] 1/50 sid=1000000 rec=9.09 regret=-4.37
+  [ensemble_ctx_mean] 2/50 sid=1000001 rec=37.45 regret=-10.18
+  [ensemble_ctx_mean] 11/50 sid=1000010 rec=28.90 regret=-3.76
+  [ensemble_ctx_mean] 21/50 sid=1000020 rec=16.92 regret=-1.69
+  [ensemble_ctx_mean] 31/50 sid=1000030 rec=34.73 regret=0.96
+  [ensemble_ctx_mean] 41/50 sid=1000040 rec=9.52 regret=-4.67
+--- 评估 ensemble_ctx_pessimistic: ① Ensemble-悲观 μ−1.0σ ---
+  [ensemble_ctx_pessimistic] 1/50 sid=1000000 rec=9.09 regret=-4.37
+  [ensemble_ctx_pessimistic] 2/50 sid=1000001 rec=31.98 regret=-4.71
+  [ensemble_ctx_pessimistic] 11/50 sid=1000010 rec=28.90 regret=-3.76
+  [ensemble_ctx_pessimistic] 21/50 sid=1000020 rec=17.21 regret=-1.98
+  [ensemble_ctx_pessimistic] 31/50 sid=1000030 rec=34.73 regret=0.96
+  [ensemble_ctx_pessimistic] 41/50 sid=1000040 rec=9.52 regret=-4.67
+--- 评估 attention_ctx: ② Set-Attention（单模型，union 池） ---
+  [attention_ctx] 1/50 sid=1000000 rec=9.09 regret=-4.37
+  [attention_ctx] 2/50 sid=1000001 rec=5.10 regret=22.17
+  [attention_ctx] 11/50 sid=1000010 rec=28.90 regret=-3.76
+  [attention_ctx] 21/50 sid=1000020 rec=17.21 regret=-1.98
+  [attention_ctx] 31/50 sid=1000030 rec=34.73 regret=0.96
+  [attention_ctx] 41/50 sid=1000040 rec=9.52 regret=-4.67
+--- 评估 attention_ens_pessimistic: ①+② Attention-Ensemble 悲观 μ−1.0σ ---
+  [attention_ens_pessimistic] 1/50 sid=1000000 rec=9.09 regret=-4.37
+  [attention_ens_pessimistic] 2/50 sid=1000001 rec=15.13 regret=12.14
+  [attention_ens_pessimistic] 11/50 sid=1000010 rec=28.90 regret=-3.76
+  [attention_ens_pessimistic] 21/50 sid=1000020 rec=17.21 regret=-1.98
+  [attention_ens_pessimistic] 31/50 sid=1000030 rec=34.73 regret=0.96
+  [attention_ens_pessimistic] 41/50 sid=1000040 rec=8.07 regret=-3.22
+--- 评估 oracle_k20: Oracle-K20（留出 K=10 随机 A 上界） ---
+  [oracle_k20] 1/50 sid=1000000 rec=4.72 regret=0.00
+  [oracle_k20] 2/50 sid=1000001 rec=27.27 regret=0.00
+  [oracle_k20] 11/50 sid=1000010 rec=25.13 regret=0.00
+  [oracle_k20] 21/50 sid=1000020 rec=15.23 regret=0.00
+  [oracle_k20] 31/50 sid=1000030 rec=35.69 regret=0.00
+  [oracle_k20] 41/50 sid=1000040 rec=4.85 regret=0.00
+--- 评估 oracle_wide: Oracle-Wide（100 随机 A 上界） ---
+  [oracle_wide] 1/50 sid=1000000 rec=9.42 regret=-4.70
+  [oracle_wide] 2/50 sid=1000001 rec=38.18 regret=-10.91
+  [oracle_wide] 11/50 sid=1000010 rec=28.58 regret=-3.44
+  [oracle_wide] 21/50 sid=1000020 rec=17.76 regret=-2.54
+  [oracle_wide] 31/50 sid=1000030 rec=36.64 regret=-0.95
+  [oracle_wide] 41/50 sid=1000040 rec=29.61 regret=-24.76
+
+=== 汇总（regret vs Oracle-K20）===
+方法                                    推荐SINR   regret  零regret  胜q_only
+Q-only（无检索，随机 5 A）                     12.46     4.79      32%        —
+Retrieve+Q（Top-5 池 argmax Q）           20.78    -3.53      76%      82%
+Retrieve+Q（检索池∪随机100A）                 22.33    -5.08      84%      90%
+Retrieve+Q-Ctx（z_ctx 加权均值）             20.54    -3.29      76%      80%
+Retrieve+Q-Ctx-Union（Round2 最优 ctx 变体）     21.44    -4.19      80%      88%
+① Ensemble-Mean（5×Q 检索池∪随机100A）        22.26    -5.00      84%      90%
+① Ensemble-悲观 μ−1.0σ                   22.22    -4.97      82%      96%
+② Set-Attention（单模型，union 池）           20.45    -3.19      72%      90%
+①+② Attention-Ensemble 悲观 μ−1.0σ       21.38    -4.13      76%      90%
+Oracle-K20（留出 K=10 随机 A 上界）            17.25     0.00     100%      68%
+Oracle-Wide（100 随机 A 上界）               24.38    -7.13      92%      94%
+
+后端: 仿真次数=41605, 缓存命中=41605, 相位编码回退=15762
+总耗时 3.2 分钟，输出: C:\Users\Administrator\Desktop\文件\radar\radar\outputs\20261007_fewshot\eval_fewshot

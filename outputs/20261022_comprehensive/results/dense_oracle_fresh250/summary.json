@@ -1,0 +1,25 @@
+{
+  "protocol": {
+    "n_holdout": 250,
+    "n_random": 5000,
+    "max_sweeps": 8,
+    "seed": 20261022,
+    "jsr_db": 10.0,
+    "backend": "SignalSinrBackend",
+    "grid": "载频/带宽 1MHz、脉宽 100ns、增益 1dB、类型 4 选 1（与既有评估同口径）",
+    "holdout_csv": "C:\\Users\\Administrator\\Desktop\\文件\\radar\\radar\\outputs\\20261022_comprehensive\\results\\dense_oracle_fresh250\\holdout_fresh250.csv"
+  },
+  "dense_oracle": {
+    "mean_db": 25.06315133154053,
+    "median_db": 22.98075,
+    "min_db": 7.2072,
+    "max_db": 42.392888181104325
+  },
+  "reference": {
+    "oracle_k20_mean_db": 18.250229200000003,
+    "oracle_k20_check_note": "应与 Round2 报告的 17.25 dB 一致（同 CSV 同列）",
+    "oracle_wide_mean_db_reported": "Round2 报告 23.18（100 随机，供对照）"
+  },
+  "backend_stats": "仿真次数=940761, 缓存命中=940761, 相位编码回退=314289",
+  "elapsed_min": 66.5
+}

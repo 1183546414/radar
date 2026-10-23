@@ -1,0 +1,140 @@
+﻿python.exe : RadarSimCpp: No license file path provided. Running in free tier mode.
+At line:15 char:2038
++ ... pgrep\bin'; & "D:\conda\envs\radar\python.exe" "c:\Users\Administrato ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (RadarSimCpp: No...free tier mode.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[SignalSinrBackend] JSR=10.0dB, 参考回波功率 P0=8.951e-08
+设备: cuda | JSR=10.0dB 信号级真值后端
+加载 Round2 数据...
+数据: z(100000, 128), A(100000, 9), 场景 5000，train 4000 / val 1000 场景
+构建检索 ranking 上下文（train 库）...
+
+=== 改进①：Q Ensemble（QRetrievalNet × 5 seeds）===
+[SignalSinrBackend] 相位编码 波形无法建模，回退解析公式
+  [retrieval seed=42] epoch 001 val_mse=1.06665 hit@1=0.480
+  [retrieval seed=42] epoch 020 val_mse=0.52765 hit@1=0.550
+  [retrieval seed=42] epoch 040 val_mse=0.63363 hit@1=0.530
+  [retrieval seed=42] 早停 @ 50 hit@1=0.510
+  [retrieval seed=42] 完成 {'seed': 42, 'epochs_run': 50, 'best_val_hit_at_1': 0.57, 'val_rmse_std': 0.7470219615174509, 'val_r2_std': 0.434614896774292, 'elapsed_min': 18.64}
+  [retrieval seed=1042] epoch 001 val_mse=0.89138 hit@1=0.510
+  [retrieval seed=1042] epoch 020 val_mse=0.78436 hit@1=0.510
+  [retrieval seed=1042] 早停 @ 27 hit@1=0.520
+  [retrieval seed=1042] 完成 {'seed': 1042, 'epochs_run': 27, 'best_val_hit_at_1': 0.56, 'val_rmse_std': 0.8143769006714265, 'val_r2_std': 0.32806307077407837, 'elapsed_min': 4.11}
+  [retrieval seed=2042] epoch 001 val_mse=1.03795 hit@1=0.540
+  [retrieval seed=2042] epoch 020 val_mse=0.62362 hit@1=0.590
+  [retrieval seed=2042] epoch 040 val_mse=0.80530 hit@1=0.510
+  [retrieval seed=2042] 早停 @ 45 hit@1=0.530
+  [retrieval seed=2042] 完成 {'seed': 2042, 'epochs_run': 45, 'best_val_hit_at_1': 0.59, 'val_rmse_std': 0.7896973728035271, 'val_r2_std': 0.368171751499176, 'elapsed_min': 4.75}
+  [retrieval seed=3042] epoch 001 val_mse=0.99066 hit@1=0.550
+  [retrieval seed=3042] epoch 020 val_mse=0.74840 hit@1=0.480
+  [retrieval seed=3042] epoch 040 val_mse=0.73854 hit@1=0.540
+  [retrieval seed=3042] epoch 060 val_mse=0.63261 hit@1=0.550
+  [retrieval seed=3042] epoch 080 val_mse=0.61797 hit@1=0.530
+  [retrieval seed=3042] 早停 @ 82 hit@1=0.480
+  [retrieval seed=3042] 完成 {'seed': 3042, 'epochs_run': 82, 'best_val_hit_at_1': 0.63, 'val_rmse_std': 0.7593288391902424, 'val_r2_std': 0.4158324599266052, 'elapsed_min': 6.83}
+  [retrieval seed=4042] epoch 001 val_mse=1.13203 hit@1=0.470
+  [retrieval seed=4042] epoch 020 val_mse=0.57691 hit@1=0.480
+  [retrieval seed=4042] epoch 040 val_mse=0.56505 hit@1=0.550
+  [retrieval seed=4042] 早停 @ 56 hit@1=0.500
+  [retrieval seed=4042] 完成 {'seed': 4042, 'epochs_run': 56, 'best_val_hit_at_1': 0.56, 'val_rmse_std': 0.7804926825625734, 'val_r2_std': 0.38281506299972534, 'elapsed_min': 4.19}
+
+=== 改进②：QSetAttentionNet × 5 seeds ===
+  [attention seed=42] epoch 001 val_mse=2.56691 hit@1=0.470
+  [attention seed=42] epoch 020 val_mse=0.70935 hit@1=0.510
+  [attention seed=42] 早停 @ 37 hit@1=0.430
+  [attention seed=42] 完成 {'seed': 42, 'epochs_run': 37, 'best_val_hit_at_1': 0.55, 'val_rmse_std': 1.2274447141577423, 'val_r2_std': -0.5264462232589722, 'elapsed_min': 4.22}
+  [attention seed=1042] epoch 001 val_mse=3.00556 hit@1=0.460
+  [attention seed=1042] epoch 020 val_mse=0.89040 hit@1=0.470
+  [attention seed=1042] epoch 040 val_mse=0.80980 hit@1=0.430
+  [attention seed=1042] epoch 060 val_mse=0.84448 hit@1=0.570
+  [attention seed=1042] epoch 080 val_mse=0.81083 hit@1=0.520
+  [attention seed=1042] 早停 @ 80 hit@1=0.520
+  [attention seed=1042] 完成 {'seed': 1042, 'epochs_run': 80, 'best_val_hit_at_1': 0.62, 'val_rmse_std': 0.7992073408787278, 'val_r2_std': 0.35286247730255127, 'elapsed_min': 9.18}
+  [attention seed=2042] epoch 001 val_mse=2.64447 hit@1=0.470
+  [attention seed=2042] epoch 020 val_mse=1.16242 hit@1=0.480
+Traceback (most recent call last):
+  File "c:\Users\Administrator\Desktop\文件\radar\radar\outputs\20261007_fewshot\code\train_fewshot_round.py", line 459, 
+in <module>
+    main()
+  File "c:\Users\Administrator\Desktop\文件\radar\radar\outputs\20261007_fewshot\code\train_fewshot_round.py", line 448, 
+in main
+    att_metrics.append(train_one_attention(seed, data, rank_ctx, per_sid, val_rank_scenarios))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Administrator\Desktop\文件\radar\radar\outputs\20261007_fewshot\code\train_fewshot_round.py", line 371, 
+in train_one_attention
+    loss_rank = _ranking_loss_batch_attention(model, rank_ctx, per_sid, batch_sids, DEVICE, TOP_K_RETRIEVE)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Administrator\Desktop\文件\radar\radar\outputs\20261007_fewshot\code\train_fewshot_round.py", line 200, 
+in _ranking_loss_batch_attention
+    cand_rows = rank_ctx.candidate_rows_for_query(int(sid), top_k, exclude_self=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\文件\radar\radar\src\radar\train\retrieval_ranking.py", line 160, in candidate_row
+s_for_query
+    neighbor_sids, _ = topk_similar_scenarios(
+                       ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\文件\radar\radar\src\radar\train\retrieval_ranking.py", line 54, in topk_similar_s
+cenarios
+    z_bank_n = _l2n(z_bank)
+               ^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\文件\radar\radar\src\radar\train\retrieval_ranking.py", line 26, in _l2n
+    return v / (np.linalg.norm(v, axis=-1, keepdims=True) + 1e-8)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\conda\envs\radar\Lib\site-packages\numpy\linalg\_linalg.py", line 2804, in norm
+    s = (x.conj() * x).real
+         ~~~~~~~~~^~~
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 1.95 MiB for an array with shape (4000, 128) and data typ
+e float32
+[SignalSinrBackend] JSR=10.0dB, 参考回波功率 P0=8.951e-08
+设备: cuda | JSR=10.0dB 信号级真值后端
+加载 Round2 数据...
+数据: z(100000, 128), A(100000, 9), 场景 5000，train 4000 / val 1000 场景
+构建检索 ranking 上下文（train 库）...
+
+=== 改进①：Q Ensemble（QRetrievalNet × 5 seeds）===
+  [retrieval seed=42] 已完成，跳过 {'seed': 42, 'epochs_run': 50, 'best_val_hit_at_1': 0.57, 'val_rmse_std': 0.7470219615174509, 'val_r2_std': 0.434614896774292, 'elapsed_min': 18.64}
+  [retrieval seed=1042] 已完成，跳过 {'seed': 1042, 'epochs_run': 27, 'best_val_hit_at_1': 0.56, 'val_rmse_std': 0.8143769006714265, 'val_r2_std': 0.32806307077407837, 'elapsed_min': 4.11}
+  [retrieval seed=2042] 已完成，跳过 {'seed': 2042, 'epochs_run': 45, 'best_val_hit_at_1': 0.59, 'val_rmse_std': 0.7896973728035271, 'val_r2_std': 0.368171751499176, 'elapsed_min': 4.75}
+  [retrieval seed=3042] 已完成，跳过 {'seed': 3042, 'epochs_run': 82, 'best_val_hit_at_1': 0.63, 'val_rmse_std': 0.7593288391902424, 'val_r2_std': 0.4158324599266052, 'elapsed_min': 6.83}
+  [retrieval seed=4042] 已完成，跳过 {'seed': 4042, 'epochs_run': 56, 'best_val_hit_at_1': 0.56, 'val_rmse_std': 0.7804926825625734, 'val_r2_std': 0.38281506299972534, 'elapsed_min': 4.19}
+
+=== 改进②：QSetAttentionNet × 5 seeds ===
+  [attention seed=42] 已完成，跳过 {'seed': 42, 'epochs_run': 37, 'best_val_hit_at_1': 0.55, 'val_rmse_std': 1.2274447141577423, 'val_r2_std': -0.5264462232589722, 'elapsed_min': 4.22}
+  [attention seed=1042] 已完成，跳过 {'seed': 1042, 'epochs_run': 80, 'best_val_hit_at_1': 0.62, 'val_rmse_std': 0.7992073408787278, 'val_r2_std': 0.35286247730255127, 'elapsed_min': 9.18}
+[SignalSinrBackend] 相位编码 波形无法建模，回退解析公式
+  [attention seed=2042] epoch 001 val_mse=2.69979 hit@1=0.470
+  [attention seed=2042] epoch 020 val_mse=1.27718 hit@1=0.560
+[SignalSinrBackend] JSR=10.0dB, 参考回波功率 P0=8.951e-08
+设备: cuda | JSR=10.0dB 信号级真值后端
+加载 Round2 数据...
+数据: z(100000, 128), A(100000, 9), 场景 5000，train 4000 / val 1000 场景
+构建检索 ranking 上下文（train 库）...
+
+=== 改进①：Q Ensemble（QRetrievalNet × 5 seeds）===
+  [retrieval seed=42] 已完成，跳过 {'seed': 42, 'epochs_run': 50, 'best_val_hit_at_1': 0.57, 'val_rmse_std': 0.7470219615174509, 'val_r2_std': 0.434614896774292, 'elapsed_min': 18.64}
+  [retrieval seed=1042] 已完成，跳过 {'seed': 1042, 'epochs_run': 27, 'best_val_hit_at_1': 0.56, 'val_rmse_std': 0.8143769006714265, 'val_r2_std': 0.32806307077407837, 'elapsed_min': 4.11}
+  [retrieval seed=2042] 已完成，跳过 {'seed': 2042, 'epochs_run': 45, 'best_val_hit_at_1': 0.59, 'val_rmse_std': 0.7896973728035271, 'val_r2_std': 0.368171751499176, 'elapsed_min': 4.75}
+  [retrieval seed=3042] 已完成，跳过 {'seed': 3042, 'epochs_run': 82, 'best_val_hit_at_1': 0.63, 'val_rmse_std': 0.7593288391902424, 'val_r2_std': 0.4158324599266052, 'elapsed_min': 6.83}
+  [retrieval seed=4042] 已完成，跳过 {'seed': 4042, 'epochs_run': 56, 'best_val_hit_at_1': 0.56, 'val_rmse_std': 0.7804926825625734, 'val_r2_std': 0.38281506299972534, 'elapsed_min': 4.19}
+
+=== 改进②：QSetAttentionNet × 5 seeds ===
+  [attention seed=42] 已完成，跳过 {'seed': 42, 'epochs_run': 37, 'best_val_hit_at_1': 0.55, 'val_rmse_std': 1.2274447141577423, 'val_r2_std': -0.5264462232589722, 'elapsed_min': 4.22}
+  [attention seed=1042] 已完成，跳过 {'seed': 1042, 'epochs_run': 80, 'best_val_hit_at_1': 0.62, 'val_rmse_std': 0.7992073408787278, 'val_r2_std': 0.35286247730255127, 'elapsed_min': 9.18}
+[SignalSinrBackend] 相位编码 波形无法建模，回退解析公式
+  [attention seed=2042] epoch 001 val_mse=2.69979 hit@1=0.470
+  [attention seed=2042] epoch 020 val_mse=1.27718 hit@1=0.560
+  [attention seed=2042] epoch 040 val_mse=0.77473 hit@1=0.520
+  [attention seed=2042] 早停 @ 45 hit@1=0.520
+  [attention seed=2042] 完成 {'seed': 2042, 'epochs_run': 45, 'best_val_hit_at_1': 0.56, 'val_rmse_std': 1.130122971131122, 'val_r2_std': -0.29398441314697266, 'elapsed_min': 18.83}
+  [attention seed=3042] epoch 001 val_mse=3.33651 hit@1=0.330
+  [attention seed=3042] epoch 020 val_mse=1.37195 hit@1=0.500
+  [attention seed=3042] 早停 @ 35 hit@1=0.470
+  [attention seed=3042] 完成 {'seed': 3042, 'epochs_run': 35, 'best_val_hit_at_1': 0.58, 'val_rmse_std': 1.1559570560002532, 'val_r2_std': -0.35382044315338135, 'elapsed_min': 6.52}
+  [attention seed=4042] epoch 001 val_mse=3.66080 hit@1=0.350
+  [attention seed=4042] epoch 020 val_mse=1.09254 hit@1=0.430
+  [attention seed=4042] epoch 040 val_mse=0.84289 hit@1=0.540
+  [attention seed=4042] 早停 @ 41 hit@1=0.520
+  [attention seed=4042] 完成 {'seed': 4042, 'epochs_run': 41, 'best_val_hit_at_1': 0.59, 'val_rmse_std': 1.294447131465657, 'val_r2_std': -0.6976426839828491, 'elapsed_min': 5.35}
+
+全部完成，总耗时 30.86 分钟，报告: C:\Users\Administrator\Desktop\文件\radar\radar\outputs\20261007_fewshot\train_report.json

@@ -1,0 +1,43 @@
+/Users/a1021500655/miniconda3/lib/python3.13/site-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator SimpleImputer from version 1.6.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/Users/a1021500655/miniconda3/lib/python3.13/site-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator StandardScaler from version 1.6.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/Users/a1021500655/miniconda3/lib/python3.13/site-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator OneHotEncoder from version 1.6.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+设备: cpu
+加载缓存潜向量: /Users/a1021500655/Desktop/radar/outputs/q_value/latent_q/state_latent_mu.npy (100000, 128)
+预计算每行 z_ctx（同类型 Top-K 相似度加权）...
+QLatentNet 热启动: /Users/a1021500655/Desktop/radar/outputs/q_value/latent_q/q_latent_best.pt
+训练 QRetrievalNet: Top-5 加权 ctx, MSE + λ=0.5 ranking, 早停=检索池 Hit@1
+Epoch 001 | train_mse=0.14144 rank=3.6974 | val_mse=10.10596 val_rank=3.1006 val_hit@1=0.260
+Epoch 020 | train_mse=0.14570 rank=3.8592 | val_mse=0.71512 val_rank=3.5579 val_hit@1=0.260
+Epoch 040 | train_mse=0.10981 rank=3.8611 | val_mse=0.99611 val_rank=3.4826 val_hit@1=0.280
+早停 @ epoch 51 (val_retrieval_hit@1=0.210)
+
+--- QRetrievalNet 验证 ---
+{
+  "val_rmse_std": 1.0943527195882963,
+  "val_mae_std": 0.90997314453125,
+  "val_r2_std": -0.24319350719451904,
+  "val_pearson_std": 0.8815162170216608,
+  "best_val_retrieval_hit_at_1": 0.37,
+  "top_k_retrieve": 5,
+  "epochs_run": 51,
+  "warm_start_from_q_latent": true,
+  "z_ctx_cache": "/Users/a1021500655/Desktop/radar/outputs/q_value/latent_q_retrieval/z_ctx_per_row_same_type_weighted.npy",
+  "model_path": "/Users/a1021500655/Desktop/radar/outputs/q_value/latent_q_retrieval/q_retrieval_best.pt",
+  "retrieval_pool_selection": {
+    "n_eval_scenarios": 1000,
+    "candidates_per_scenario_mean": 100.0,
+    "oracle_hit_at_1": 0.298,
+    "mean_regret_sinr_db": 0.8189191000000001,
+    "median_regret_sinr_db": 0.4089500000000008,
+    "frac_zero_regret": 0.298,
+    "mean_rank_nll": 3.3016607558727262
+  }
+}
+
+模型已保存: /Users/a1021500655/Desktop/radar/outputs/q_value/latent_q_retrieval/q_retrieval_best.pt

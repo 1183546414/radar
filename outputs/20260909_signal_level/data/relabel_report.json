@@ -1,0 +1,25 @@
+{
+  "source_csv": "C:\\Users\\Administrator\\Desktop\\radar\\radar\\data\\simulated\\simulated_radar_jamming_high_contrast_10k.csv",
+  "output_csv": "C:\\Users\\Administrator\\Desktop\\radar\\radar\\outputs\\20260909_signal_level\\data\\simulated_radar_jamming_high_contrast_10k_signal.csv",
+  "jsr_db": 10.0,
+  "n_rows": 100000,
+  "n_signal": 74860,
+  "n_analytic_fallback": 25140,
+  "fallback_reason": "相位编码波形无法用 FM 形式建模",
+  "pearson_vs_analytic_signal_rows": 0.25290788651179796,
+  "spearman_vs_analytic_signal_rows": 0.17557832202861165,
+  "signal_label_stats": {
+    "mean": -4.838520521131575,
+    "std": 11.82737349890151,
+    "min": -53.179921242372075,
+    "max": 41.87524146948523
+  },
+  "analytic_label_stats": {
+    "mean": 14.224391204915845,
+    "std": 8.03159657909696,
+    "min": -9.4255,
+    "max": 37.2645
+  },
+  "backend_stats": "仿真次数=74860, 缓存命中=74860, 相位编码回退=0",
+  "elapsed_min": 4.87
+}
