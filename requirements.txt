@@ -1,0 +1,12 @@
+numpy
+pandas
+scikit-learn
+torch
+matplotlib
+tqdm
+lightgbm
+fastapi
+uvicorn[standard]
+
+# 可选：离线 RL / 可视化
+# d3rlpy

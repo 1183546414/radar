@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.idea/
+.vscode/
+.specstory/
+
+# 大文件/产出不入库
+outputs/
+data/
+archive/
+export/

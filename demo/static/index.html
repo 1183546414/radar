@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>雷达抗干扰决策演示 · Retrieve+Q</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-deep: #060a12;
+      --bg: #0b1220;
+      --surface: rgba(16, 26, 46, 0.72);
+      --surface-solid: #101a2e;
+      --surface-hover: rgba(22, 36, 62, 0.9);
+      --border: rgba(56, 120, 180, 0.22);
+      --border-bright: rgba(0, 212, 255, 0.35);
+      --text: #e8f0fa;
+      --text-secondary: #94a8c4;
+      --text-muted: #5c7290;
+      --accent: #00b4d8;
+      --accent-glow: rgba(0, 180, 216, 0.25);
+      --accent2: #2dd4bf;
+      --accent2-glow: rgba(45, 212, 191, 0.2);
+      --warn: #fbbf24;
+      --danger: #f87171;
+      --radius: 14px;
+      --radius-sm: 8px;
+      --shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+      --font: "DM Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+      --mono: "JetBrains Mono", "SF Mono", monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg-deep);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+
+    /* Radar grid background */
+    .bg-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(0, 180, 216, 0.12) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 40% at 100% 100%, rgba(45, 212, 191, 0.06) 0%, transparent 50%),
+        var(--bg-deep);
+    }
+    .bg-layer::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0, 180, 216, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 180, 216, 0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 90% 80% at 50% 30%, black 20%, transparent 75%);
+    }
+    .bg-layer::after {
+      content: "";
+      position: absolute;
+      top: 8%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(900px, 90vw);
+      height: min(900px, 90vw);
+      border-radius: 50%;
+      border: 1px solid rgba(0, 180, 216, 0.08);
+      box-shadow:
+        0 0 0 1px rgba(0, 180, 216, 0.04),
+        0 0 120px rgba(0, 180, 216, 0.05);
+    }
+
+    .app { position: relative; z-index: 1; }
+
+    /* Header */
+    header {
+      padding: 1.5rem 2rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(11, 18, 32, 0.85);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .brand-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(0, 180, 216, 0.2), rgba(45, 212, 191, 0.15));
+      border: 1px solid var(--border-bright);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .brand-icon svg { width: 26px; height: 26px; color: var(--accent); }
+    header h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #fff 0%, #94a8c4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    header .subtitle {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      margin-top: 0.2rem;
+      max-width: 520px;
+    }
+
+    /* Pipeline chips */
+    .pipeline {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+      margin-top: 0.15rem;
+    }
+    .pipe-step {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      padding: 0.2rem 0.55rem;
+      border-radius: 20px;
+      background: rgba(0, 180, 216, 0.06);
+      border: 1px solid rgba(0, 180, 216, 0.12);
+    }
+    .pipe-arrow { color: var(--text-muted); font-size: 0.65rem; }
+
+    .header-status {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      white-space: nowrap;
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--text-muted);
+      flex-shrink: 0;
+    }
+    .status-dot.ok {
+      background: var(--accent2);
+      box-shadow: 0 0 8px var(--accent2-glow);
+      animation: pulse 2s ease infinite;
+    }
+    .status-dot.load {
+      background: var(--accent);
+      animation: pulse 1s ease infinite;
+    }
+    .status-dot.err { background: var(--danger); }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    /* Main layout */
+    main {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem 3rem;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 1.25rem;
+    }
+    @media (max-width: 1024px) {
+      main { grid-template-columns: 1fr; padding: 1rem; }
+      header { padding: 1rem; }
+    }
+
+    .full-width { grid-column: 1 / -1; }
+
+    /* Cards */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.35rem 1.4rem;
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow);
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: rgba(0, 180, 216, 0.18); }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.15rem;
+      gap: 0.75rem;
+    }
+    .card h2 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      letter-spacing: 0.01em;
+    }
+    .card-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-sm);
+      background: rgba(0, 180, 216, 0.1);
+      border: 1px solid rgba(0, 180, 216, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .card-icon svg { width: 16px; height: 16px; color: var(--accent); }
+    .card-icon.green { background: rgba(45, 212, 191, 0.1); border-color: rgba(45, 212, 191, 0.2); }
+    .card-icon.green svg { color: var(--accent2); }
+
+    /* Form */
+    .form-section {
+      margin-bottom: 1.1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(56, 120, 180, 0.12);
+    }
+    .form-section:last-of-type { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-bottom: 0.3rem;
+    }
+    .field { margin-bottom: 0.8rem; }
+    .field:last-child { margin-bottom: 0; }
+    .field.field-disabled {
+      opacity: 0.42;
+      pointer-events: none;
+    }
+    .field.field-disabled label { color: var(--text-muted); }
+    .field.field-disabled input {
+      background: rgba(6, 10, 18, 0.3);
+      cursor: not-allowed;
+      color: var(--text-muted);
+    }
+    .type-specific-hint {
+      font-size: 0.76rem;
+      color: var(--text-secondary);
+      margin: -0.35rem 0 0.75rem;
+      line-height: 1.55;
+      padding: 0.5rem 0.65rem;
+      background: rgba(0, 180, 216, 0.06);
+      border-radius: var(--radius-sm);
+      border-left: 3px solid rgba(0, 180, 216, 0.35);
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.6rem 0.75rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: rgba(6, 10, 18, 0.6);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 0.84rem;
+      transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+    }
+    input:hover, select:hover {
+      border-color: rgba(0, 180, 216, 0.3);
+      background: rgba(6, 10, 18, 0.8);
+    }
+    input:focus, select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+    select { font-family: var(--font); cursor: pointer; }
+
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.7rem 0.85rem;
+    }
+    @media (max-width: 520px) { .grid2 { grid-template-columns: 1fr; } }
+
+    /* Buttons */
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 1.2rem;
+    }
+    button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.65rem 1.2rem;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: var(--font);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.15s, filter 0.15s;
+    }
+    button:active:not(:disabled) { transform: scale(0.98); }
+    button:disabled { opacity: 0.55; cursor: not-allowed; }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0096b8 0%, #00b4d8 50%, #2dd4bf 100%);
+      color: #041018;
+      box-shadow: 0 4px 16px rgba(0, 180, 216, 0.3);
+    }
+    .btn-primary:hover:not(:disabled) {
+      filter: brightness(1.08);
+      box-shadow: 0 6px 24px rgba(0, 180, 216, 0.4);
+    }
+    .btn-secondary {
+      background: rgba(30, 48, 78, 0.6);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover:not(:disabled) {
+      background: rgba(40, 62, 98, 0.8);
+      border-color: rgba(0, 180, 216, 0.25);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1px dashed rgba(56, 120, 180, 0.3);
+      padding: 0.6rem 1rem;
+    }
+    .btn-ghost:hover:not(:disabled) {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: rgba(0, 180, 216, 0.05);
+    }
+    .btn-icon { width: 16px; height: 16px; flex-shrink: 0; }
+
+    .spinner {
+      width: 14px;
+      height: 14px;
+      border: 2px solid rgba(255,255,255,0.25);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      display: none;
+    }
+    button.loading .spinner { display: block; }
+    button.loading .btn-text { opacity: 0.7; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .footnote {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 1.1rem;
+      line-height: 1.65;
+      padding: 0.75rem 0.9rem;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: var(--radius-sm);
+      border-left: 3px solid rgba(0, 180, 216, 0.3);
+    }
+
+    /* Result panel */
+    .result-empty {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      color: var(--text-muted);
+    }
+    .result-empty-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      background: rgba(0, 180, 216, 0.06);
+      border: 1px dashed rgba(0, 180, 216, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .result-empty-icon svg { width: 28px; height: 28px; color: var(--text-muted); opacity: 0.6; }
+    .result-empty p { font-size: 0.9rem; }
+    .result-empty .hint { font-size: 0.8rem; margin-top: 0.35rem; opacity: 0.7; }
+
+    .result-panel {
+      animation: fadeUp 0.35s ease;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .sinr-hero {
+      position: relative;
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(0, 180, 216, 0.08) 0%, rgba(45, 212, 191, 0.06) 100%);
+      border: 1px solid rgba(0, 180, 216, 0.2);
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+    .sinr-hero::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(45, 212, 191, 0.15) 0%, transparent 70%);
+    }
+    .sinr-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-secondary);
+    }
+    .sinr-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 0.5rem;
+      margin-top: 0.35rem;
+    }
+    .sinr-big {
+      font-family: var(--mono);
+      font-size: 2.75rem;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      transition: color 0.3s;
+    }
+    .sinr-big.excellent { color: #2dd4bf; text-shadow: 0 0 24px rgba(45, 212, 191, 0.4); }
+    .sinr-big.good { color: #00b4d8; }
+    .sinr-big.fair { color: #fbbf24; }
+    .sinr-big.poor { color: #f87171; }
+    .sinr-unit {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+      font-weight: 500;
+    }
+
+    .sinr-bar-wrap {
+      margin-top: 1rem;
+      height: 6px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .sinr-bar {
+      height: 100%;
+      border-radius: 3px;
+      background: linear-gradient(90deg, #f87171, #fbbf24, #00b4d8, #2dd4bf);
+      transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 0%;
+    }
+
+    .badges { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.85rem; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.3rem 0.65rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      background: rgba(0, 180, 216, 0.1);
+      border: 1px solid rgba(0, 180, 216, 0.2);
+      color: var(--accent);
+    }
+    .badge.green {
+      background: rgba(45, 212, 191, 0.1);
+      border-color: rgba(45, 212, 191, 0.25);
+      color: var(--accent2);
+    }
+
+    /* Radar params grid */
+    .radar-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.55rem;
+    }
+    @media (max-width: 520px) { .radar-grid { grid-template-columns: 1fr; } }
+    .radar-item {
+      padding: 0.7rem 0.85rem;
+      background: rgba(6, 10, 18, 0.5);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      transition: border-color 0.15s;
+    }
+    .radar-item:hover { border-color: rgba(0, 180, 216, 0.2); }
+    .radar-item dt {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-bottom: 0.15rem;
+    }
+    .radar-item dd {
+      font-family: var(--mono);
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text);
+      word-break: break-all;
+    }
+
+    /* Tables */
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+    }
+    thead {
+      background: rgba(0, 180, 216, 0.06);
+    }
+    th {
+      padding: 0.65rem 0.85rem;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    td {
+      padding: 0.6rem 0.85rem;
+      border-bottom: 1px solid rgba(56, 120, 180, 0.1);
+      color: var(--text);
+    }
+    tbody tr { transition: background 0.12s; }
+    tbody tr:hover { background: rgba(0, 180, 216, 0.04); }
+    tbody tr:last-child td { border-bottom: none; }
+    td.mono { font-family: var(--mono); font-size: 0.8rem; }
+    td strong { color: var(--accent2); }
+
+    .compare-row.best {
+      background: rgba(45, 212, 191, 0.1) !important;
+    }
+    .compare-row.best td:first-child::before {
+      content: "★ ";
+      color: var(--accent2);
+    }
+    .rank-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      background: rgba(0, 180, 216, 0.15);
+      color: var(--accent);
+    }
+    .rank-badge.top1 {
+      background: linear-gradient(135deg, rgba(0, 180, 216, 0.3), rgba(45, 212, 191, 0.3));
+      color: #fff;
+    }
+    .sim-bar {
+      display: inline-block;
+      height: 4px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      vertical-align: middle;
+      margin-left: 0.4rem;
+    }
+
+    .empty-row td {
+      text-align: center;
+      color: var(--text-muted);
+      padding: 1.5rem;
+      font-size: 0.85rem;
+    }
+
+    /* Training viz gallery */
+    .metrics-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .metric-pill {
+      font-size: 0.74rem;
+      padding: 0.35rem 0.65rem;
+      border-radius: 20px;
+      background: rgba(45, 212, 191, 0.08);
+      border: 1px solid rgba(45, 212, 191, 0.2);
+      color: var(--text-secondary);
+    }
+    .metric-pill strong { color: var(--accent2); font-weight: 600; }
+    .viz-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    @media (max-width: 900px) { .viz-grid { grid-template-columns: 1fr; } }
+    .viz-card {
+      background: rgba(6, 10, 18, 0.45);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      transition: border-color 0.15s, transform 0.15s;
+    }
+    .viz-card:hover {
+      border-color: rgba(0, 180, 216, 0.3);
+      transform: translateY(-2px);
+    }
+    .viz-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: #0a0f18;
+      cursor: zoom-in;
+    }
+    .viz-card-body { padding: 0.75rem 0.85rem 0.9rem; }
+    .viz-card-body h3 {
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: var(--text);
+    }
+    .viz-card-body p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .viz-empty {
+      text-align: center;
+      color: var(--text-muted);
+      padding: 2rem;
+      font-size: 0.88rem;
+    }
+
+    .waveform-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    .waveform-grid .viz-card img {
+      background: #ffffff;
+    }
+    .waveform-caption {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 0.85rem;
+      padding: 0.55rem 0.75rem;
+      background: rgba(0, 180, 216, 0.05);
+      border: 1px solid rgba(0, 180, 216, 0.12);
+      border-radius: var(--radius-sm);
+    }
+    .waveform-caption strong { color: var(--accent2); }
+
+    /* Hide inline status in form - moved to header */
+    #status { display: none; }
+  </style>
+</head>
+<body>
+  <div class="bg-layer"></div>
+  <div class="app">
+    <header>
+      <div class="header-inner">
+        <div class="brand">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
+              <path d="M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+            </svg>
+          </div>
+          <div>
+            <h1>雷达抗干扰决策演示</h1>
+            <p class="subtitle">基于 Retrieve+Q 的离线推荐：输入干扰态势，输出最优雷达工作参数</p>
+            <div class="pipeline">
+              <span class="pipe-step">状态 S</span>
+              <span class="pipe-arrow">→</span>
+              <span class="pipe-step">VAE 编码</span>
+              <span class="pipe-arrow">→</span>
+              <span class="pipe-step">潜空间检索</span>
+              <span class="pipe-arrow">→</span>
+              <span class="pipe-step">Q 打分</span>
+              <span class="pipe-arrow">→</span>
+              <span class="pipe-step">推荐 A</span>
+            </div>
+          </div>
+        </div>
+        <div class="header-status" id="headerStatus">
+          <span class="status-dot load" id="statusDot"></span>
+          <span id="statusText">正在加载配置…</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Input card -->
+      <section class="card">
+        <div class="card-header">
+          <h2>
+            <span class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </span>
+            干扰机参数 · 状态 S
+          </h2>
+        </div>
+        <div id="status" class="status load"></div>
+
+        <div class="form-section">
+          <div class="section-label">基本参数</div>
+          <div class="field">
+            <label for="jammer_type">干扰类型</label>
+            <select id="jammer_type"></select>
+          </div>
+          <div class="grid2">
+            <div class="field">
+              <label for="carrier_freq_ghz">载频 (GHz)</label>
+              <input id="carrier_freq_ghz" type="number" step="0.01" min="3" max="5" />
+            </div>
+            <div class="field">
+              <label for="gain_db">增益 (dB)</label>
+              <input id="gain_db" type="number" step="1" min="20" max="40" />
+            </div>
+            <div class="field">
+              <label for="bandwidth_ghz">带宽 (GHz)</label>
+              <input id="bandwidth_ghz" type="number" step="0.001" min="0.001" max="0.6" />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section" id="typeSpecificSection">
+          <div class="section-label">类型专属参数</div>
+          <p class="type-specific-hint" id="typeSpecificHint">根据干扰类型自动启用对应字段</p>
+          <div class="grid2">
+            <div class="field" id="field_sweep" data-field="sweep_step_ghz">
+              <label for="sweep_step_ghz">扫频步进 (GHz) · 扫频干扰</label>
+              <input id="sweep_step_ghz" type="number" step="0.001" min="0" />
+            </div>
+            <div class="field" id="field_false_target" data-field="false_target_num">
+              <label for="false_target_num">假目标数量 · 假目标干扰</label>
+              <input id="false_target_num" type="number" step="1" min="0" />
+            </div>
+            <div class="field" id="field_int_dur" data-field="int_sample_dur_ns">
+              <label for="int_sample_dur_ns">间歇采样时长 (ns)</label>
+              <input id="int_sample_dur_ns" type="number" step="100" min="0" />
+            </div>
+            <div class="field" id="field_int_delay" data-field="int_sample_delay_ns">
+              <label for="int_sample_delay_ns">间歇采样延迟 (ns)</label>
+              <input id="int_sample_delay_ns" type="number" step="100" min="0" />
+            </div>
+            <div class="field" id="field_int_intv" data-field="int_sample_intv_ns">
+              <label for="int_sample_intv_ns">间歇采样间隔 (ns)</label>
+              <input id="int_sample_intv_ns" type="number" step="100" min="0" />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="section-label">决策方法</div>
+          <div class="field">
+            <select id="method"></select>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn-primary" id="btnRecommend">
+            <span class="spinner"></span>
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <span class="btn-text">推荐最优雷达参数</span>
+          </button>
+          <button class="btn-secondary" id="btnCompare">
+            <span class="spinner"></span>
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+            <span class="btn-text">三种方法对比</span>
+          </button>
+          <button class="btn-ghost" id="btnRandom">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="3"/><circle cx="8" cy="8" r="1" fill="currentColor"/><circle cx="16" cy="8" r="1" fill="currentColor"/><circle cx="12" cy="12" r="1" fill="currentColor"/><circle cx="8" cy="16" r="1" fill="currentColor"/><circle cx="16" cy="16" r="1" fill="currentColor"/></svg>
+            <span class="btn-text">随机样例</span>
+          </button>
+        </div>
+
+        <p class="footnote">
+          SINR 确定性计算（无噪声）。对比时 Retrieve+Q 候选池包含 Q-only 的 5 个动作，再对扩大后池子做 SINR argmax，故 SINR 不低于 Q-only。
+        </p>
+      </section>
+
+      <!-- Result card -->
+      <section class="card">
+        <div class="card-header">
+          <h2>
+            <span class="card-icon green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </span>
+            推荐结果 · 动作 A
+          </h2>
+        </div>
+
+        <div id="resultPlaceholder" class="result-empty">
+          <div class="result-empty-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          </div>
+          <p>等待推荐</p>
+          <p class="hint">填写左侧干扰参数，点击「推荐最优雷达参数」</p>
+        </div>
+
+        <div id="resultPanel" class="result-panel" style="display:none;">
+          <div class="sinr-hero">
+            <div class="sinr-label">仿真信干噪比 SINR</div>
+            <div class="sinr-row">
+              <div class="sinr-big" id="outSinr">—</div>
+              <div class="sinr-unit">dB</div>
+            </div>
+            <div class="sinr-bar-wrap"><div class="sinr-bar" id="sinrBar"></div></div>
+            <div class="badges">
+              <span class="badge green" id="outMethod">—</span>
+              <span class="badge" id="outPool">—</span>
+            </div>
+          </div>
+          <dl class="radar-grid" id="radarKv"></dl>
+        </div>
+      </section>
+
+      <!-- Compare table -->
+      <section class="card full-width" id="compareSection" style="display:none;">
+        <div class="card-header">
+          <h2>
+            <span class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+            </span>
+            方法对比
+          </h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>方法</th>
+                <th>SINR (dB)</th>
+                <th>Q 预测</th>
+                <th>候选池</th>
+                <th>雷达载频 (GHz)</th>
+                <th>增益 (dB)</th>
+              </tr>
+            </thead>
+            <tbody id="compareBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Waveform simulation -->
+      <section class="card full-width" id="waveformSection" style="display:none;">
+        <div class="card-header">
+          <h2>
+            <span class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h2l2-7 4 14 4-10 2 3h6"/></svg>
+            </span>
+            干扰波形仿真
+          </h2>
+        </div>
+        <p id="waveformCaption" class="waveform-caption"></p>
+        <div id="waveformGrid" class="waveform-grid">
+          <article class="viz-card">
+            <img id="waveformTime" alt="时域波形" />
+            <div class="viz-card-body">
+              <h3>脉内时域包络</h3>
+              <p>雷达回波、干扰与受扰接收信号（基带幅度）</p>
+            </div>
+          </article>
+          <article class="viz-card">
+            <img id="waveformSpec" alt="频谱" />
+            <div class="viz-card-body">
+              <h3>脉内频谱</h3>
+              <p>分量对比、受扰 vs 干净回波、以及自动缩放的干扰增量</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Retrieval table -->
+      <section class="card full-width">
+        <div class="card-header">
+          <h2>
+            <span class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            </span>
+            Top-5 相似训练场景
+          </h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>排名</th>
+                <th>scenario_id</th>
+                <th>余弦相似度</th>
+                <th>干扰类型</th>
+                <th>训练集 SINR (dB)</th>
+              </tr>
+            </thead>
+            <tbody id="retrievalBody">
+              <tr class="empty-row"><td colspan="5">推荐后将显示检索邻居</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Training visualization -->
+      <section class="card full-width" id="trainingVizSection">
+        <div class="card-header">
+          <h2>
+            <span class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-6"/></svg>
+            </span>
+            模型训练可视化
+          </h2>
+        </div>
+        <div id="trainingMetrics" class="metrics-row"></div>
+        <div id="trainingVizGrid" class="viz-grid">
+          <div class="viz-empty">正在加载训练曲线与 t-SNE 图…</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const API = "";
+    const $ = (id) => document.getElementById(id);
+
+    const JAMMER_ALLOWED_FIELDS = {
+      jammer_swept: ["sweep_step_ghz"],
+      jammer_InterruptedSampling: [
+        "int_sample_dur_ns", "int_sample_delay_ns", "int_sample_intv_ns",
+      ],
+      jammer_multi_false_targets: ["false_target_num"],
+      jammer_RANDOM: [
+        "sweep_step_ghz",
+        "int_sample_dur_ns", "int_sample_delay_ns", "int_sample_intv_ns",
+        "false_target_num",
+      ],
+      jammer_narrow_band: [],
+      jammer_wide_band: [],
+      jammer_close: [],
+    };
+
+    const JAMMER_TYPE_HINTS = {
+      jammer_swept: "扫频干扰：仅需填写扫频步进，其余专属参数自动置 0。",
+      jammer_InterruptedSampling: "中断采样干扰：填写采样时长 / 延迟 / 间隔（间隔建议 ≥ 时长 + 延迟 + 200 ns）。",
+      jammer_multi_false_targets: "假目标干扰：仅需填写假目标数量。",
+      jammer_RANDOM: "随机干扰：可任选一种子机制填写（扫频 / 中断采样 / 假目标），未用字段保持 0。",
+      jammer_narrow_band: "窄带干扰：无专属参数，仅使用基本参数。",
+      jammer_wide_band: "宽带干扰：无专属参数，仅使用基本参数。",
+      jammer_close: "近距离干扰：无专属参数，仅使用基本参数。",
+    };
+
+    const TYPE_DEFAULTS = {
+      sweep_step_ghz: 0.01,
+      false_target_num: 10,
+      int_sample_dur_ns: 10000,
+      int_sample_delay_ns: 5000,
+      int_sample_intv_ns: 15200,
+    };
+
+    const ALL_TYPE_FIELDS = [
+      "sweep_step_ghz", "false_target_num",
+      "int_sample_dur_ns", "int_sample_delay_ns", "int_sample_intv_ns",
+    ];
+
+    function syncIntSampleInterval() {
+      const dur = parseFloat($("int_sample_dur_ns").value) || 0;
+      const delay = parseFloat($("int_sample_delay_ns").value) || 0;
+      if (dur > 0 || delay > 0) {
+        $("int_sample_intv_ns").value = dur + delay + 200;
+      }
+    }
+
+    function setFieldEnabled(fieldId, inputId, enabled, resetValue) {
+      const wrap = $(fieldId);
+      const input = $(inputId);
+      if (!wrap || !input) return;
+      wrap.classList.toggle("field-disabled", !enabled);
+      input.disabled = !enabled;
+      if (!enabled) {
+        input.value = 0;
+      } else if (resetValue !== undefined) {
+        input.value = resetValue;
+      }
+    }
+
+    function updateTypeSpecificFields(applyDefaults) {
+      const jtype = $("jammer_type").value;
+      const allowed = new Set(JAMMER_ALLOWED_FIELDS[jtype] || []);
+      $("typeSpecificHint").textContent =
+        JAMMER_TYPE_HINTS[jtype] || "根据干扰类型自动启用对应字段。";
+
+      const fieldWrapIds = {
+        sweep_step_ghz: ["field_sweep", "sweep_step_ghz"],
+        false_target_num: ["field_false_target", "false_target_num"],
+        int_sample_dur_ns: ["field_int_dur", "int_sample_dur_ns"],
+        int_sample_delay_ns: ["field_int_delay", "int_sample_delay_ns"],
+        int_sample_intv_ns: ["field_int_intv", "int_sample_intv_ns"],
+      };
+
+      for (const key of ALL_TYPE_FIELDS) {
+        const [wrapId, inputId] = fieldWrapIds[key];
+        const enabled = allowed.has(key);
+        const defVal = applyDefaults && enabled ? TYPE_DEFAULTS[key] : undefined;
+        setFieldEnabled(wrapId, inputId, enabled, defVal);
+      }
+
+      if (applyDefaults && allowed.has("int_sample_dur_ns")) {
+        syncIntSampleInterval();
+      }
+    }
+
+    function setStatus(msg, kind) {
+      $("status").textContent = msg;
+      $("status").className = "status " + kind;
+      $("statusText").textContent = msg;
+      const dot = $("statusDot");
+      dot.className = "status-dot " + (kind === "ok" ? "ok" : kind === "err" ? "err" : kind === "load" ? "load" : "");
+    }
+
+    function setBtnLoading(btn, loading) {
+      btn.classList.toggle("loading", loading);
+      btn.disabled = loading;
+    }
+
+    function sinrClass(db) {
+      if (db >= 30) return "excellent";
+      if (db >= 25) return "good";
+      if (db >= 18) return "fair";
+      return "poor";
+    }
+
+    function sinrBarPct(db) {
+      return Math.min(100, Math.max(0, ((db + 5) / 42) * 100));
+    }
+
+    function updateSinrDisplay(db) {
+      const el = $("outSinr");
+      el.textContent = typeof db === "number" ? db.toFixed(2) : db;
+      el.className = "sinr-big " + (typeof db === "number" ? sinrClass(db) : "");
+      $("sinrBar").style.width = (typeof db === "number" ? sinrBarPct(db) : 0) + "%";
+    }
+
+    function readJammer() {
+      return {
+        jammer_type: $("jammer_type").value,
+        carrier_freq_ghz: parseFloat($("carrier_freq_ghz").value),
+        gain_db: parseFloat($("gain_db").value),
+        bandwidth_ghz: parseFloat($("bandwidth_ghz").value),
+        sweep_step_ghz: parseFloat($("sweep_step_ghz").value) || 0,
+        int_sample_dur_ns: parseFloat($("int_sample_dur_ns").value) || 0,
+        int_sample_delay_ns: parseFloat($("int_sample_delay_ns").value) || 0,
+        int_sample_intv_ns: parseFloat($("int_sample_intv_ns").value) || 0,
+        false_target_num: parseFloat($("false_target_num").value) || 0,
+      };
+    }
+
+    function fillDefaults(d) {
+      $("carrier_freq_ghz").value = d.carrier_freq_ghz;
+      $("gain_db").value = d.gain_db;
+      $("bandwidth_ghz").value = d.bandwidth_ghz;
+      $("sweep_step_ghz").value = d.sweep_step_ghz;
+      $("int_sample_dur_ns").value = d.int_sample_dur_ns;
+      $("int_sample_delay_ns").value = d.int_sample_delay_ns;
+      $("int_sample_intv_ns").value = d.int_sample_intv_ns;
+      $("false_target_num").value = d.false_target_num;
+    }
+
+    function renderRadarKv(radar) {
+      const items = [
+        ["雷达类型", radar.radar_type],
+        ["Chirp 类型", radar.chirp_type],
+        ["载频 (GHz)", radar.carrier_freq_ghz],
+        ["增益 (dB)", radar.gain_db],
+        ["带宽 (GHz)", radar.bandwidth_ghz],
+        ["脉宽 (ns)", radar.pulse_width_ns],
+      ];
+      $("radarKv").innerHTML = items.map(([k, v]) =>
+        `<div class="radar-item"><dt>${k}</dt><dd>${v}</dd></div>`
+      ).join("");
+    }
+
+    function renderRetrieval(neighbors) {
+      const tbody = $("retrievalBody");
+      if (!neighbors || !neighbors.length) {
+        tbody.innerHTML = '<tr class="empty-row"><td colspan="5">无检索结果</td></tr>';
+        return;
+      }
+      const maxSim = Math.max(...neighbors.map(n => n.cosine_similarity || 0));
+      tbody.innerHTML = neighbors.map((n, i) => {
+        const pct = maxSim > 0 ? ((n.cosine_similarity / maxSim) * 60).toFixed(0) : 0;
+        const rankCls = i === 0 ? "rank-badge top1" : "rank-badge";
+        return `<tr>
+          <td><span class="${rankCls}">${i + 1}</span></td>
+          <td class="mono">${n.scenario_id}</td>
+          <td class="mono">${n.cosine_similarity}<span class="sim-bar" style="width:${pct}px"></span></td>
+          <td>${n.train_jammer_type || "—"}</td>
+          <td class="mono">${n.train_sinr_db ?? "—"}</td>
+        </tr>`;
+      }).join("");
+    }
+
+    function showRecommendation(rec) {
+      $("resultPlaceholder").style.display = "none";
+      $("resultPanel").style.display = "block";
+      updateSinrDisplay(rec.sinr_db);
+      $("outMethod").textContent = rec.method_label || rec.method;
+      let poolText = "候选池 " + (rec.candidate_pool_size ?? "—") + " 个动作";
+      if (rec.pool_oracle && rec.q_selected_sinr_db != null) {
+        poolText += " · Q 选 " + rec.q_selected_sinr_db + " dB";
+      }
+      $("outPool").textContent = poolText;
+      renderRadarKv(rec.radar);
+      loadWaveform(readJammer(), rec.radar);
+    }
+
+    async function loadWaveform(jammer, radar) {
+      const section = $("waveformSection");
+      const caption = $("waveformCaption");
+      section.style.display = "block";
+      caption.textContent = "正在生成波形…";
+      $("waveformTime").removeAttribute("src");
+      $("waveformSpec").removeAttribute("src");
+      try {
+        const res = await fetch(API + "/api/waveform", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ jammer, radar }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.detail || res.statusText);
+        $("waveformTime").src = data.images.time_domain;
+        $("waveformSpec").src = data.images.spectrum;
+        caption.innerHTML =
+          data.description +
+          " · 谱重叠 <strong>" + (data.overlap * 100).toFixed(0) + "%</strong>" +
+          " · 频偏 <strong>" + data.freq_offset_mhz + " MHz</strong>";
+      } catch (e) {
+        caption.textContent = "波形生成失败: " + e.message;
+      }
+    }
+
+    function renderTrainingMetrics(metrics) {
+      const pills = [];
+      const vae = metrics.vae || {};
+      const q = metrics.q_latent || {};
+      if (vae.best_val_rmse != null) {
+        pills.push(`State AE 最优 RMSE <strong>${vae.best_val_rmse}</strong>`);
+      }
+      if (vae.latent_dim != null) {
+        pills.push(`潜维度 <strong>${vae.latent_dim}</strong>`);
+      }
+      if (q.val_pearson_std != null) {
+        pills.push(`Q Pearson <strong>${Number(q.val_pearson_std).toFixed(3)}</strong>`);
+      }
+      if (q.oracle_hit_at_1_k20 != null) {
+        pills.push(`Hit@1 (K=20) <strong>${(q.oracle_hit_at_1_k20 * 100).toFixed(1)}%</strong>`);
+      }
+      $("trainingMetrics").innerHTML = pills.length
+        ? pills.map((t) => `<span class="metric-pill">${t}</span>`).join("")
+        : "";
+    }
+
+    async function loadTrainingViz() {
+      const grid = $("trainingVizGrid");
+      try {
+        const res = await fetch(API + "/api/training_viz");
+        if (!res.ok) throw new Error(await res.text());
+        const data = await res.json();
+        renderTrainingMetrics(data.metrics || {});
+        const figs = data.figures || [];
+        if (!figs.length) {
+          grid.innerHTML = '<div class="viz-empty">暂无训练图，请先运行 <code>python main.py</code></div>';
+          return;
+        }
+        grid.innerHTML = figs.map((f) => `
+          <article class="viz-card">
+            <a href="${f.url}" target="_blank" rel="noopener">
+              <img src="${f.url}?t=${f.mtime || 0}" alt="${f.title}" loading="lazy" />
+            </a>
+            <div class="viz-card-body">
+              <h3>${f.title}</h3>
+              <p>${f.caption}</p>
+            </div>
+          </article>
+        `).join("");
+      } catch (e) {
+        grid.innerHTML = `<div class="viz-empty">无法加载训练图：${e.message}</div>`;
+      }
+    }
+
+    async function loadMeta() {
+      const res = await fetch(API + "/api/meta");
+      if (!res.ok) throw new Error(await res.text());
+      const meta = await res.json();
+
+      $("jammer_type").innerHTML = meta.jammer_types.map((t) =>
+        `<option value="${t}">${t}</option>`
+      ).join("");
+
+      $("method").innerHTML = meta.methods.map((m) =>
+        `<option value="${m.id}">${m.label}</option>`
+      ).join("");
+
+      $("jammer_type").value = meta.defaults.jammer_type;
+      fillDefaults(meta.defaults);
+      updateTypeSpecificFields(false);
+      setStatus("系统就绪 · 检索 Top-" + meta.top_k_retrieve, "ok");
+    }
+
+    async function doRecommend() {
+      const btn = $("btnRecommend");
+      setBtnLoading(btn, true);
+      setStatus("正在推理…", "load");
+      try {
+        const body = { jammer: readJammer(), method: $("method").value, seed: 42 };
+        const res = await fetch(API + "/api/recommend", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.detail || res.statusText);
+        showRecommendation(data.recommendation);
+        renderRetrieval(data.retrieval_neighbors);
+        $("compareSection").style.display = "none";
+        setStatus("推荐完成 · SINR " + data.recommendation.sinr_db + " dB", "ok");
+      } catch (e) {
+        setStatus("错误: " + e.message, "err");
+      } finally {
+        setBtnLoading(btn, false);
+      }
+    }
+
+    async function doCompare() {
+      const btn = $("btnCompare");
+      setBtnLoading(btn, true);
+      setStatus("正在对比三种方法…", "load");
+      try {
+        const res = await fetch(API + "/api/compare", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ jammer: readJammer(), seed: 42 }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.detail || res.statusText);
+
+        const bestSinr = data.best_sinr_db;
+        $("compareBody").innerHTML = data.comparisons.map((c) => {
+          const cls = c.sinr_db === bestSinr ? "compare-row best" : "compare-row";
+          return `<tr class="${cls}">
+            <td>${c.method_label}</td>
+            <td class="mono"><strong>${c.sinr_db}</strong></td>
+            <td class="mono">${c.q_predicted}</td>
+            <td class="mono">${c.candidate_pool_size ?? "—"}</td>
+            <td class="mono">${c.radar.carrier_freq_ghz}</td>
+            <td class="mono">${c.radar.gain_db}</td>
+          </tr>`;
+        }).join("");
+
+        const ours = data.comparisons.find((c) => c.method === "retrieve_q_union");
+        if (ours) showRecommendation(ours);
+        renderRetrieval(data.retrieval_neighbors);
+        $("compareSection").style.display = "block";
+        setStatus("对比完成 · 最优 " + data.best_method + " (" + data.best_sinr_db + " dB)", "ok");
+      } catch (e) {
+        setStatus("错误: " + e.message, "err");
+      } finally {
+        setBtnLoading(btn, false);
+      }
+    }
+
+    function randomJammer() {
+      const types = [...$("jammer_type").options].map((o) => o.value);
+      const jtype = types[Math.floor(Math.random() * types.length)];
+      $("jammer_type").value = jtype;
+      $("carrier_freq_ghz").value = (3 + Math.random() * 2).toFixed(3);
+      $("gain_db").value = Math.floor(20 + Math.random() * 21);
+      $("bandwidth_ghz").value = (0.01 + Math.random() * 0.4).toFixed(4);
+      updateTypeSpecificFields(true);
+
+      const allowed = JAMMER_ALLOWED_FIELDS[jtype] || [];
+      if (jtype === "jammer_RANDOM") {
+        const mech = ["sweep", "int", "false", "plain"][Math.floor(Math.random() * 4)];
+        if (mech === "sweep") {
+          $("sweep_step_ghz").value = [0.005, 0.01, 0.02][Math.floor(Math.random() * 3)];
+        } else if (mech === "int") {
+          const dur = Math.floor(2000 + Math.random() * 18000);
+          const delay = Math.floor(1000 + Math.random() * 9000);
+          $("int_sample_dur_ns").value = dur;
+          $("int_sample_delay_ns").value = delay;
+          $("int_sample_intv_ns").value = dur + delay + 200;
+        } else if (mech === "false") {
+          $("false_target_num").value = Math.floor(3 + Math.random() * 10);
+        }
+      } else {
+        if (allowed.includes("sweep_step_ghz")) {
+          $("sweep_step_ghz").value = [0.005, 0.01][Math.floor(Math.random() * 2)];
+        }
+        if (allowed.includes("false_target_num")) {
+          $("false_target_num").value = Math.floor(5 + Math.random() * 11);
+        }
+        if (allowed.includes("int_sample_dur_ns")) {
+          const dur = Math.floor(2000 + Math.random() * 18000);
+          const delay = Math.floor(1000 + Math.random() * 9000);
+          $("int_sample_dur_ns").value = dur;
+          $("int_sample_delay_ns").value = delay;
+          $("int_sample_intv_ns").value = dur + delay + 200;
+        }
+      }
+      setStatus("已填入随机干扰参数（" + jtype + "）", "ok");
+    }
+
+    $("jammer_type").addEventListener("change", () => updateTypeSpecificFields(true));
+    $("int_sample_dur_ns").addEventListener("input", syncIntSampleInterval);
+    $("int_sample_delay_ns").addEventListener("input", syncIntSampleInterval);
+    $("btnRecommend").addEventListener("click", doRecommend);
+    $("btnCompare").addEventListener("click", doCompare);
+    $("btnRandom").addEventListener("click", randomJammer);
+
+    loadTrainingViz();
+    loadMeta().catch((e) => setStatus("无法加载: " + e.message + "（请先运行 main.py）", "err"));
+  </script>
+</body>
+</html>
