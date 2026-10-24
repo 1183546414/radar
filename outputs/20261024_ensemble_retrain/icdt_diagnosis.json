@@ -1,0 +1,15 @@
+{
+  "n_eval": 150,
+  "icdt": {
+    "spearman_mean": -0.022200239738342332,
+    "pool_rmse_std": 0.9976715321809081,
+    "union_hit_at_1": 0.07333333333333333,
+    "top1_true_gap_db": 2.863808666666667
+  },
+  "q_retrieval": {
+    "spearman_mean": 0.8897324787057533,
+    "pool_rmse_std": 0.9127532823575124,
+    "union_hit_at_1": 0.30666666666666664,
+    "top1_true_gap_db": 0.5958993333333333
+  }
+}

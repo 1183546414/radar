@@ -1,0 +1,89 @@
+{
+  "round": "20261023_icdt_retrain",
+  "encoder": "outputs/state_vae/state_embeddings_mu.npy（20261023 修正结构重训）",
+  "protocol": "与 outputs/q_value/holdout_baselines 完全一致（500 场景 × K=10, 解析真值, seed 2026）",
+  "candidate_pool": "检索池(Top-5) ∪ 随机 100A（与 retrieve_q_union 相同）",
+  "scoring": "5-seed 集成, 悲观 μ−1.0σ",
+  "n_holdout_scenarios": 500,
+  "methods": [
+    {
+      "method": "icdt_m0",
+      "label": "ICDT 零观测（0 次真值查询）",
+      "n_evaluated": 500,
+      "mean_recommended_sinr_db": 17.577964,
+      "mean_oracle_k_db": 18.5931414,
+      "mean_regret_vs_k_db": 1.0151774,
+      "median_regret_vs_k_db": 0.19579999999999842,
+      "frac_zero_regret_vs_k": 0.434,
+      "total_truth_queries": 0,
+      "lambda": 1.0
+    },
+    {
+      "method": "icdt_rand_m5",
+      "label": "ICDT 随机观测 m=5（5 次真值查询）",
+      "n_evaluated": 500,
+      "mean_recommended_sinr_db": 17.5636276,
+      "mean_oracle_k_db": 18.5931414,
+      "mean_regret_vs_k_db": 1.0295138000000001,
+      "median_regret_vs_k_db": 0.24240000000000084,
+      "frac_zero_regret_vs_k": 0.444,
+      "total_truth_queries": 2500,
+      "lambda": 1.0
+    },
+    {
+      "method": "icdt_act_m5",
+      "label": "ICDT 主动观测 m=5（5 次真值查询）",
+      "n_evaluated": 500,
+      "mean_recommended_sinr_db": 17.5402302,
+      "mean_oracle_k_db": 18.5931414,
+      "mean_regret_vs_k_db": 1.0529112000000003,
+      "median_regret_vs_k_db": 0.16840000000000188,
+      "frac_zero_regret_vs_k": 0.458,
+      "total_truth_queries": 2500,
+      "lambda": 1.0
+    }
+  ],
+  "paired_win_rate": {
+    "q_only": {
+      "icdt_m0": {
+        "wins": 275,
+        "ties": 0,
+        "losses": 225,
+        "win_rate": 0.55
+      },
+      "icdt_rand_m5": {
+        "wins": 275,
+        "ties": 0,
+        "losses": 225,
+        "win_rate": 0.55
+      },
+      "icdt_act_m5": {
+        "wins": 279,
+        "ties": 0,
+        "losses": 221,
+        "win_rate": 0.558
+      }
+    },
+    "retrieve_q_union": {
+      "icdt_m0": {
+        "wins": 108,
+        "ties": 0,
+        "losses": 392,
+        "win_rate": 0.216
+      },
+      "icdt_rand_m5": {
+        "wins": 118,
+        "ties": 0,
+        "losses": 382,
+        "win_rate": 0.236
+      },
+      "icdt_act_m5": {
+        "wins": 112,
+        "ties": 0,
+        "losses": 388,
+        "win_rate": 0.224
+      }
+    }
+  },
+  "elapsed_min": 0.4234105251884709
+}

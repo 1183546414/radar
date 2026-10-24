@@ -1,0 +1,4 @@
+﻿method,label,n_evaluated,mean_recommended_sinr_db,mean_regret_vs_k_db,median_regret_vs_k_db,frac_zero_regret_vs_k,total_truth_queries
+icdt_m0,ICDT 零观测（0 次真值查询）,500,17.577964,1.0151774,0.19579999999999842,0.434,0
+icdt_rand_m5,ICDT 随机观测 m=5（5 次真值查询）,500,17.5636276,1.0295138000000001,0.24240000000000084,0.444,2500
+icdt_act_m5,ICDT 主动观测 m=5（5 次真值查询）,500,17.5402302,1.0529112000000003,0.16840000000000188,0.458,2500

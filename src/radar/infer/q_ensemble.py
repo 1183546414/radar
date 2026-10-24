@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
-"""默认推荐打分器：Retrieve + Q-Ensemble 悲观打分（Round 20261007 采纳）。
+"""默认推荐打分器：Retrieve + Q-Ensemble 悲观打分（Round 20261007 采纳，20261024 重训）。
 
 Round2（20260909）最优基线为 Retrieve+Q-Union；Round 20261007 在完全相同协议
 （同数据/split/检索库/信号级真值）下验证了 5-seed QRetrievalNet 集成 + 悲观
 打分 μ−λσ（λ=1.0）：
   * 对 q_only 配对胜率 96%（基线 90%），中位 regret 最优（−3.08 dB）；
   * 小样本分桶（稀有干扰类型 / 低检索相似度 / hard）全面最优，hard 桶胜率 100%。
-据此自本轮起作为推荐默认打分方式，证据见
-outputs/20261007_fewshot/comparison_report.md。
+20261022 算法结构修正后，集成成员已在 20261024 用新编码器重训
+（outputs/20261024_ensemble_retrain，成员位于 outputs/q_value/latent_q_retrieval_ensemble），
+新结构下的收益复验见该轮 eval_holdout_summary.json 与修正记录 md 12.8 节。
 
 打分流程（与 eval_fewshot_round.py 的 ensemble_ctx_pessimistic 完全同源）：
   1. 干扰状态 S -> 冻结 VAE 潜向量 z_query
@@ -37,15 +38,12 @@ import numpy as np
 import pandas as pd
 import torch
 
-from radar.paths import PROJECT_ROOT
+from radar.paths import OUT_Q_VALUE
 from radar.infer import holdout_baselines as hb
 from radar.train.q_retrieval_net import QRetrievalNet, predict_q_retrieval
 
-# ---- Round 产出路径 ----
-ROUND2_DIR = PROJECT_ROOT / "outputs" / "20260909_signal_level"
-FEWSHOT_DIR = PROJECT_ROOT / "outputs" / "20261007_fewshot"
-DEFAULT_ENSEMBLE_DIR = FEWSHOT_DIR / "models" / "q_ensemble"
-RELABEL_CSV = ROUND2_DIR / "data" / "simulated_radar_jamming_high_contrast_10k_signal.csv"
+# ---- Round 产出路径（20261024 起指向修正结构重训产物，见 12.8 节）----
+DEFAULT_ENSEMBLE_DIR = OUT_Q_VALUE / "latent_q_retrieval_ensemble"
 
 # ---- 默认推理配置（与 20261007 评估一致）----
 DEFAULT_SEEDS = (42, 1042, 2042, 3042, 4042)
@@ -53,7 +51,7 @@ LAMBDA_PESSIMISTIC = 1.0
 TOP_K_SIMILAR = 5
 UNION_RANDOM_CANDIDATES = 100
 HOLDOUT_SEED = 2026
-MODEL_VERSION = "q-retrieval-ensemble-20261007-v2"
+MODEL_VERSION = "q-retrieval-ensemble-20261024-v1"
 
 
 def _radar_action_dict(row: pd.Series) -> dict:
@@ -66,26 +64,6 @@ def _radar_action_dict(row: pd.Series) -> dict:
         "bandwidth_ghz": float(row["Radar_Bandwidth_GHz"]),
         "pulse_width_ns": float(row["Radar_PulseWidth_ns"]),
     }
-
-
-def _patch_hb_paths() -> None:
-    """把 holdout_baselines 的数据/模型常量指向 Round2 产出（评估脚本同款）。
-
-    artifacts.pkl 内的 source_csv 是搬迁前旧路径，加载时回退到 Round2 重标注 CSV。
-    """
-    hb.ART_PATH = ROUND2_DIR / "processed" / "artifacts.pkl"
-    hb.A_STD_PATH = ROUND2_DIR / "processed" / "A_std.npy"
-    hb.SCENARIO_ID_PATH = ROUND2_DIR / "processed" / "scenario_id.npy"
-    hb.MODEL_PATH = ROUND2_DIR / "models" / "latent_q" / "q_latent_best.pt"
-    hb.RETRIEVAL_MODEL_PATH = ROUND2_DIR / "models" / "latent_q_retrieval" / "q_retrieval_best.pt"
-    hb.EMB_PATH = ROUND2_DIR / "models" / "latent_q" / "state_latent_mu.npy"
-    orig_load = hb.load_simulated_csv
-
-    def _load_csv_fallback(path):
-        p = Path(path)
-        return orig_load(p if p.is_file() else RELABEL_CSV)
-
-    hb.load_simulated_csv = _load_csv_fallback
 
 
 def load_q_ensemble(
@@ -134,9 +112,8 @@ class QEnsembleRecommender:
             self.load_context()
 
     def load_context(self) -> None:
-        """加载检索上下文（Round2 数据 + 检索库 + 冻结 VAE）。幂等。"""
+        """加载检索上下文（新管线数据 + 检索库 + 冻结 VAE，radar.paths 默认路径）。幂等。"""
         if self.ctx is None:
-            _patch_hb_paths()
             self.ctx = hb.load_holdout_context(
                 n_holdout=hb.N_HOLDOUT_SCENARIOS, holdout_seed=HOLDOUT_SEED
             )

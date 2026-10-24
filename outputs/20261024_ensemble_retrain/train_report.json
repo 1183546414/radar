@@ -1,0 +1,34 @@
+{
+  "round": "20261024_ensemble_retrain",
+  "protocol": "与 train_q_retrieval（20261023 重训版）完全一致，仅换 seed",
+  "seeds": [
+    42,
+    1042,
+    2042,
+    3042,
+    4042
+  ],
+  "out_root": "/home/lab1523-1-4/Desktop/TianPeiru/radar_2026/radar/radar/outputs/q_value/latent_q_retrieval_ensemble",
+  "val_hit1": [
+    0.44,
+    0.41,
+    0.48,
+    0.42,
+    0.45
+  ],
+  "val_pearson_std": [
+    0.8790716668623579,
+    0.8554375174676818,
+    0.8364558353490238,
+    0.760468897843674,
+    0.9034377788092413
+  ],
+  "epochs_run": [
+    52,
+    41,
+    31,
+    33,
+    55
+  ],
+  "total_min": 9.09222292789879
+}
