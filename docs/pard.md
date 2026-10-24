@@ -52,10 +52,11 @@ PYTHONPATH=src python -m radar.pard.recommend \
 PYTHONPATH=src python -m radar.pard.evaluate \
   --checkpoint outputs/pard/pard_best.pt \
   --csv data/simulated/simulated_radar_jamming_high_contrast_10k.csv \
+  --holdout-csv data/v2/processed/holdout_eval_scenarios.csv \
   --output outputs/pard_eval
 ```
 
-该命令以与训练完全一致的 `seed=20261024`、按完整 `scenario_id` 留出的测试集评估，输出：
+有旧算法固定留出集时，必须传入 `--holdout-csv`，以确保 PARD、Retrieve+Q、Q-Ensemble、ICDT 使用完全相同的测试场景；不传时才退回到 PARD 的 `seed=20261024` 按完整 `scenario_id` 留出。输出：
 
 - `pard_per_scenario.csv`：逐场景推荐动作、推荐 SINR、K 候选 oracle、regret、Hit@1；
 - `pard_summary.json`：mean / median / p95 regret、平均推荐 SINR、Hit@1。

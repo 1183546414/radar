@@ -39,10 +39,13 @@ def _load_scorer(import_path: str):
     return fn
 
 
-def evaluate(checkpoint: Path, csv: Path, output_dir: Path, dense_oracle: Path | None = None, max_scenarios: int | None = None, action_mode: str = "recorded", scorer_path: str | None = None) -> Dict:
+def evaluate(checkpoint: Path, csv: Path, output_dir: Path, dense_oracle: Path | None = None, max_scenarios: int | None = None, action_mode: str = "recorded", scorer_path: str | None = None, holdout_csv: Path | None = None) -> Dict:
     model, spec, cfg, device = load_pard(checkpoint)
     frame = _read_csv(csv)
-    _, _, test = split_by_scenario(frame, cfg)
+    # Existing project experiments use a fixed, separately materialised
+    # holdout.  Prefer it whenever supplied so PARD sees exactly the same
+    # scenarios as Retrieve+Q, Ensemble and ICDT.
+    test = _read_csv(holdout_csv) if holdout_csv else split_by_scenario(frame, cfg)[2]
     sids = sorted(test[SCENARIO].unique().tolist())
     if max_scenarios is not None:
         sids = sids[:max_scenarios]
@@ -92,6 +95,7 @@ def evaluate(checkpoint: Path, csv: Path, output_dir: Path, dense_oracle: Path |
     result.to_csv(output_dir / "pard_per_scenario.csv", index=False, encoding="utf-8-sig")
     summary = {
         "n_scenarios": len(result), "checkpoint": str(checkpoint), "csv": str(csv),
+        "holdout_csv": str(holdout_csv) if holdout_csv else None,
         "mean_recommended_sinr_db": float(result.recommended_sinr_db.mean()),
         "mean_regret_vs_oracle_k_db": float(result.regret_vs_oracle_k_db.mean()),
         "median_regret_vs_oracle_k_db": float(result.regret_vs_oracle_k_db.median()),
@@ -109,13 +113,14 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Evaluate PARD on deterministic held-out scenarios.")
     parser.add_argument("--checkpoint", type=Path, required=True)
     parser.add_argument("--csv", type=Path, required=True)
+    parser.add_argument("--holdout-csv", type=Path, default=None, help="Use the identical fixed holdout CSV used by prior methods.")
     parser.add_argument("--output", type=Path, default=Path("outputs/pard_eval"))
     parser.add_argument("--dense-oracle", type=Path, default=None)
     parser.add_argument("--max-scenarios", type=int, default=None)
     parser.add_argument("--action-mode", choices=("recorded", "cem"), default="recorded")
     parser.add_argument("--scorer", type=str, default=None, help="Required for CEM: package.module:function(state, action) -> SINR dB")
     args = parser.parse_args()
-    print(json.dumps(evaluate(args.checkpoint, args.csv, args.output, args.dense_oracle, args.max_scenarios, args.action_mode, args.scorer), ensure_ascii=False, indent=2))
+    print(json.dumps(evaluate(args.checkpoint, args.csv, args.output, args.dense_oracle, args.max_scenarios, args.action_mode, args.scorer, args.holdout_csv), ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":
