@@ -24,6 +24,56 @@ python -m radar.pard.train \
 
 训练完成后，checkpoint `outputs/pard/pard_best.pt` 包含模型、字段词表、训练集统计量和超参数；`manifest.json` 保存严格按场景的切分规模与验证指标。
 
+## 单场景推理
+
+准备只包含干扰状态的 JSON（类型不适用的参数可省略，程序会填充为 0）：
+
+```json
+{
+  "Jammer_Type": "jammer_wide_band",
+  "Jammer_CarrierFreq_GHz": 4.2,
+  "Jammer_Gain_dB": 32.0,
+  "Jammer_Bandwidth_GHz": 0.30
+}
+```
+
+```bash
+PYTHONPATH=src python -m radar.pard.recommend \
+  --checkpoint outputs/pard/pard_best.pt \
+  --state jammer_state.json \
+  --output outputs/pard/recommendation.json
+```
+
+命令会直接输出雷达类型、调频类型、载频、增益、带宽、脉宽，以及经过干扰参数扰动最坏情况筛选后的 `robust_score`。它不调用仿真器。
+
+## 与既有算法的批量对比
+
+```bash
+PYTHONPATH=src python -m radar.pard.evaluate \
+  --checkpoint outputs/pard/pard_best.pt \
+  --csv data/simulated/simulated_radar_jamming_high_contrast_10k.csv \
+  --holdout-csv data/v2/processed/holdout_eval_scenarios.csv \
+  --output outputs/pard_eval
+```
+
+有旧算法固定留出集时，必须传入 `--holdout-csv`，以确保 PARD、Retrieve+Q、Q-Ensemble、ICDT 使用完全相同的测试场景；不传时才退回到 PARD 的 `seed=20261024` 按完整 `scenario_id` 留出。输出：
+
+- `pard_per_scenario.csv`：逐场景推荐动作、推荐 SINR、K 候选 oracle、regret、Hit@1；
+- `pard_summary.json`：mean / median / p95 regret、平均推荐 SINR、Hit@1。
+
+如果已有 RadarSimPy 稠密 oracle 表（必须含 `scenario_id` 和 `dense_oracle_sinr_db`，或 `oracle_sinr_db`），加入 `--dense-oracle path/to/oracle.csv`。报告将额外输出 `mean_true_regret_db`、中位数和 p95，因而可以与项目的真 regret 主口径直接横向比较。
+
+上面的默认 `recorded` 模式将 PARD 与 K 个已记录动作上的其他排序方法公平对比。端到端连续动作对比请使用 `cem` 模式，并传入信号级评估适配器：
+
+```bash
+PYTHONPATH=src python -m radar.pard.evaluate \
+  --checkpoint outputs/pard/pard_best.pt --csv data/simulated/simulated_radar_jamming_high_contrast_10k.csv \
+  --action-mode cem --scorer your_project.radarsimpy_backend:score \
+  --dense-oracle outputs/dense_oracle_actions.csv --output outputs/pard_eval_cem
+```
+
+适配器是一个函数 `score(state: dict, action: dict) -> float`，内部应调用与既有方法相同的 RadarSimPy 信号级 SINR 后端。这样 PARD 的 CEM 连续推荐动作、既有算法动作和稠密 oracle 全部由同一个后端打分，指标才能有效比较。
+
 ## 推荐评估
 
 使用项目现有信号级 RadarSimPy 留出协议，但将新方法与以下基线并列：Retrieve+Q-Union、Q-Ensemble、ICDT。主指标使用稠密 oracle 真 regret；同时报告 2%、5%、10%、20% 干扰参数扰动下的 mean/median/p95 regret、最坏方向退化和动作翻转率。
